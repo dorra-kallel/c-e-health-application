@@ -69,6 +69,8 @@ private slots:
 
     void on_tab_visite_doubleClicked(const QModelIndex &index);
 
+    void on_tab_medicament_activated(const QModelIndex &index);
+
 private:
     Ui::MainWindow *ui;
     visite tmpvisite;

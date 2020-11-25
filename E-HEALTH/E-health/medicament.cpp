@@ -13,10 +13,9 @@ libelle="";
 mode="";
 frequence="";
 qts=0;
-id_visite=0;
 }
 
-medicament :: medicament(QString code_med,QString libelle ,QString mode,QString frequence,int qts,int id_visite )
+medicament :: medicament(QString code_med,QString libelle ,QString mode,QString frequence,int qts)
 {
 
  this->code_med=code_med;
@@ -24,19 +23,17 @@ medicament :: medicament(QString code_med,QString libelle ,QString mode,QString 
  this->mode=mode;
  this->frequence=frequence;
  this->qts=qts;
- this->id_visite=id_visite;
 }
 
 bool medicament::ajouter()
 {
 QSqlQuery query;
- query.prepare("INSERT INTO ordonnance(CODE_MED,LIBELLE,MODE_U,FREQUENCE,QTS,ID_VISITE_O) VALUES (:code_med,:libelle,:mode,:frequence,:qts,:id_visite_o)");
+ query.prepare("INSERT INTO ordonnance(CODE_MED,LIBELLE,MODE_U,FREQUENCE,QTS,ID_VISITE_O) VALUES (:code_med,:libelle,:mode,:frequence,:qts, (select max(id_visite)from visite))");
  query.bindValue(":code_med", code_med);
  query.bindValue(":libelle", libelle);
  query.bindValue(":mode", mode);
  query.bindValue(":frequence",frequence);
  query.bindValue(":qts",qts);
- query.bindValue(":id_visite_o",id_visite);
 
  return    query.exec();
 }

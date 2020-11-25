@@ -8,9 +8,9 @@ class medicament
 public:
     medicament();
 
-   medicament(QString,QString,QString,QString,int,int);
+   medicament(QString,QString,QString,QString,int);
    QString code_med,frequence,mode,libelle;
-   int qts,id_visite;
+   int qts;
 bool ajouter();
  QSqlQueryModel * afficher();
  bool supprimer(QString);

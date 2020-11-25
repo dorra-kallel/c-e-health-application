@@ -45,7 +45,6 @@ public:
     QPushButton *nouvelle_visite;
     QLabel *label;
     QWidget *page_3;
-    QLineEdit *id_visite;
     QDateEdit *date_naiss_patient;
     QComboBox *actes_medicaux;
     QLineEdit *nom_patient_2;
@@ -55,7 +54,6 @@ public:
     QPushButton *valider;
     QPushButton *ordenance;
     QPushButton *retour;
-    QLabel *label_8;
     QLabel *label_9;
     QLabel *label_10;
     QLabel *label_11;
@@ -214,22 +212,6 @@ public:
         stackedWidget->addWidget(page);
         page_3 = new QWidget();
         page_3->setObjectName(QStringLiteral("page_3"));
-        id_visite = new QLineEdit(page_3);
-        id_visite->setObjectName(QStringLiteral("id_visite"));
-        id_visite->setGeometry(QRect(580, 120, 221, 41));
-        id_visite->setStyleSheet(QLatin1String("QLineEdit{\n"
-"background-color:#25283b;\n"
-"\n"
-"border:1px solid rgb(61, 70, 86);\n"
-"color:rgb(255, 255, 255);\n"
-"padding-left:16px;\n"
-"border:1px solid rgb(61, 70, 86);\n"
-"border-top-right-radius:10px;\n"
-"border-down-right-radius:10px;\n"
-"}\n"
-"QLineEdit:focus{\n"
-"border: 1px solid rgb(180, 180, 180);\n"
-"}"));
         date_naiss_patient = new QDateEdit(page_3);
         date_naiss_patient->setObjectName(QStringLiteral("date_naiss_patient"));
         date_naiss_patient->setGeometry(QRect(580, 300, 221, 41));
@@ -377,9 +359,6 @@ public:
         retour->setObjectName(QStringLiteral("retour"));
         retour->setGeometry(QRect(70, 10, 101, 41));
         retour->setStyleSheet(QStringLiteral(""));
-        label_8 = new QLabel(page_3);
-        label_8->setObjectName(QStringLiteral("label_8"));
-        label_8->setGeometry(QRect(330, 130, 131, 20));
         label_9 = new QLabel(page_3);
         label_9->setObjectName(QStringLiteral("label_9"));
         label_9->setGeometry(QRect(330, 190, 131, 20));
@@ -514,7 +493,7 @@ public:
         pushButton_2->setGeometry(QRect(40, 0, 81, 31));
         tab_medicament = new QTableView(page_4);
         tab_medicament->setObjectName(QStringLiteral("tab_medicament"));
-        tab_medicament->setGeometry(QRect(60, 490, 771, 441));
+        tab_medicament->setGeometry(QRect(60, 490, 791, 441));
         tab_medicament->setStyleSheet(QLatin1String("QTableView{\n"
 "background-color:#25283b;\n"
 "\n"
@@ -528,10 +507,12 @@ public:
 "QTableView:focus{\n"
 "border: 1px solid rgb(180, 180, 180);\n"
 "}"));
+        tab_medicament->setSelectionMode(QAbstractItemView::SingleSelection);
         tab_medicament->setSelectionBehavior(QAbstractItemView::SelectRows);
+        tab_medicament->horizontalHeader()->setStretchLastSection(true);
         pushButton_3 = new QPushButton(page_4);
         pushButton_3->setObjectName(QStringLiteral("pushButton_3"));
-        pushButton_3->setGeometry(QRect(840, 490, 111, 41));
+        pushButton_3->setGeometry(QRect(870, 490, 111, 41));
         pushButton_3->setStyleSheet(QLatin1String("QPushButton {	\n"
 "border:none;\n"
 "	background-image: url(C:/Users/HP/Documents/Health-application/icons/16x16/cil-x.png);\n"
@@ -630,13 +611,11 @@ public:
 "border:1px solid rgb(61, 70, 86);\n"
 "color:rgb(255, 255, 255);\n"
 "padding-left:16px;\n"
-"border:1px solid rgb(61, 70, 86);\n"
-"border-top-right-radius:10px;\n"
+"border: 5px solid transparent;border-top-right-radius:10px;\n"
 "border-down-right-radius:10px;\n"
 "}\n"
 "QLineEdit:focus{\n"
-"border: 1px solid rgb(180, 180, 180);\n"
-"}"));
+"border: 5px solid transparent;}"));
         freq__modif = new QLineEdit(page_8);
         freq__modif->setObjectName(QStringLiteral("freq__modif"));
         freq__modif->setGeometry(QRect(530, 91, 201, 31));
@@ -697,13 +676,14 @@ public:
         stackedWidget_2->addWidget(page_8);
         pdf = new QPushButton(page_4);
         pdf->setObjectName(QStringLiteral("pdf"));
-        pdf->setGeometry(QRect(840, 580, 111, 41));
+        pdf->setGeometry(QRect(870, 580, 111, 41));
         pdf->setStyleSheet(QLatin1String(" QPushButton{\n"
 "    font: 12pt \"MS Shell Dlg 2\";\n"
 "color:white;\n"
 "background-image:url(C:/Users/Pavillion/Desktop/E-HEALTH/icons/24x24/cil-3d);\n"
 "background-position: left center;\n"
 "background-repeat:no-repeat;\n"
+"\n"
 " }\n"
 "QPushButton:hover:!pressed\n"
 "{\n"
@@ -744,10 +724,10 @@ public:
 "QTableView:focus{\n"
 "border: 1px solid rgb(180, 180, 180);\n"
 "}"));
-        tab_visite->setSelectionMode(QAbstractItemView::ExtendedSelection);
+        tab_visite->setSelectionMode(QAbstractItemView::SingleSelection);
         tab_visite->setSelectionBehavior(QAbstractItemView::SelectRows);
         tab_visite->setGridStyle(Qt::SolidLine);
-        tab_visite->horizontalHeader()->setDefaultSectionSize(176);
+        tab_visite->horizontalHeader()->setDefaultSectionSize(175);
         tab_visite->horizontalHeader()->setMinimumSectionSize(80);
         tab_visite->horizontalHeader()->setProperty("showSortIndicator", QVariant(false));
         tab_visite->horizontalHeader()->setStretchLastSection(true);
@@ -851,7 +831,7 @@ public:
 
         retranslateUi(MainWindow);
 
-        stackedWidget->setCurrentIndex(2);
+        stackedWidget->setCurrentIndex(1);
         stackedWidget_2->setCurrentIndex(2);
 
 
@@ -876,7 +856,6 @@ public:
         valider->setText(QApplication::translate("MainWindow", "Valider", Q_NULLPTR));
         ordenance->setText(QApplication::translate("MainWindow", "Ordonnance", Q_NULLPTR));
         retour->setText(QApplication::translate("MainWindow", "Home", Q_NULLPTR));
-        label_8->setText(QApplication::translate("MainWindow", "<html><head/><body><p><span style=\" font-size:10pt; font-weight:600; color:#ffffff;\">ID Viste</span></p></body></html>", Q_NULLPTR));
         label_9->setText(QApplication::translate("MainWindow", "<html><head/><body><p><span style=\" font-size:10pt; font-weight:600; color:#ffffff;\">Nom patient</span></p></body></html>", Q_NULLPTR));
         label_10->setText(QApplication::translate("MainWindow", "<html><head/><body><p><span style=\" font-size:10pt; font-weight:600; color:#ffffff;\">Pr\303\250nom patient</span></p></body></html>", Q_NULLPTR));
         label_11->setText(QApplication::translate("MainWindow", "<html><head/><body><p><span style=\" font-size:10pt; font-weight:600; color:#ffffff;\">Date naissance du patient</span></p></body></html>", Q_NULLPTR));

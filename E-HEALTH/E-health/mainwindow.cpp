@@ -29,15 +29,12 @@ MainWindow::MainWindow(QWidget *parent)
 
          ui->tab_visite->setModel(tmpvisite.afficher());
 
-         ui->tab_medicament->setModel(tmpmedicament.afficher());
-
 
 
 }
 void MainWindow::clear_visite()
 {
 
-    ui->id_visite->clear();
   ui->nom_patient_2->clear();
     ui->prenom_patient->clear();
    ui->date_naiss_patient->clear();
@@ -52,9 +49,7 @@ void MainWindow::clear_ordonnace()
     ui->libelle->clear();
 ui->mode->clear();
 ui->frequence->clear();
- ui->quantite->setValue(0);
-    ui->id_visite->clear();
-}
+ ui->quantite->setValue(0);}
 
 MainWindow::~MainWindow()
 {
@@ -64,7 +59,7 @@ MainWindow::~MainWindow()
 void MainWindow::on_nouvelle_visite_clicked()
 {
     clear_visite();
-
+    clear_ordonnace();
     ui->stackedWidget->setCurrentIndex(1);
 }
 
@@ -85,7 +80,6 @@ void MainWindow::on_retour_clicked()
 void MainWindow::on_ordenance_clicked()
 
 {
-    int id_visite=ui->id_visite->text().toInt();
     QString nom_patient=ui->nom_patient_2->text();
     QString prenom_patient=ui->prenom_patient->text();
     QString date_naiss_patient=ui->date_naiss_patient->date().toString("dd-MM-yyyy");
@@ -93,14 +87,14 @@ void MainWindow::on_ordenance_clicked()
     QString observation=ui->observation->toPlainText();
     QString diagnostic=ui->diagnostic->toPlainText();
 
-    if(acte_medical.compare("Choisissez l'acte")==0||ui->id_visite->text().isEmpty()||nom_patient.isEmpty()|| prenom_patient.isEmpty()||date_naiss_patient.isEmpty()||observation.isEmpty()||diagnostic.isEmpty())
+    if(acte_medical.compare("Choisissez l'acte")==0||nom_patient.isEmpty()|| prenom_patient.isEmpty()||date_naiss_patient.isEmpty()||observation.isEmpty()||diagnostic.isEmpty())
       {  QMessageBox::information(nullptr, QObject::tr("erreur"),
                           QObject::tr("Remplissez touts les champs.\n"
                                       "Click Cancel to exit."), QMessageBox::Cancel);
     }
     else
  {
-        visite v( id_visite , nom_patient, prenom_patient , acte_medical, observation, diagnostic ,date_naiss_patient);
+        visite v(nom_patient, prenom_patient , acte_medical, observation, diagnostic ,date_naiss_patient);
         bool test=v.ajouter();
     if(test)
     {
@@ -108,10 +102,10 @@ void MainWindow::on_ordenance_clicked()
         QMessageBox::information(nullptr, QObject::tr("Ajouter une visite"),
                           QObject::tr("Visite ajoutée.\n"
                                       "Click Cancel to exit."), QMessageBox::Cancel);
+        ui->tab_medicament->setModel(tmpmedicament.afficher());
+
         ui->stackedWidget->setCurrentIndex(2);
     }
-    //clear_ordonnace();
-
     }
 
 
@@ -131,14 +125,11 @@ void MainWindow::on_pushButton_2_clicked()
 void MainWindow::on_pushButton_clicked()
 {
 
-
       QString  code_med = ui->code_med->text();
       QString libelle= ui->libelle->text();
       QString mode= ui->mode->text();
       QString frequence=ui->frequence->text();
       int qts=ui->quantite->value();
-      int id_visite=ui->id_visite->text().toInt();
-
 
 if(code_med.isEmpty()|| libelle.isEmpty() || mode.isEmpty() || mode.isEmpty()|| frequence.isEmpty() || qts==0)
    {QMessageBox::information(nullptr, QObject::tr("warning"),
@@ -146,7 +137,8 @@ if(code_med.isEmpty()|| libelle.isEmpty() || mode.isEmpty() || mode.isEmpty()|| 
                                          "Click Cancel to exit."), QMessageBox::Cancel);}
 else
 {
-    medicament m (code_med,libelle,mode,frequence,qts,id_visite);
+
+    medicament m (code_med,libelle,mode,frequence,qts);
     bool test=m.ajouter();
     if(test)
     {
@@ -161,6 +153,7 @@ else
 
 
 }
+clear_ordonnace();
 
 }
 
@@ -170,7 +163,6 @@ else
 void MainWindow::on_valider_clicked()
 {
 
-   int id_visite=ui->id_visite->text().toInt();
    QString nom_patient=ui->nom_patient_2->text();
    QString prenom_patient=ui->prenom_patient->text();
    QString date_naiss_patient=ui->date_naiss_patient->date().toString("dd-MM-yyyy");
@@ -178,14 +170,14 @@ void MainWindow::on_valider_clicked()
    QString observation=ui->observation->toPlainText();
    QString diagnostic=ui->diagnostic->toPlainText();
 
-   if(acte_medical.compare("Choisissez l'acte")==0||ui->id_visite->text().isEmpty()||nom_patient.isEmpty()|| prenom_patient.isEmpty()||date_naiss_patient.isEmpty()||observation.isEmpty()||diagnostic.isEmpty())
+   if(acte_medical.compare("Choisissez l'acte")==0||nom_patient.isEmpty()|| prenom_patient.isEmpty()||date_naiss_patient.isEmpty()||observation.isEmpty()||diagnostic.isEmpty())
      {  QMessageBox::information(nullptr, QObject::tr("erreur"),
                          QObject::tr("Remplissez touts les champs.\n"
                                      "Click Cancel to exit."), QMessageBox::Cancel);
    }
    else
 {
-       visite v( id_visite , nom_patient, prenom_patient , acte_medical, observation, diagnostic ,date_naiss_patient);
+       visite v( nom_patient, prenom_patient , acte_medical, observation, diagnostic ,date_naiss_patient);
        bool test=v.ajouter();
    if(test)
    {
@@ -257,7 +249,6 @@ void MainWindow::on_pushButton_5_clicked()
     QString mode= ui->mode_modif->text();
     QString frequence=ui->freq__modif->text();
     int qts=ui->qts_modif->value();
-    int id_visite=ui->id_visite->text().toInt();
     int x=ui->tab_medicament->model()->rowCount();
 
     if(code_med.isEmpty()|| libelle.isEmpty() || mode.isEmpty() || mode.isEmpty()|| frequence.isEmpty() || qts==0 || x==0)
@@ -266,7 +257,7 @@ void MainWindow::on_pushButton_5_clicked()
                                              "Click Cancel to exit."), QMessageBox::Cancel);}
     else
     {
-        medicament m(code_med,libelle,mode,frequence,qts,id_visite);
+        medicament m(code_med,libelle,mode,frequence,qts);
         bool test=m.modifier();
         if(test)
         {
@@ -459,3 +450,4 @@ void MainWindow::on_tab_visite_doubleClicked(const QModelIndex &index)
 {
 
 }
+
