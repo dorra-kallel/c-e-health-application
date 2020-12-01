@@ -1,4 +1,5 @@
 QT       += core gui sql
+QT       += core gui sql printsupport
 
 greaterThan(QT_MAJOR_VERSION, 4): QT += widgets
 
@@ -9,19 +10,24 @@ CONFIG += c++11 console
 #DEFINES += QT_DISABLE_DEPRECATED_BEFORE=0x060000    # disables all the APIs deprecated before Qt 6.0.0
 
 SOURCES += \
+    ../Qt-Table-Printer-master/Qt-Table-Printer-master/tableprinter.cpp \
     chambre.cpp \
     connection.cpp \
+    dialog.cpp \
     machine.cpp \
     main.cpp \
     mainwindow.cpp
 
 HEADERS += \
+    ../Qt-Table-Printer-master/Qt-Table-Printer-master/tableprinter.h \
     chambre.h \
     connection.h \
+    dialog.h \
     machine.h \
     mainwindow.h
 
 FORMS += \
+    dialog.ui \
     mainwindow.ui
 
 # Default rules for deployment.
@@ -30,10 +36,6 @@ else: unix:!android: target.path = /opt/$${TARGET}/bin
 !isEmpty(target.path): INSTALLS += target
 
 RESOURCES += \
-    hadiiil.qrc \
-    hadil.qrc \
-    hadil.qrc \
-    hadil.qrc \
     hadil1.qrc \
     hadil12.qrc \
     hadil23.qrc \

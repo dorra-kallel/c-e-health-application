@@ -22,6 +22,7 @@ public:
 bool ajouter();
     QSqlQueryModel * afficher();
 
+
     bool supprimer(int);
     bool modifier();
     void setCode(int c){code=c;}

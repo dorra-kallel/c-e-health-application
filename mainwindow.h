@@ -3,7 +3,18 @@
 #include"chambre.h"
 #include"machine.h"
 #include <QMainWindow>
-
+#include <QSqlTableModel>
+#include <QSortFilterProxyModel>
+#include <QSqlRelationalTableModel>
+#include "C:/Users/hadil/Desktop/Qt-Table-Printer-master/Qt-Table-Printer-master/tableprinter.h"
+#include <QPrinter>
+#include <QPrintPreviewDialog>
+#include <QPainter>
+#include <QDebug>
+#include <QSqlDatabase>
+#include <QSqlQuery>
+#include <QSqlError>
+#include <QSqlTableModel>
 QT_BEGIN_NAMESPACE
 namespace Ui { class MainWindow; }
 QT_END_NAMESPACE
@@ -43,6 +54,23 @@ private slots:
 
     void on_pushButton_14_clicked();
 
+
+    void on_comboBox_currentIndexChanged(int );
+
+    void on_pushButton_3_clicked();
+
+    void on_pushButton_5_clicked();
+
+    void on_pushButton_12_clicked();
+
+    void on_pushButton_10_clicked();
+
+    void on_pushButton_11_clicked();
+
+    void on_pushButton_7_clicked();
+    void print(QPrinter *printer);
+
+    void on_pushButton_8_clicked();
 
 private:
     Ui::MainWindow *ui;

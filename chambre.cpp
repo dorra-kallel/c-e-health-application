@@ -46,3 +46,25 @@ return query.exec();
 
 
 }
+QSqlQueryModel *chambre ::chercher(const QString &code){
+QSqlQuery query;
+QSqlQueryModel * model= new QSqlQueryModel();
+
+model->setQuery("select * from table1 where (code LIKE '"+code+"%')");
+
+model->setHeaderData(0, Qt::Horizontal, QObject::tr("code"));
+model->setHeaderData(1, Qt::Horizontal, QObject::tr("etage"));
+model->setHeaderData(2, Qt::Horizontal, QObject::tr("numero"));
+
+
+    return model;
+}
+QSqlQueryModel * chambre::trier()
+{
+    QSqlQueryModel * model = new QSqlQueryModel;
+    QSqlQuery * q= new QSqlQuery;
+    q->prepare("SELECT * FROM TABLE1 ORDER BY NUMERO ");
+    q->exec();
+    model->setQuery(*q);
+    return model;
+}

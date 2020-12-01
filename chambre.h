@@ -3,6 +3,8 @@
 #include<QString>
 #include<QSqlQuery>
 #include<QSqlQueryModel>
+#include <QDebug>
+
 class chambre
 {
 
@@ -23,7 +25,8 @@ bool ajouter();
     void setEtage(int e){etage=e;}
     void setNumero( int n){numero=n;}
 
-
+QSqlQueryModel * chercher(const QString &);
+QSqlQueryModel * trier();
 private:
     int etage,numero;
 int code;
