@@ -1,5 +1,7 @@
 #include "connection2.h"
 #include"QSqlDatabase"
+// test tutoriel git
+
 connection2::connection2()
 {
 
