@@ -26,7 +26,11 @@ bool ajouter();
     void setNumero( int n){numero=n;}
 
 QSqlQueryModel * chercher(const QString &);
-QSqlQueryModel * trier();
+QSqlQueryModel * afficher_tri_code();
+    QSqlQueryModel * afficher_tri_numero();
+    QSqlQueryModel * afficher_tri_etage();
+
+
 private:
     int etage,numero;
 int code;

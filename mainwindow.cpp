@@ -283,21 +283,20 @@ void MainWindow::on_pushButton_5_clicked()
 void MainWindow::on_pushButton_11_clicked()
 {
     QString code= ui->lineEdit_5->text();
+
+
    ui->tabchambre->setModel(tmp.chercher(code));
 
 
 
+
+
 }
 
 
 
 
 
-void MainWindow::on_pushButton_7_clicked()
-{
-    ui->tabchambre->setModel(tmp.trier());
-
-}
 
 void MainWindow::print(QPrinter *printer)
 {
@@ -337,4 +336,27 @@ void MainWindow::on_pushButton_12_clicked()
 void MainWindow::on_pushButton_8_clicked()
 {  ui->tableView->setModel(tm.afficher());
 
+}
+
+
+void MainWindow::on_radioButton_2_clicked()
+{
+     ui->tabchambre->setModel(tmp.afficher_tri_code());
+}
+
+void MainWindow::on_radioButton_3_clicked()
+{
+     ui->tabchambre->setModel(tmp.afficher_tri_etage());
+}
+
+void MainWindow::on_radioButton_4_clicked()
+{
+     ui->tabchambre->setModel(tmp.afficher_tri_numero());
+}
+
+
+
+void MainWindow::on_pushButton_7_clicked()
+{
+  ui->tabchambre->setModel(tmp.afficher());
 }

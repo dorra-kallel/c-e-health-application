@@ -55,7 +55,7 @@ private slots:
     void on_pushButton_14_clicked();
 
 
-    void on_comboBox_currentIndexChanged(int );
+ void on_comboBox_currentIndexChanged(int );
 
     void on_pushButton_3_clicked();
 
@@ -71,6 +71,16 @@ private slots:
     void print(QPrinter *printer);
 
     void on_pushButton_8_clicked();
+
+    void on_comboBox_activated(const QString &arg1);
+
+    void on_radioButton_2_clicked();
+
+    void on_radioButton_3_clicked();
+
+    void on_radioButton_4_clicked();
+
+    void on_tabWidget_currentChanged(int index);
 
 private:
     Ui::MainWindow *ui;

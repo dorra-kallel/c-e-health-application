@@ -59,12 +59,32 @@ model->setHeaderData(2, Qt::Horizontal, QObject::tr("numero"));
 
     return model;
 }
-QSqlQueryModel * chambre::trier()
-{
-    QSqlQueryModel * model = new QSqlQueryModel;
-    QSqlQuery * q= new QSqlQuery;
-    q->prepare("SELECT * FROM TABLE1 ORDER BY NUMERO ");
-    q->exec();
-    model->setQuery(*q);
-    return model;
-}
+QSqlQueryModel * chambre:: afficher_tri_code()
+ {
+    QSqlQuery * q = new  QSqlQuery ();
+       QSqlQueryModel * model = new  QSqlQueryModel ();
+       q->prepare("SELECT * FROM table1 order by code");
+       q->exec();
+       model->setQuery(*q);
+       return model;
+ }
+QSqlQueryModel * chambre:: afficher_tri_etage()
+ {
+    QSqlQuery * q = new  QSqlQuery ();
+       QSqlQueryModel * model = new  QSqlQueryModel ();
+       q->prepare("SELECT * FROM table1 order by etage");
+       q->exec();
+       model->setQuery(*q);
+       return model;
+ }
+QSqlQueryModel * chambre:: afficher_tri_numero()
+ {
+    QSqlQuery * q = new  QSqlQuery ();
+       QSqlQueryModel * model = new  QSqlQueryModel ();
+       q->prepare("SELECT * FROM table1 order by numero");
+       q->exec();
+       model->setQuery(*q);
+       return model;
+ }
+
+
