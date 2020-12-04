@@ -21,8 +21,8 @@
    <widget class="QTabWidget" name="tabWidget">
     <property name="geometry">
      <rect>
-      <x>60</x>
-      <y>-10</y>
+      <x>20</x>
+      <y>20</y>
       <width>1061</width>
       <height>541</height>
      </rect>
@@ -64,7 +64,7 @@ QPushButton:pressed {
 }</string>
     </property>
     <property name="currentIndex">
-     <number>0</number>
+     <number>1</number>
     </property>
     <widget class="QWidget" name="tab">
      <attribute name="title">
@@ -735,7 +735,7 @@ QPushButton:pressed {
     </widget>
     <widget class="QWidget" name="tab_2">
      <attribute name="title">
-      <string>materiel</string>
+      <string>services</string>
      </attribute>
      <widget class="QTabWidget" name="tabWidget_3">
       <property name="geometry">
@@ -988,7 +988,7 @@ color: black;</string>
      <x>0</x>
      <y>0</y>
      <width>1206</width>
-     <height>30</height>
+     <height>21</height>
     </rect>
    </property>
   </widget>
