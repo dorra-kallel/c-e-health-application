@@ -1,0 +1,5 @@
+<RCC>
+    <qresource prefix="/new/prefix1">
+        <file>hado5555555555555.jpg</file>
+    </qresource>
+</RCC>

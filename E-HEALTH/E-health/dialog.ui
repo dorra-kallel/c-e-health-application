@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui version="4.0">
+ <class>Dialog</class>
+ <widget class="QDialog" name="Dialog">
+  <property name="geometry">
+   <rect>
+    <x>0</x>
+    <y>0</y>
+    <width>773</width>
+    <height>495</height>
+   </rect>
+  </property>
+  <property name="windowTitle">
+   <string>Dialog</string>
+  </property>
+  <widget class="QLineEdit" name="lineEdit_12">
+   <property name="geometry">
+    <rect>
+     <x>40</x>
+     <y>220</y>
+     <width>113</width>
+     <height>20</height>
+    </rect>
+   </property>
+  </widget>
+  <widget class="QTableView" name="tabrechercher">
+   <property name="geometry">
+    <rect>
+     <x>260</x>
+     <y>140</y>
+     <width>371</width>
+     <height>311</height>
+    </rect>
+   </property>
+  </widget>
+  <widget class="QPushButton" name="pushButton">
+   <property name="geometry">
+    <rect>
+     <x>40</x>
+     <y>282</y>
+     <width>131</width>
+     <height>41</height>
+    </rect>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">QPushButton
+{
+  
+  border-radius: 10px;
+
+background-color: qlineargradient(spread:pad, x1:0.613065, y1:0.511, x2:0.969, y2:0, stop:0.18593 rgba(2, 136, 148, 226), stop:0.959799 rgba(0, 0, 0, 161));
+	
+color:rgb(255, 255, 255);
+
+}
+
+QPushButton:hover,QPushButton:hover
+{
+    border: 4px solid QLinearGradient( x1: 2, y1: 2, x2: 2, y2: 3, stop: 0 #08E8DE , stop: 3 #d7801a);
+}
+</string>
+   </property>
+   <property name="text">
+    <string>rechercher</string>
+   </property>
+  </widget>
+ </widget>
+ <resources/>
+ <connections/>
+</ui>

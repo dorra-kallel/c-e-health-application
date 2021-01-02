@@ -1,0 +1,80 @@
+QPrinter printer;
+        printer.setOutputFormat(QPrinter::PdfFormat);
+        printer.setOutputFileName("C:\\Users\\Pavillion\\Desktop\\E-HEALTH\\ordonnance.pdf");//badel i chemin win t7eb t7ot il fichier ya2melek creation
+        QPainter painter;
+
+        if (! painter.begin(&printer)) { // failed to open file
+            qWarning("failed to open file, is it writable?");
+        }
+
+        QSqlQuery   query ;
+        qDebug() << query.prepare("select sysdate from dual  ");
+        if ( query.exec() )
+        {
+
+            QString S= QDate::currentDate().toString();
+            painter.drawText(850,50,S);
+            QPen penred(Qt::black);
+
+            painter.setFont(QFont("Arial", 30));
+            penred.setWidth(1);
+            painter.setPen(penred);
+
+            painter.drawText(330,100," Ordonnance ");
+            painter.setFont(QFont("Arial",30));
+            painter.setPen(Qt::black);
+
+        }
+
+        QString code_med,libelle,mode,frequence,qts;
+        QSqlQuery   qry ;
+        int i =50;
+        int k=0;
+        qDebug() << qry.prepare("select * from ordonnance where id_visite_o=(select max(id_visite) from visite) ");
+
+        if ( qry.exec() )
+        {
+
+            while(qry.next())
+            {
+
+                if ( k % 13 ==0)
+                {   i=250;
+                    painter.setFont(QFont("Arial",10));
+                    QPen penblack(Qt::black);
+
+                    painter.setPen(penblack);
+    painter.drawText (0,200,"code_med");
+    painter.drawText (120,200,"libelle");
+    painter.drawText (300,200,"mode");
+    painter.drawText (540,200,"frequence");
+    painter.drawText (920,200,"qts");
+                }
+
+                painter.setFont(QFont("Arial",10));
+                QPen penblack(Qt::black);
+
+                painter.setPen(penblack);
+                int j=0;
+                code_med= qry.value(0).toString();
+                painter.drawText(j*20,i, code_med);
+                j++;
+                libelle=qry.value(1).toString();
+                painter.drawText(j*120,i, libelle);
+                j++;
+               mode=qry.value(2).toString();
+                painter.drawText(j*150,i, mode);
+                j++;
+                frequence=qry.value(3).toString();
+                painter.drawText(j*180,i, frequence);
+                j++;
+               qts=qry.value(4).toString();
+                painter.drawText(j*230,i, qts);
+                j++;
+                i+=80;
+                k++;
+
+            }
+        }
+
+        painter.end();
