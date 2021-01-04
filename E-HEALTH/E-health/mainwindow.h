@@ -21,6 +21,8 @@
 #include"chambre.h"
 #include"machine.h"
 #include "employee.h"
+#include<arduino.h>
+
 
 QT_BEGIN_NAMESPACE
 namespace Ui { class MainWindow; }
@@ -188,7 +190,7 @@ private slots:
     void on_retour_menu_2_clicked();
 
 
-    void on_patient_clicked();
+    void on_patient_2_clicked();
       void on_rendez_vous_clicked();
     void on_ajouter_patient_2_clicked();
         void on_ajouter_pat_2_clicked();
@@ -270,7 +272,7 @@ private slots:
 
 
 
-       void on_rendez_vous_2_clicked();
+       void on_rendez_vous_3_clicked();
 
        void on_cin_patient_visite_currentIndexChanged(const QString &arg1);
 
@@ -323,11 +325,28 @@ private slots:
 
        void on_deconnecter_clicked();
 
-       void on_label_9_linkActivated(const QString &link);
 
        void on_exit_3_clicked();
 
        void on_exit_4_clicked();
+
+       void on_ajouter_compte_clicked();
+
+
+       void on_retour_menu_5_clicked();
+
+       void on_new_account_clicked();
+
+
+       void update_label();
+
+
+
+       void on_show_mdp_clicked(bool checked);
+
+       void on_temp_clicked();
+
+       void on_retour_ord_2_clicked();
 
 private:
     Ui::MainWindow *ui;
@@ -348,6 +367,9 @@ private:
      chambre tmp;
      machine tm;
       employee Etmp;
+      arduino A;
+      QByteArray data;
+      QString temp="";
 
 };
 #endif // MAINWINDOW_H

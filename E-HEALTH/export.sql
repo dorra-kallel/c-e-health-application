@@ -1,16 +1,33 @@
 --------------------------------------------------------
---  Fichier créé - mardi-décembre-22-2020   
+--  Fichier créé - lundi-janvier-04-2021   
 --------------------------------------------------------
+DROP SEQUENCE "RENDEZVOUS_AUTO_INCR";
+DROP SEQUENCE "VISITE_AUTO_INC";
+DROP TABLE "ACTE" cascade constraints;
+DROP TABLE "ACTE_VISITE" cascade constraints;
+DROP TABLE "CHAMBRE" cascade constraints;
+DROP TABLE "COMMANDE" cascade constraints;
+DROP TABLE "COMPTE" cascade constraints;
+DROP TABLE "EMPLOYEE" cascade constraints;
+DROP TABLE "FOURNISSEUR" cascade constraints;
+DROP TABLE "HISTORIQUE_TEMP" cascade constraints;
+DROP TABLE "MACHINE" cascade constraints;
+DROP TABLE "MEDICAMENT" cascade constraints;
+DROP TABLE "ORDONNANCE" cascade constraints;
+DROP TABLE "PATIENT" cascade constraints;
+DROP TABLE "RENDEZVOUS" cascade constraints;
+DROP TABLE "SERVICES" cascade constraints;
+DROP TABLE "VISITE" cascade constraints;
 --------------------------------------------------------
 --  DDL for Sequence RENDEZVOUS_AUTO_INCR
 --------------------------------------------------------
 
-   CREATE SEQUENCE  "RENDEZVOUS_AUTO_INCR"  MINVALUE 1 MAXVALUE 99999999 INCREMENT BY 1 START WITH 61 CACHE 20 NOORDER  NOCYCLE ;
+   CREATE SEQUENCE  "RENDEZVOUS_AUTO_INCR"  MINVALUE 1 MAXVALUE 99999999 INCREMENT BY 1 START WITH 81 CACHE 20 NOORDER  NOCYCLE ;
 --------------------------------------------------------
 --  DDL for Sequence VISITE_AUTO_INC
 --------------------------------------------------------
 
-   CREATE SEQUENCE  "VISITE_AUTO_INC"  MINVALUE 1 MAXVALUE 9999999999 INCREMENT BY 1 START WITH 241 CACHE 20 NOORDER  NOCYCLE ;
+   CREATE SEQUENCE  "VISITE_AUTO_INC"  MINVALUE 1 MAXVALUE 9999999999 INCREMENT BY 1 START WITH 281 CACHE 20 NOORDER  NOCYCLE ;
 --------------------------------------------------------
 --  DDL for Table ACTE
 --------------------------------------------------------
@@ -71,7 +88,8 @@
 
   CREATE TABLE "COMPTE" 
    (	"LOGIN" VARCHAR2(20 BYTE), 
-	"MDP" VARCHAR2(500 BYTE)
+	"MDP" VARCHAR2(500 BYTE), 
+	"TYPE_COMPTE" VARCHAR2(20 BYTE)
    ) SEGMENT CREATION IMMEDIATE 
   PCTFREE 10 PCTUSED 40 INITRANS 1 MAXTRANS 255 NOCOMPRESS LOGGING
   STORAGE(INITIAL 65536 NEXT 1048576 MINEXTENTS 1 MAXEXTENTS 2147483645
@@ -103,6 +121,19 @@
 	"SPECIALITE" VARCHAR2(20 BYTE), 
 	"ADRESSE" VARCHAR2(20 BYTE), 
 	"NUM_TEL" NUMBER(30,0)
+   ) SEGMENT CREATION IMMEDIATE 
+  PCTFREE 10 PCTUSED 40 INITRANS 1 MAXTRANS 255 NOCOMPRESS LOGGING
+  STORAGE(INITIAL 65536 NEXT 1048576 MINEXTENTS 1 MAXEXTENTS 2147483645
+  PCTINCREASE 0 FREELISTS 1 FREELIST GROUPS 1 BUFFER_POOL DEFAULT FLASH_CACHE DEFAULT CELL_FLASH_CACHE DEFAULT)
+  TABLESPACE "SYSTEM" ;
+--------------------------------------------------------
+--  DDL for Table HISTORIQUE_TEMP
+--------------------------------------------------------
+
+  CREATE TABLE "HISTORIQUE_TEMP" 
+   (	"DATE_MESURE" DATE, 
+	"TEMP" NUMBER, 
+	"HUM" NUMBER
    ) SEGMENT CREATION IMMEDIATE 
   PCTFREE 10 PCTUSED 40 INITRANS 1 MAXTRANS 255 NOCOMPRESS LOGGING
   STORAGE(INITIAL 65536 NEXT 1048576 MINEXTENTS 1 MAXEXTENTS 2147483645
@@ -3781,6 +3812,7 @@ Insert into ACTE_VISITE (CODE_ACT,DES_ACT,ID_VISITE_ACTE) values ('MAD030430',' 
 Insert into ACTE_VISITE (CODE_ACT,DES_ACT,ID_VISITE_ACTE) values ('MAB020010',' - Main, styloides radiale ou cubitale','179');
 Insert into ACTE_VISITE (CODE_ACT,DES_ACT,ID_VISITE_ACTE) values ('MAB020040',' - Humerus','180');
 Insert into ACTE_VISITE (CODE_ACT,DES_ACT,ID_VISITE_ACTE) values ('MAD020110',' - Reparation primitive d''une lesion tendineuse, y compris le traitement de la plaie superficielle ainsi que le prelevement eventuel d''un greffon a l''exception d''une plaie vaste ou complexe :        * Un seul tendon','180');
+Insert into ACTE_VISITE (CODE_ACT,DES_ACT,ID_VISITE_ACTE) values ('MAB020010',' - Main, styloides radiale ou cubitale','241');
 Insert into ACTE_VISITE (CODE_ACT,DES_ACT,ID_VISITE_ACTE) values ('MAD030210',' - Traitement des plaies, traitement operatoire des lesions articulaires septiques ou aseptiques, quelle que soit la technique :        * Epaule, genou a l''exclusion de la meniscectomie','180');
 Insert into ACTE_VISITE (CODE_ACT,DES_ACT,ID_VISITE_ACTE) values ('MAB040010','1. Parage de la plaie + Traitement orthopedique = 20 p.100 en plus du K correspondant a la meme fracture fermee traitee orthopediquement.','181');
 Insert into ACTE_VISITE (CODE_ACT,DES_ACT,ID_VISITE_ACTE) values ('MAB040020','2. Parage de la plaie + Osteosynthese = 20 p.100 en plus du K correspondant a la meme fracture fermee traitee par voie sanglante.','181');
@@ -3792,6 +3824,7 @@ Insert into ACTE_VISITE (CODE_ACT,DES_ACT,ID_VISITE_ACTE) values ('MAD030530',' 
 Insert into ACTE_VISITE (CODE_ACT,DES_ACT,ID_VISITE_ACTE) values ('MAE010330',' - Chirurgie-reparatrice des articulations des doigts (ligamentoplastie, arthrolyse, ou arthroplasties, etc pour rhumatisme, traumatisme ferme, etc..        * Trois articulations','181');
 Insert into ACTE_VISITE (CODE_ACT,DES_ACT,ID_VISITE_ACTE) values ('MAE010390',' - Traitement chirurgical des lesions palmaires ou digitales, aponevrotiques ou cutanees de la maladie de Dupuytren en dehors de l''aponevrotomie simple','181');
 Insert into ACTE_VISITE (CODE_ACT,DES_ACT,ID_VISITE_ACTE) values ('MAD010110',' - Osteotomie ou resection osseuse avec retablissement de la continuite osseuse ou osteosynthese :        * Femur','183');
+Insert into ACTE_VISITE (CODE_ACT,DES_ACT,ID_VISITE_ACTE) values ('RAB010030',' - Clavicule','261');
 REM INSERTING into CHAMBRE
 SET DEFINE OFF;
 Insert into CHAMBRE (CODE,ETAGE,NUMERO) values ('1','2','3');
@@ -3807,11 +3840,13 @@ REM INSERTING into COMMANDE
 SET DEFINE OFF;
 REM INSERTING into COMPTE
 SET DEFINE OFF;
-Insert into COMPTE (LOGIN,MDP) values ('medecin','0000');
-Insert into COMPTE (LOGIN,MDP) values ('admin','admin');
-Insert into COMPTE (LOGIN,MDP) values ('secretaire','0000');
-Insert into COMPTE (LOGIN,MDP) values ('res_mach','0000');
-Insert into COMPTE (LOGIN,MDP) values ('rh','0000');
+Insert into COMPTE (LOGIN,MDP,TYPE_COMPTE) values ('medecin','0000','medecin');
+Insert into COMPTE (LOGIN,MDP,TYPE_COMPTE) values ('admin','admin','admin');
+Insert into COMPTE (LOGIN,MDP,TYPE_COMPTE) values ('secretaire','0000','secretaire');
+Insert into COMPTE (LOGIN,MDP,TYPE_COMPTE) values ('res_mach','0000','responsable_machine');
+Insert into COMPTE (LOGIN,MDP,TYPE_COMPTE) values ('rh','0000','rh');
+Insert into COMPTE (LOGIN,MDP,TYPE_COMPTE) values ('res_commande','0000','responsable_commande');
+Insert into COMPTE (LOGIN,MDP,TYPE_COMPTE) values ('ali','ali','admin');
 REM INSERTING into EMPLOYEE
 SET DEFINE OFF;
 Insert into EMPLOYEE (ID,ADRESSE,NOM,PRENOM,SALAIRE,CODE_SERVICE) values ('45646',null,null,null,'0',null);
@@ -3827,6 +3862,436 @@ Insert into EMPLOYEE (ID,ADRESSE,NOM,PRENOM,SALAIRE,CODE_SERVICE) values ('45454
 REM INSERTING into FOURNISSEUR
 SET DEFINE OFF;
 Insert into FOURNISSEUR (NOM,ID,SPECIALITE,ADRESSE,NUM_TEL) values ('qsdqsd','454545','fghdfg','dghdgh','24545454');
+REM INSERTING into HISTORIQUE_TEMP
+SET DEFINE OFF;
+Insert into HISTORIQUE_TEMP (DATE_MESURE,TEMP,HUM) values (to_date('28/12/20','DD/MM/RR'),'18','59');
+Insert into HISTORIQUE_TEMP (DATE_MESURE,TEMP,HUM) values (to_date('28/12/20','DD/MM/RR'),'18','59');
+Insert into HISTORIQUE_TEMP (DATE_MESURE,TEMP,HUM) values (to_date('28/12/20','DD/MM/RR'),'18','59');
+Insert into HISTORIQUE_TEMP (DATE_MESURE,TEMP,HUM) values (to_date('28/12/20','DD/MM/RR'),'18','59');
+Insert into HISTORIQUE_TEMP (DATE_MESURE,TEMP,HUM) values (to_date('28/12/20','DD/MM/RR'),'18','59');
+Insert into HISTORIQUE_TEMP (DATE_MESURE,TEMP,HUM) values (to_date('28/12/20','DD/MM/RR'),'18','59');
+Insert into HISTORIQUE_TEMP (DATE_MESURE,TEMP,HUM) values (to_date('28/12/20','DD/MM/RR'),'18','59');
+Insert into HISTORIQUE_TEMP (DATE_MESURE,TEMP,HUM) values (to_date('28/12/20','DD/MM/RR'),'18','59');
+Insert into HISTORIQUE_TEMP (DATE_MESURE,TEMP,HUM) values (to_date('28/12/20','DD/MM/RR'),'18','59');
+Insert into HISTORIQUE_TEMP (DATE_MESURE,TEMP,HUM) values (to_date('28/12/20','DD/MM/RR'),'18','59');
+Insert into HISTORIQUE_TEMP (DATE_MESURE,TEMP,HUM) values (to_date('28/12/20','DD/MM/RR'),'18','59');
+Insert into HISTORIQUE_TEMP (DATE_MESURE,TEMP,HUM) values (to_date('28/12/20','DD/MM/RR'),'18','59');
+Insert into HISTORIQUE_TEMP (DATE_MESURE,TEMP,HUM) values (to_date('28/12/20','DD/MM/RR'),'18','59');
+Insert into HISTORIQUE_TEMP (DATE_MESURE,TEMP,HUM) values (to_date('28/12/20','DD/MM/RR'),'18','60');
+Insert into HISTORIQUE_TEMP (DATE_MESURE,TEMP,HUM) values (to_date('28/12/20','DD/MM/RR'),'18','60');
+Insert into HISTORIQUE_TEMP (DATE_MESURE,TEMP,HUM) values (to_date('28/12/20','DD/MM/RR'),'18','60');
+Insert into HISTORIQUE_TEMP (DATE_MESURE,TEMP,HUM) values (to_date('28/12/20','DD/MM/RR'),'18','60');
+Insert into HISTORIQUE_TEMP (DATE_MESURE,TEMP,HUM) values (to_date('28/12/20','DD/MM/RR'),'18','60');
+Insert into HISTORIQUE_TEMP (DATE_MESURE,TEMP,HUM) values (to_date('28/12/20','DD/MM/RR'),'18','60');
+Insert into HISTORIQUE_TEMP (DATE_MESURE,TEMP,HUM) values (to_date('28/12/20','DD/MM/RR'),'18','60');
+Insert into HISTORIQUE_TEMP (DATE_MESURE,TEMP,HUM) values (to_date('28/12/20','DD/MM/RR'),'18','60');
+Insert into HISTORIQUE_TEMP (DATE_MESURE,TEMP,HUM) values (to_date('28/12/20','DD/MM/RR'),'18','60');
+Insert into HISTORIQUE_TEMP (DATE_MESURE,TEMP,HUM) values (to_date('28/12/20','DD/MM/RR'),'18','60');
+Insert into HISTORIQUE_TEMP (DATE_MESURE,TEMP,HUM) values (to_date('28/12/20','DD/MM/RR'),'18','60');
+Insert into HISTORIQUE_TEMP (DATE_MESURE,TEMP,HUM) values (to_date('28/12/20','DD/MM/RR'),'18','60');
+Insert into HISTORIQUE_TEMP (DATE_MESURE,TEMP,HUM) values (to_date('28/12/20','DD/MM/RR'),'18','60');
+Insert into HISTORIQUE_TEMP (DATE_MESURE,TEMP,HUM) values (to_date('28/12/20','DD/MM/RR'),'18','60');
+Insert into HISTORIQUE_TEMP (DATE_MESURE,TEMP,HUM) values (to_date('28/12/20','DD/MM/RR'),'18','60');
+Insert into HISTORIQUE_TEMP (DATE_MESURE,TEMP,HUM) values (to_date('28/12/20','DD/MM/RR'),'18','60');
+Insert into HISTORIQUE_TEMP (DATE_MESURE,TEMP,HUM) values (to_date('28/12/20','DD/MM/RR'),'18','60');
+Insert into HISTORIQUE_TEMP (DATE_MESURE,TEMP,HUM) values (to_date('28/12/20','DD/MM/RR'),'18','60');
+Insert into HISTORIQUE_TEMP (DATE_MESURE,TEMP,HUM) values (to_date('28/12/20','DD/MM/RR'),'18','60');
+Insert into HISTORIQUE_TEMP (DATE_MESURE,TEMP,HUM) values (to_date('28/12/20','DD/MM/RR'),'18','60');
+Insert into HISTORIQUE_TEMP (DATE_MESURE,TEMP,HUM) values (to_date('28/12/20','DD/MM/RR'),'18','64');
+Insert into HISTORIQUE_TEMP (DATE_MESURE,TEMP,HUM) values (to_date('28/12/20','DD/MM/RR'),'18','71');
+Insert into HISTORIQUE_TEMP (DATE_MESURE,TEMP,HUM) values (to_date('28/12/20','DD/MM/RR'),'18','60');
+Insert into HISTORIQUE_TEMP (DATE_MESURE,TEMP,HUM) values (to_date('28/12/20','DD/MM/RR'),'18','63');
+Insert into HISTORIQUE_TEMP (DATE_MESURE,TEMP,HUM) values (to_date('28/12/20','DD/MM/RR'),'18','70');
+Insert into HISTORIQUE_TEMP (DATE_MESURE,TEMP,HUM) values (to_date('28/12/20','DD/MM/RR'),'18','75');
+Insert into HISTORIQUE_TEMP (DATE_MESURE,TEMP,HUM) values (to_date('28/12/20','DD/MM/RR'),'18','78');
+Insert into HISTORIQUE_TEMP (DATE_MESURE,TEMP,HUM) values (to_date('28/12/20','DD/MM/RR'),'18','72');
+Insert into HISTORIQUE_TEMP (DATE_MESURE,TEMP,HUM) values (to_date('28/12/20','DD/MM/RR'),'18','67');
+Insert into HISTORIQUE_TEMP (DATE_MESURE,TEMP,HUM) values (to_date('28/12/20','DD/MM/RR'),'18','59');
+Insert into HISTORIQUE_TEMP (DATE_MESURE,TEMP,HUM) values (to_date('28/12/20','DD/MM/RR'),'18','59');
+Insert into HISTORIQUE_TEMP (DATE_MESURE,TEMP,HUM) values (to_date('28/12/20','DD/MM/RR'),'18','59');
+Insert into HISTORIQUE_TEMP (DATE_MESURE,TEMP,HUM) values (to_date('28/12/20','DD/MM/RR'),'18','59');
+Insert into HISTORIQUE_TEMP (DATE_MESURE,TEMP,HUM) values (to_date('28/12/20','DD/MM/RR'),'18','60');
+Insert into HISTORIQUE_TEMP (DATE_MESURE,TEMP,HUM) values (to_date('28/12/20','DD/MM/RR'),'18','65');
+Insert into HISTORIQUE_TEMP (DATE_MESURE,TEMP,HUM) values (to_date('28/12/20','DD/MM/RR'),'18','69');
+Insert into HISTORIQUE_TEMP (DATE_MESURE,TEMP,HUM) values (to_date('28/12/20','DD/MM/RR'),'18','71');
+Insert into HISTORIQUE_TEMP (DATE_MESURE,TEMP,HUM) values (to_date('28/12/20','DD/MM/RR'),'18','71');
+Insert into HISTORIQUE_TEMP (DATE_MESURE,TEMP,HUM) values (to_date('28/12/20','DD/MM/RR'),'18','70');
+Insert into HISTORIQUE_TEMP (DATE_MESURE,TEMP,HUM) values (to_date('28/12/20','DD/MM/RR'),'18','65');
+Insert into HISTORIQUE_TEMP (DATE_MESURE,TEMP,HUM) values (to_date('28/12/20','DD/MM/RR'),'18','64');
+Insert into HISTORIQUE_TEMP (DATE_MESURE,TEMP,HUM) values (to_date('28/12/20','DD/MM/RR'),'18','62');
+Insert into HISTORIQUE_TEMP (DATE_MESURE,TEMP,HUM) values (to_date('28/12/20','DD/MM/RR'),'18','63');
+Insert into HISTORIQUE_TEMP (DATE_MESURE,TEMP,HUM) values (to_date('28/12/20','DD/MM/RR'),'18','63');
+Insert into HISTORIQUE_TEMP (DATE_MESURE,TEMP,HUM) values (to_date('28/12/20','DD/MM/RR'),'18','64');
+Insert into HISTORIQUE_TEMP (DATE_MESURE,TEMP,HUM) values (to_date('28/12/20','DD/MM/RR'),'18','64');
+Insert into HISTORIQUE_TEMP (DATE_MESURE,TEMP,HUM) values (to_date('28/12/20','DD/MM/RR'),'18','71');
+Insert into HISTORIQUE_TEMP (DATE_MESURE,TEMP,HUM) values (to_date('28/12/20','DD/MM/RR'),'18','76');
+Insert into HISTORIQUE_TEMP (DATE_MESURE,TEMP,HUM) values (to_date('28/12/20','DD/MM/RR'),'18','77');
+Insert into HISTORIQUE_TEMP (DATE_MESURE,TEMP,HUM) values (to_date('28/12/20','DD/MM/RR'),'18','70');
+Insert into HISTORIQUE_TEMP (DATE_MESURE,TEMP,HUM) values (to_date('28/12/20','DD/MM/RR'),'18','65');
+Insert into HISTORIQUE_TEMP (DATE_MESURE,TEMP,HUM) values (to_date('28/12/20','DD/MM/RR'),'18','63');
+Insert into HISTORIQUE_TEMP (DATE_MESURE,TEMP,HUM) values (to_date('28/12/20','DD/MM/RR'),'17','61');
+Insert into HISTORIQUE_TEMP (DATE_MESURE,TEMP,HUM) values (to_date('28/12/20','DD/MM/RR'),'17','61');
+Insert into HISTORIQUE_TEMP (DATE_MESURE,TEMP,HUM) values (to_date('28/12/20','DD/MM/RR'),'17','62');
+Insert into HISTORIQUE_TEMP (DATE_MESURE,TEMP,HUM) values (to_date('28/12/20','DD/MM/RR'),'17','62');
+Insert into HISTORIQUE_TEMP (DATE_MESURE,TEMP,HUM) values (to_date('28/12/20','DD/MM/RR'),'17','61');
+Insert into HISTORIQUE_TEMP (DATE_MESURE,TEMP,HUM) values (to_date('28/12/20','DD/MM/RR'),'17','59');
+Insert into HISTORIQUE_TEMP (DATE_MESURE,TEMP,HUM) values (to_date('28/12/20','DD/MM/RR'),'18','59');
+Insert into HISTORIQUE_TEMP (DATE_MESURE,TEMP,HUM) values (to_date('28/12/20','DD/MM/RR'),'18','59');
+Insert into HISTORIQUE_TEMP (DATE_MESURE,TEMP,HUM) values (to_date('28/12/20','DD/MM/RR'),'18','57');
+Insert into HISTORIQUE_TEMP (DATE_MESURE,TEMP,HUM) values (to_date('28/12/20','DD/MM/RR'),'18','57');
+Insert into HISTORIQUE_TEMP (DATE_MESURE,TEMP,HUM) values (to_date('28/12/20','DD/MM/RR'),'18','57');
+Insert into HISTORIQUE_TEMP (DATE_MESURE,TEMP,HUM) values (to_date('28/12/20','DD/MM/RR'),'18','57');
+Insert into HISTORIQUE_TEMP (DATE_MESURE,TEMP,HUM) values (to_date('28/12/20','DD/MM/RR'),'18','57');
+Insert into HISTORIQUE_TEMP (DATE_MESURE,TEMP,HUM) values (to_date('28/12/20','DD/MM/RR'),'18','57');
+Insert into HISTORIQUE_TEMP (DATE_MESURE,TEMP,HUM) values (to_date('28/12/20','DD/MM/RR'),'18','57');
+Insert into HISTORIQUE_TEMP (DATE_MESURE,TEMP,HUM) values (to_date('28/12/20','DD/MM/RR'),'18','57');
+Insert into HISTORIQUE_TEMP (DATE_MESURE,TEMP,HUM) values (to_date('28/12/20','DD/MM/RR'),'18','57');
+Insert into HISTORIQUE_TEMP (DATE_MESURE,TEMP,HUM) values (to_date('28/12/20','DD/MM/RR'),'18','57');
+Insert into HISTORIQUE_TEMP (DATE_MESURE,TEMP,HUM) values (to_date('28/12/20','DD/MM/RR'),'18','57');
+Insert into HISTORIQUE_TEMP (DATE_MESURE,TEMP,HUM) values (to_date('28/12/20','DD/MM/RR'),'18','57');
+Insert into HISTORIQUE_TEMP (DATE_MESURE,TEMP,HUM) values (to_date('28/12/20','DD/MM/RR'),'18','57');
+Insert into HISTORIQUE_TEMP (DATE_MESURE,TEMP,HUM) values (to_date('28/12/20','DD/MM/RR'),'18','51');
+Insert into HISTORIQUE_TEMP (DATE_MESURE,TEMP,HUM) values (to_date('28/12/20','DD/MM/RR'),'18','57');
+Insert into HISTORIQUE_TEMP (DATE_MESURE,TEMP,HUM) values (to_date('28/12/20','DD/MM/RR'),'18','57');
+Insert into HISTORIQUE_TEMP (DATE_MESURE,TEMP,HUM) values (to_date('28/12/20','DD/MM/RR'),'18','57');
+Insert into HISTORIQUE_TEMP (DATE_MESURE,TEMP,HUM) values (to_date('28/12/20','DD/MM/RR'),'18','57');
+Insert into HISTORIQUE_TEMP (DATE_MESURE,TEMP,HUM) values (to_date('28/12/20','DD/MM/RR'),'18','60');
+Insert into HISTORIQUE_TEMP (DATE_MESURE,TEMP,HUM) values (to_date('28/12/20','DD/MM/RR'),'18','61');
+Insert into HISTORIQUE_TEMP (DATE_MESURE,TEMP,HUM) values (to_date('28/12/20','DD/MM/RR'),'18','62');
+Insert into HISTORIQUE_TEMP (DATE_MESURE,TEMP,HUM) values (to_date('28/12/20','DD/MM/RR'),'18','64');
+Insert into HISTORIQUE_TEMP (DATE_MESURE,TEMP,HUM) values (to_date('28/12/20','DD/MM/RR'),'19','65');
+Insert into HISTORIQUE_TEMP (DATE_MESURE,TEMP,HUM) values (to_date('28/12/20','DD/MM/RR'),'19','64');
+Insert into HISTORIQUE_TEMP (DATE_MESURE,TEMP,HUM) values (to_date('28/12/20','DD/MM/RR'),'19','62');
+Insert into HISTORIQUE_TEMP (DATE_MESURE,TEMP,HUM) values (to_date('28/12/20','DD/MM/RR'),'19','60');
+Insert into HISTORIQUE_TEMP (DATE_MESURE,TEMP,HUM) values (to_date('28/12/20','DD/MM/RR'),'19','62');
+Insert into HISTORIQUE_TEMP (DATE_MESURE,TEMP,HUM) values (to_date('28/12/20','DD/MM/RR'),'19','63');
+Insert into HISTORIQUE_TEMP (DATE_MESURE,TEMP,HUM) values (to_date('28/12/20','DD/MM/RR'),'19','65');
+Insert into HISTORIQUE_TEMP (DATE_MESURE,TEMP,HUM) values (to_date('28/12/20','DD/MM/RR'),'19','64');
+Insert into HISTORIQUE_TEMP (DATE_MESURE,TEMP,HUM) values (to_date('28/12/20','DD/MM/RR'),'19','64');
+Insert into HISTORIQUE_TEMP (DATE_MESURE,TEMP,HUM) values (to_date('28/12/20','DD/MM/RR'),'19','62');
+Insert into HISTORIQUE_TEMP (DATE_MESURE,TEMP,HUM) values (to_date('28/12/20','DD/MM/RR'),'19','56');
+Insert into HISTORIQUE_TEMP (DATE_MESURE,TEMP,HUM) values (to_date('28/12/20','DD/MM/RR'),'18','59');
+Insert into HISTORIQUE_TEMP (DATE_MESURE,TEMP,HUM) values (to_date('28/12/20','DD/MM/RR'),'19','56');
+Insert into HISTORIQUE_TEMP (DATE_MESURE,TEMP,HUM) values (to_date('28/12/20','DD/MM/RR'),'19','56');
+Insert into HISTORIQUE_TEMP (DATE_MESURE,TEMP,HUM) values (to_date('28/12/20','DD/MM/RR'),'19','56');
+Insert into HISTORIQUE_TEMP (DATE_MESURE,TEMP,HUM) values (to_date('28/12/20','DD/MM/RR'),'19','56');
+Insert into HISTORIQUE_TEMP (DATE_MESURE,TEMP,HUM) values (to_date('28/12/20','DD/MM/RR'),'19','57');
+Insert into HISTORIQUE_TEMP (DATE_MESURE,TEMP,HUM) values (to_date('28/12/20','DD/MM/RR'),'19','57');
+Insert into HISTORIQUE_TEMP (DATE_MESURE,TEMP,HUM) values (to_date('28/12/20','DD/MM/RR'),'19','57');
+Insert into HISTORIQUE_TEMP (DATE_MESURE,TEMP,HUM) values (to_date('28/12/20','DD/MM/RR'),'19','51');
+Insert into HISTORIQUE_TEMP (DATE_MESURE,TEMP,HUM) values (to_date('28/12/20','DD/MM/RR'),'18','57');
+Insert into HISTORIQUE_TEMP (DATE_MESURE,TEMP,HUM) values (to_date('28/12/20','DD/MM/RR'),'18','57');
+Insert into HISTORIQUE_TEMP (DATE_MESURE,TEMP,HUM) values (to_date('28/12/20','DD/MM/RR'),'18','57');
+Insert into HISTORIQUE_TEMP (DATE_MESURE,TEMP,HUM) values (to_date('28/12/20','DD/MM/RR'),'18','57');
+Insert into HISTORIQUE_TEMP (DATE_MESURE,TEMP,HUM) values (to_date('28/12/20','DD/MM/RR'),'18','58');
+Insert into HISTORIQUE_TEMP (DATE_MESURE,TEMP,HUM) values (to_date('28/12/20','DD/MM/RR'),'18','58');
+Insert into HISTORIQUE_TEMP (DATE_MESURE,TEMP,HUM) values (to_date('28/12/20','DD/MM/RR'),'18','57');
+Insert into HISTORIQUE_TEMP (DATE_MESURE,TEMP,HUM) values (to_date('28/12/20','DD/MM/RR'),'18','58');
+Insert into HISTORIQUE_TEMP (DATE_MESURE,TEMP,HUM) values (to_date('28/12/20','DD/MM/RR'),'18','58');
+Insert into HISTORIQUE_TEMP (DATE_MESURE,TEMP,HUM) values (to_date('28/12/20','DD/MM/RR'),'18','58');
+Insert into HISTORIQUE_TEMP (DATE_MESURE,TEMP,HUM) values (to_date('28/12/20','DD/MM/RR'),'18','58');
+Insert into HISTORIQUE_TEMP (DATE_MESURE,TEMP,HUM) values (to_date('28/12/20','DD/MM/RR'),'18','57');
+Insert into HISTORIQUE_TEMP (DATE_MESURE,TEMP,HUM) values (to_date('28/12/20','DD/MM/RR'),'18','57');
+Insert into HISTORIQUE_TEMP (DATE_MESURE,TEMP,HUM) values (to_date('28/12/20','DD/MM/RR'),'18','57');
+Insert into HISTORIQUE_TEMP (DATE_MESURE,TEMP,HUM) values (to_date('28/12/20','DD/MM/RR'),'18','57');
+Insert into HISTORIQUE_TEMP (DATE_MESURE,TEMP,HUM) values (to_date('28/12/20','DD/MM/RR'),'18','58');
+Insert into HISTORIQUE_TEMP (DATE_MESURE,TEMP,HUM) values (to_date('28/12/20','DD/MM/RR'),'18','58');
+Insert into HISTORIQUE_TEMP (DATE_MESURE,TEMP,HUM) values (to_date('28/12/20','DD/MM/RR'),'18','58');
+Insert into HISTORIQUE_TEMP (DATE_MESURE,TEMP,HUM) values (to_date('28/12/20','DD/MM/RR'),'18','58');
+Insert into HISTORIQUE_TEMP (DATE_MESURE,TEMP,HUM) values (to_date('28/12/20','DD/MM/RR'),'18','58');
+Insert into HISTORIQUE_TEMP (DATE_MESURE,TEMP,HUM) values (to_date('28/12/20','DD/MM/RR'),'18','58');
+Insert into HISTORIQUE_TEMP (DATE_MESURE,TEMP,HUM) values (to_date('28/12/20','DD/MM/RR'),'18','58');
+Insert into HISTORIQUE_TEMP (DATE_MESURE,TEMP,HUM) values (to_date('28/12/20','DD/MM/RR'),'18','58');
+Insert into HISTORIQUE_TEMP (DATE_MESURE,TEMP,HUM) values (to_date('28/12/20','DD/MM/RR'),'18','58');
+Insert into HISTORIQUE_TEMP (DATE_MESURE,TEMP,HUM) values (to_date('28/12/20','DD/MM/RR'),'18','58');
+Insert into HISTORIQUE_TEMP (DATE_MESURE,TEMP,HUM) values (to_date('28/12/20','DD/MM/RR'),'18','58');
+Insert into HISTORIQUE_TEMP (DATE_MESURE,TEMP,HUM) values (to_date('28/12/20','DD/MM/RR'),'18','58');
+Insert into HISTORIQUE_TEMP (DATE_MESURE,TEMP,HUM) values (to_date('28/12/20','DD/MM/RR'),'18','58');
+Insert into HISTORIQUE_TEMP (DATE_MESURE,TEMP,HUM) values (to_date('28/12/20','DD/MM/RR'),'18','58');
+Insert into HISTORIQUE_TEMP (DATE_MESURE,TEMP,HUM) values (to_date('28/12/20','DD/MM/RR'),'18','58');
+Insert into HISTORIQUE_TEMP (DATE_MESURE,TEMP,HUM) values (to_date('28/12/20','DD/MM/RR'),'18','59');
+Insert into HISTORIQUE_TEMP (DATE_MESURE,TEMP,HUM) values (to_date('28/12/20','DD/MM/RR'),'18','59');
+Insert into HISTORIQUE_TEMP (DATE_MESURE,TEMP,HUM) values (to_date('28/12/20','DD/MM/RR'),'18','59');
+Insert into HISTORIQUE_TEMP (DATE_MESURE,TEMP,HUM) values (to_date('28/12/20','DD/MM/RR'),'18','59');
+Insert into HISTORIQUE_TEMP (DATE_MESURE,TEMP,HUM) values (to_date('28/12/20','DD/MM/RR'),'18','58');
+Insert into HISTORIQUE_TEMP (DATE_MESURE,TEMP,HUM) values (to_date('28/12/20','DD/MM/RR'),'18','58');
+Insert into HISTORIQUE_TEMP (DATE_MESURE,TEMP,HUM) values (to_date('28/12/20','DD/MM/RR'),'18','58');
+Insert into HISTORIQUE_TEMP (DATE_MESURE,TEMP,HUM) values (to_date('28/12/20','DD/MM/RR'),'18','58');
+Insert into HISTORIQUE_TEMP (DATE_MESURE,TEMP,HUM) values (to_date('28/12/20','DD/MM/RR'),'18','58');
+Insert into HISTORIQUE_TEMP (DATE_MESURE,TEMP,HUM) values (to_date('28/12/20','DD/MM/RR'),'18','58');
+Insert into HISTORIQUE_TEMP (DATE_MESURE,TEMP,HUM) values (to_date('28/12/20','DD/MM/RR'),'18','59');
+Insert into HISTORIQUE_TEMP (DATE_MESURE,TEMP,HUM) values (to_date('28/12/20','DD/MM/RR'),'18','65');
+Insert into HISTORIQUE_TEMP (DATE_MESURE,TEMP,HUM) values (to_date('28/12/20','DD/MM/RR'),'18','68');
+Insert into HISTORIQUE_TEMP (DATE_MESURE,TEMP,HUM) values (to_date('28/12/20','DD/MM/RR'),'18','72');
+Insert into HISTORIQUE_TEMP (DATE_MESURE,TEMP,HUM) values (to_date('28/12/20','DD/MM/RR'),'18','72');
+Insert into HISTORIQUE_TEMP (DATE_MESURE,TEMP,HUM) values (to_date('28/12/20','DD/MM/RR'),'18','75');
+Insert into HISTORIQUE_TEMP (DATE_MESURE,TEMP,HUM) values (to_date('28/12/20','DD/MM/RR'),'18','68');
+Insert into HISTORIQUE_TEMP (DATE_MESURE,TEMP,HUM) values (to_date('28/12/20','DD/MM/RR'),'18','64');
+Insert into HISTORIQUE_TEMP (DATE_MESURE,TEMP,HUM) values (to_date('28/12/20','DD/MM/RR'),'18','62');
+Insert into HISTORIQUE_TEMP (DATE_MESURE,TEMP,HUM) values (to_date('28/12/20','DD/MM/RR'),'18','60');
+Insert into HISTORIQUE_TEMP (DATE_MESURE,TEMP,HUM) values (to_date('28/12/20','DD/MM/RR'),'18','60');
+Insert into HISTORIQUE_TEMP (DATE_MESURE,TEMP,HUM) values (to_date('28/12/20','DD/MM/RR'),'18','59');
+Insert into HISTORIQUE_TEMP (DATE_MESURE,TEMP,HUM) values (to_date('28/12/20','DD/MM/RR'),'18','58');
+Insert into HISTORIQUE_TEMP (DATE_MESURE,TEMP,HUM) values (to_date('28/12/20','DD/MM/RR'),'18','58');
+Insert into HISTORIQUE_TEMP (DATE_MESURE,TEMP,HUM) values (to_date('28/12/20','DD/MM/RR'),'18','58');
+Insert into HISTORIQUE_TEMP (DATE_MESURE,TEMP,HUM) values (to_date('28/12/20','DD/MM/RR'),'18','58');
+Insert into HISTORIQUE_TEMP (DATE_MESURE,TEMP,HUM) values (to_date('28/12/20','DD/MM/RR'),'18','58');
+Insert into HISTORIQUE_TEMP (DATE_MESURE,TEMP,HUM) values (to_date('28/12/20','DD/MM/RR'),'18','51');
+Insert into HISTORIQUE_TEMP (DATE_MESURE,TEMP,HUM) values (to_date('28/12/20','DD/MM/RR'),'18','59');
+Insert into HISTORIQUE_TEMP (DATE_MESURE,TEMP,HUM) values (to_date('28/12/20','DD/MM/RR'),'18','59');
+Insert into HISTORIQUE_TEMP (DATE_MESURE,TEMP,HUM) values (to_date('28/12/20','DD/MM/RR'),'18','59');
+Insert into HISTORIQUE_TEMP (DATE_MESURE,TEMP,HUM) values (to_date('28/12/20','DD/MM/RR'),'18','62');
+Insert into HISTORIQUE_TEMP (DATE_MESURE,TEMP,HUM) values (to_date('28/12/20','DD/MM/RR'),'18','69');
+Insert into HISTORIQUE_TEMP (DATE_MESURE,TEMP,HUM) values (to_date('28/12/20','DD/MM/RR'),'18','74');
+Insert into HISTORIQUE_TEMP (DATE_MESURE,TEMP,HUM) values (to_date('28/12/20','DD/MM/RR'),'18','78');
+Insert into HISTORIQUE_TEMP (DATE_MESURE,TEMP,HUM) values (to_date('28/12/20','DD/MM/RR'),'18','80');
+Insert into HISTORIQUE_TEMP (DATE_MESURE,TEMP,HUM) values (to_date('28/12/20','DD/MM/RR'),'18','82');
+Insert into HISTORIQUE_TEMP (DATE_MESURE,TEMP,HUM) values (to_date('28/12/20','DD/MM/RR'),'18','82');
+Insert into HISTORIQUE_TEMP (DATE_MESURE,TEMP,HUM) values (to_date('28/12/20','DD/MM/RR'),'18','83');
+Insert into HISTORIQUE_TEMP (DATE_MESURE,TEMP,HUM) values (to_date('28/12/20','DD/MM/RR'),'18','84');
+Insert into HISTORIQUE_TEMP (DATE_MESURE,TEMP,HUM) values (to_date('28/12/20','DD/MM/RR'),'18','84');
+Insert into HISTORIQUE_TEMP (DATE_MESURE,TEMP,HUM) values (to_date('28/12/20','DD/MM/RR'),'18','85');
+Insert into HISTORIQUE_TEMP (DATE_MESURE,TEMP,HUM) values (to_date('28/12/20','DD/MM/RR'),'18','84');
+Insert into HISTORIQUE_TEMP (DATE_MESURE,TEMP,HUM) values (to_date('28/12/20','DD/MM/RR'),'18','78');
+Insert into HISTORIQUE_TEMP (DATE_MESURE,TEMP,HUM) values (to_date('28/12/20','DD/MM/RR'),'18','72');
+Insert into HISTORIQUE_TEMP (DATE_MESURE,TEMP,HUM) values (to_date('28/12/20','DD/MM/RR'),'18','67');
+Insert into HISTORIQUE_TEMP (DATE_MESURE,TEMP,HUM) values (to_date('28/12/20','DD/MM/RR'),'18','64');
+Insert into HISTORIQUE_TEMP (DATE_MESURE,TEMP,HUM) values (to_date('28/12/20','DD/MM/RR'),'18','63');
+Insert into HISTORIQUE_TEMP (DATE_MESURE,TEMP,HUM) values (to_date('28/12/20','DD/MM/RR'),'18','61');
+Insert into HISTORIQUE_TEMP (DATE_MESURE,TEMP,HUM) values (to_date('28/12/20','DD/MM/RR'),'18','59');
+Insert into HISTORIQUE_TEMP (DATE_MESURE,TEMP,HUM) values (to_date('28/12/20','DD/MM/RR'),'18','59');
+Insert into HISTORIQUE_TEMP (DATE_MESURE,TEMP,HUM) values (to_date('28/12/20','DD/MM/RR'),'18','59');
+Insert into HISTORIQUE_TEMP (DATE_MESURE,TEMP,HUM) values (to_date('28/12/20','DD/MM/RR'),'18','59');
+Insert into HISTORIQUE_TEMP (DATE_MESURE,TEMP,HUM) values (to_date('28/12/20','DD/MM/RR'),'18','59');
+Insert into HISTORIQUE_TEMP (DATE_MESURE,TEMP,HUM) values (to_date('28/12/20','DD/MM/RR'),'18','59');
+Insert into HISTORIQUE_TEMP (DATE_MESURE,TEMP,HUM) values (to_date('28/12/20','DD/MM/RR'),'18','59');
+Insert into HISTORIQUE_TEMP (DATE_MESURE,TEMP,HUM) values (to_date('28/12/20','DD/MM/RR'),'18','59');
+Insert into HISTORIQUE_TEMP (DATE_MESURE,TEMP,HUM) values (to_date('28/12/20','DD/MM/RR'),'18','59');
+Insert into HISTORIQUE_TEMP (DATE_MESURE,TEMP,HUM) values (to_date('28/12/20','DD/MM/RR'),'18','59');
+Insert into HISTORIQUE_TEMP (DATE_MESURE,TEMP,HUM) values (to_date('28/12/20','DD/MM/RR'),'18','59');
+Insert into HISTORIQUE_TEMP (DATE_MESURE,TEMP,HUM) values (to_date('28/12/20','DD/MM/RR'),'18','60');
+Insert into HISTORIQUE_TEMP (DATE_MESURE,TEMP,HUM) values (to_date('28/12/20','DD/MM/RR'),'18','60');
+Insert into HISTORIQUE_TEMP (DATE_MESURE,TEMP,HUM) values (to_date('28/12/20','DD/MM/RR'),'18','60');
+Insert into HISTORIQUE_TEMP (DATE_MESURE,TEMP,HUM) values (to_date('28/12/20','DD/MM/RR'),'18','60');
+Insert into HISTORIQUE_TEMP (DATE_MESURE,TEMP,HUM) values (to_date('28/12/20','DD/MM/RR'),'18','60');
+Insert into HISTORIQUE_TEMP (DATE_MESURE,TEMP,HUM) values (to_date('28/12/20','DD/MM/RR'),'18','60');
+Insert into HISTORIQUE_TEMP (DATE_MESURE,TEMP,HUM) values (to_date('28/12/20','DD/MM/RR'),'18','60');
+Insert into HISTORIQUE_TEMP (DATE_MESURE,TEMP,HUM) values (to_date('28/12/20','DD/MM/RR'),'18','60');
+Insert into HISTORIQUE_TEMP (DATE_MESURE,TEMP,HUM) values (to_date('28/12/20','DD/MM/RR'),'18','60');
+Insert into HISTORIQUE_TEMP (DATE_MESURE,TEMP,HUM) values (to_date('28/12/20','DD/MM/RR'),'18','60');
+Insert into HISTORIQUE_TEMP (DATE_MESURE,TEMP,HUM) values (to_date('28/12/20','DD/MM/RR'),'18','60');
+Insert into HISTORIQUE_TEMP (DATE_MESURE,TEMP,HUM) values (to_date('28/12/20','DD/MM/RR'),'18','60');
+Insert into HISTORIQUE_TEMP (DATE_MESURE,TEMP,HUM) values (to_date('28/12/20','DD/MM/RR'),'18','60');
+Insert into HISTORIQUE_TEMP (DATE_MESURE,TEMP,HUM) values (to_date('28/12/20','DD/MM/RR'),'18','60');
+Insert into HISTORIQUE_TEMP (DATE_MESURE,TEMP,HUM) values (to_date('28/12/20','DD/MM/RR'),'18','60');
+Insert into HISTORIQUE_TEMP (DATE_MESURE,TEMP,HUM) values (to_date('28/12/20','DD/MM/RR'),'18','60');
+Insert into HISTORIQUE_TEMP (DATE_MESURE,TEMP,HUM) values (to_date('28/12/20','DD/MM/RR'),'18','60');
+Insert into HISTORIQUE_TEMP (DATE_MESURE,TEMP,HUM) values (to_date('28/12/20','DD/MM/RR'),'18','60');
+Insert into HISTORIQUE_TEMP (DATE_MESURE,TEMP,HUM) values (to_date('28/12/20','DD/MM/RR'),'18','60');
+Insert into HISTORIQUE_TEMP (DATE_MESURE,TEMP,HUM) values (to_date('28/12/20','DD/MM/RR'),'18','60');
+Insert into HISTORIQUE_TEMP (DATE_MESURE,TEMP,HUM) values (to_date('28/12/20','DD/MM/RR'),'18','60');
+Insert into HISTORIQUE_TEMP (DATE_MESURE,TEMP,HUM) values (to_date('28/12/20','DD/MM/RR'),'18','60');
+Insert into HISTORIQUE_TEMP (DATE_MESURE,TEMP,HUM) values (to_date('28/12/20','DD/MM/RR'),'18','60');
+Insert into HISTORIQUE_TEMP (DATE_MESURE,TEMP,HUM) values (to_date('28/12/20','DD/MM/RR'),'18','60');
+Insert into HISTORIQUE_TEMP (DATE_MESURE,TEMP,HUM) values (to_date('28/12/20','DD/MM/RR'),'18','60');
+Insert into HISTORIQUE_TEMP (DATE_MESURE,TEMP,HUM) values (to_date('28/12/20','DD/MM/RR'),'18','60');
+Insert into HISTORIQUE_TEMP (DATE_MESURE,TEMP,HUM) values (to_date('28/12/20','DD/MM/RR'),'18','60');
+Insert into HISTORIQUE_TEMP (DATE_MESURE,TEMP,HUM) values (to_date('28/12/20','DD/MM/RR'),'18','60');
+Insert into HISTORIQUE_TEMP (DATE_MESURE,TEMP,HUM) values (to_date('28/12/20','DD/MM/RR'),'18','60');
+Insert into HISTORIQUE_TEMP (DATE_MESURE,TEMP,HUM) values (to_date('28/12/20','DD/MM/RR'),'18','60');
+Insert into HISTORIQUE_TEMP (DATE_MESURE,TEMP,HUM) values (to_date('28/12/20','DD/MM/RR'),'18','60');
+Insert into HISTORIQUE_TEMP (DATE_MESURE,TEMP,HUM) values (to_date('28/12/20','DD/MM/RR'),'18','60');
+Insert into HISTORIQUE_TEMP (DATE_MESURE,TEMP,HUM) values (to_date('28/12/20','DD/MM/RR'),'18','60');
+Insert into HISTORIQUE_TEMP (DATE_MESURE,TEMP,HUM) values (to_date('28/12/20','DD/MM/RR'),'18','60');
+Insert into HISTORIQUE_TEMP (DATE_MESURE,TEMP,HUM) values (to_date('28/12/20','DD/MM/RR'),'18','60');
+Insert into HISTORIQUE_TEMP (DATE_MESURE,TEMP,HUM) values (to_date('28/12/20','DD/MM/RR'),'18','60');
+Insert into HISTORIQUE_TEMP (DATE_MESURE,TEMP,HUM) values (to_date('28/12/20','DD/MM/RR'),'18','60');
+Insert into HISTORIQUE_TEMP (DATE_MESURE,TEMP,HUM) values (to_date('28/12/20','DD/MM/RR'),'18','60');
+Insert into HISTORIQUE_TEMP (DATE_MESURE,TEMP,HUM) values (to_date('28/12/20','DD/MM/RR'),'18','60');
+Insert into HISTORIQUE_TEMP (DATE_MESURE,TEMP,HUM) values (to_date('28/12/20','DD/MM/RR'),'18','60');
+Insert into HISTORIQUE_TEMP (DATE_MESURE,TEMP,HUM) values (to_date('28/12/20','DD/MM/RR'),'18','60');
+Insert into HISTORIQUE_TEMP (DATE_MESURE,TEMP,HUM) values (to_date('28/12/20','DD/MM/RR'),'18','60');
+Insert into HISTORIQUE_TEMP (DATE_MESURE,TEMP,HUM) values (to_date('28/12/20','DD/MM/RR'),'18','60');
+Insert into HISTORIQUE_TEMP (DATE_MESURE,TEMP,HUM) values (to_date('28/12/20','DD/MM/RR'),'18','60');
+Insert into HISTORIQUE_TEMP (DATE_MESURE,TEMP,HUM) values (to_date('28/12/20','DD/MM/RR'),'18','60');
+Insert into HISTORIQUE_TEMP (DATE_MESURE,TEMP,HUM) values (to_date('28/12/20','DD/MM/RR'),'18','60');
+Insert into HISTORIQUE_TEMP (DATE_MESURE,TEMP,HUM) values (to_date('28/12/20','DD/MM/RR'),'18','60');
+Insert into HISTORIQUE_TEMP (DATE_MESURE,TEMP,HUM) values (to_date('28/12/20','DD/MM/RR'),'18','60');
+Insert into HISTORIQUE_TEMP (DATE_MESURE,TEMP,HUM) values (to_date('28/12/20','DD/MM/RR'),'18','60');
+Insert into HISTORIQUE_TEMP (DATE_MESURE,TEMP,HUM) values (to_date('28/12/20','DD/MM/RR'),'18','60');
+Insert into HISTORIQUE_TEMP (DATE_MESURE,TEMP,HUM) values (to_date('28/12/20','DD/MM/RR'),'18','61');
+Insert into HISTORIQUE_TEMP (DATE_MESURE,TEMP,HUM) values (to_date('28/12/20','DD/MM/RR'),'18','60');
+Insert into HISTORIQUE_TEMP (DATE_MESURE,TEMP,HUM) values (to_date('28/12/20','DD/MM/RR'),'18','60');
+Insert into HISTORIQUE_TEMP (DATE_MESURE,TEMP,HUM) values (to_date('28/12/20','DD/MM/RR'),'18','61');
+Insert into HISTORIQUE_TEMP (DATE_MESURE,TEMP,HUM) values (to_date('28/12/20','DD/MM/RR'),'18','61');
+Insert into HISTORIQUE_TEMP (DATE_MESURE,TEMP,HUM) values (to_date('28/12/20','DD/MM/RR'),'18','61');
+Insert into HISTORIQUE_TEMP (DATE_MESURE,TEMP,HUM) values (to_date('28/12/20','DD/MM/RR'),'18','61');
+Insert into HISTORIQUE_TEMP (DATE_MESURE,TEMP,HUM) values (to_date('28/12/20','DD/MM/RR'),'18','61');
+Insert into HISTORIQUE_TEMP (DATE_MESURE,TEMP,HUM) values (to_date('28/12/20','DD/MM/RR'),'18','61');
+Insert into HISTORIQUE_TEMP (DATE_MESURE,TEMP,HUM) values (to_date('28/12/20','DD/MM/RR'),'18','60');
+Insert into HISTORIQUE_TEMP (DATE_MESURE,TEMP,HUM) values (to_date('28/12/20','DD/MM/RR'),'18','60');
+Insert into HISTORIQUE_TEMP (DATE_MESURE,TEMP,HUM) values (to_date('28/12/20','DD/MM/RR'),'18','60');
+Insert into HISTORIQUE_TEMP (DATE_MESURE,TEMP,HUM) values (to_date('28/12/20','DD/MM/RR'),'18','61');
+Insert into HISTORIQUE_TEMP (DATE_MESURE,TEMP,HUM) values (to_date('28/12/20','DD/MM/RR'),'18','61');
+Insert into HISTORIQUE_TEMP (DATE_MESURE,TEMP,HUM) values (to_date('28/12/20','DD/MM/RR'),'18','61');
+Insert into HISTORIQUE_TEMP (DATE_MESURE,TEMP,HUM) values (to_date('28/12/20','DD/MM/RR'),'18','61');
+Insert into HISTORIQUE_TEMP (DATE_MESURE,TEMP,HUM) values (to_date('28/12/20','DD/MM/RR'),'18','60');
+Insert into HISTORIQUE_TEMP (DATE_MESURE,TEMP,HUM) values (to_date('28/12/20','DD/MM/RR'),'18','60');
+Insert into HISTORIQUE_TEMP (DATE_MESURE,TEMP,HUM) values (to_date('28/12/20','DD/MM/RR'),'18','60');
+Insert into HISTORIQUE_TEMP (DATE_MESURE,TEMP,HUM) values (to_date('28/12/20','DD/MM/RR'),'18','60');
+Insert into HISTORIQUE_TEMP (DATE_MESURE,TEMP,HUM) values (to_date('28/12/20','DD/MM/RR'),'18','60');
+Insert into HISTORIQUE_TEMP (DATE_MESURE,TEMP,HUM) values (to_date('28/12/20','DD/MM/RR'),'18','60');
+Insert into HISTORIQUE_TEMP (DATE_MESURE,TEMP,HUM) values (to_date('28/12/20','DD/MM/RR'),'18','60');
+Insert into HISTORIQUE_TEMP (DATE_MESURE,TEMP,HUM) values (to_date('28/12/20','DD/MM/RR'),'18','60');
+Insert into HISTORIQUE_TEMP (DATE_MESURE,TEMP,HUM) values (to_date('28/12/20','DD/MM/RR'),'18','60');
+Insert into HISTORIQUE_TEMP (DATE_MESURE,TEMP,HUM) values (to_date('28/12/20','DD/MM/RR'),'18','60');
+Insert into HISTORIQUE_TEMP (DATE_MESURE,TEMP,HUM) values (to_date('28/12/20','DD/MM/RR'),'18','60');
+Insert into HISTORIQUE_TEMP (DATE_MESURE,TEMP,HUM) values (to_date('28/12/20','DD/MM/RR'),'18','60');
+Insert into HISTORIQUE_TEMP (DATE_MESURE,TEMP,HUM) values (to_date('28/12/20','DD/MM/RR'),'18','61');
+Insert into HISTORIQUE_TEMP (DATE_MESURE,TEMP,HUM) values (to_date('28/12/20','DD/MM/RR'),'18','61');
+Insert into HISTORIQUE_TEMP (DATE_MESURE,TEMP,HUM) values (to_date('28/12/20','DD/MM/RR'),'18','61');
+Insert into HISTORIQUE_TEMP (DATE_MESURE,TEMP,HUM) values (to_date('28/12/20','DD/MM/RR'),'18','61');
+Insert into HISTORIQUE_TEMP (DATE_MESURE,TEMP,HUM) values (to_date('28/12/20','DD/MM/RR'),'18','61');
+Insert into HISTORIQUE_TEMP (DATE_MESURE,TEMP,HUM) values (to_date('28/12/20','DD/MM/RR'),'18','61');
+Insert into HISTORIQUE_TEMP (DATE_MESURE,TEMP,HUM) values (to_date('28/12/20','DD/MM/RR'),'18','61');
+Insert into HISTORIQUE_TEMP (DATE_MESURE,TEMP,HUM) values (to_date('28/12/20','DD/MM/RR'),'18','61');
+Insert into HISTORIQUE_TEMP (DATE_MESURE,TEMP,HUM) values (to_date('28/12/20','DD/MM/RR'),'18','61');
+Insert into HISTORIQUE_TEMP (DATE_MESURE,TEMP,HUM) values (to_date('28/12/20','DD/MM/RR'),'18','61');
+Insert into HISTORIQUE_TEMP (DATE_MESURE,TEMP,HUM) values (to_date('28/12/20','DD/MM/RR'),'18','61');
+Insert into HISTORIQUE_TEMP (DATE_MESURE,TEMP,HUM) values (to_date('28/12/20','DD/MM/RR'),'18','61');
+Insert into HISTORIQUE_TEMP (DATE_MESURE,TEMP,HUM) values (to_date('28/12/20','DD/MM/RR'),'18','61');
+Insert into HISTORIQUE_TEMP (DATE_MESURE,TEMP,HUM) values (to_date('28/12/20','DD/MM/RR'),'18','61');
+Insert into HISTORIQUE_TEMP (DATE_MESURE,TEMP,HUM) values (to_date('28/12/20','DD/MM/RR'),'18','61');
+Insert into HISTORIQUE_TEMP (DATE_MESURE,TEMP,HUM) values (to_date('28/12/20','DD/MM/RR'),'18','61');
+Insert into HISTORIQUE_TEMP (DATE_MESURE,TEMP,HUM) values (to_date('28/12/20','DD/MM/RR'),'18','61');
+Insert into HISTORIQUE_TEMP (DATE_MESURE,TEMP,HUM) values (to_date('28/12/20','DD/MM/RR'),'18','61');
+Insert into HISTORIQUE_TEMP (DATE_MESURE,TEMP,HUM) values (to_date('28/12/20','DD/MM/RR'),'18','61');
+Insert into HISTORIQUE_TEMP (DATE_MESURE,TEMP,HUM) values (to_date('28/12/20','DD/MM/RR'),'18','61');
+Insert into HISTORIQUE_TEMP (DATE_MESURE,TEMP,HUM) values (to_date('28/12/20','DD/MM/RR'),'18','61');
+Insert into HISTORIQUE_TEMP (DATE_MESURE,TEMP,HUM) values (to_date('28/12/20','DD/MM/RR'),'18','61');
+Insert into HISTORIQUE_TEMP (DATE_MESURE,TEMP,HUM) values (to_date('28/12/20','DD/MM/RR'),'18','61');
+Insert into HISTORIQUE_TEMP (DATE_MESURE,TEMP,HUM) values (to_date('28/12/20','DD/MM/RR'),'18','61');
+Insert into HISTORIQUE_TEMP (DATE_MESURE,TEMP,HUM) values (to_date('28/12/20','DD/MM/RR'),'18','61');
+Insert into HISTORIQUE_TEMP (DATE_MESURE,TEMP,HUM) values (to_date('28/12/20','DD/MM/RR'),'18','61');
+Insert into HISTORIQUE_TEMP (DATE_MESURE,TEMP,HUM) values (to_date('28/12/20','DD/MM/RR'),'18','61');
+Insert into HISTORIQUE_TEMP (DATE_MESURE,TEMP,HUM) values (to_date('28/12/20','DD/MM/RR'),'18','61');
+Insert into HISTORIQUE_TEMP (DATE_MESURE,TEMP,HUM) values (to_date('28/12/20','DD/MM/RR'),'18','61');
+Insert into HISTORIQUE_TEMP (DATE_MESURE,TEMP,HUM) values (to_date('28/12/20','DD/MM/RR'),'18','61');
+Insert into HISTORIQUE_TEMP (DATE_MESURE,TEMP,HUM) values (to_date('28/12/20','DD/MM/RR'),'18','61');
+Insert into HISTORIQUE_TEMP (DATE_MESURE,TEMP,HUM) values (to_date('28/12/20','DD/MM/RR'),'18','61');
+Insert into HISTORIQUE_TEMP (DATE_MESURE,TEMP,HUM) values (to_date('28/12/20','DD/MM/RR'),'18','61');
+Insert into HISTORIQUE_TEMP (DATE_MESURE,TEMP,HUM) values (to_date('28/12/20','DD/MM/RR'),'18','61');
+Insert into HISTORIQUE_TEMP (DATE_MESURE,TEMP,HUM) values (to_date('28/12/20','DD/MM/RR'),'18','61');
+Insert into HISTORIQUE_TEMP (DATE_MESURE,TEMP,HUM) values (to_date('28/12/20','DD/MM/RR'),'18','61');
+Insert into HISTORIQUE_TEMP (DATE_MESURE,TEMP,HUM) values (to_date('28/12/20','DD/MM/RR'),'17','60');
+Insert into HISTORIQUE_TEMP (DATE_MESURE,TEMP,HUM) values (to_date('28/12/20','DD/MM/RR'),'18','61');
+Insert into HISTORIQUE_TEMP (DATE_MESURE,TEMP,HUM) values (to_date('28/12/20','DD/MM/RR'),'18','61');
+Insert into HISTORIQUE_TEMP (DATE_MESURE,TEMP,HUM) values (to_date('28/12/20','DD/MM/RR'),'18','61');
+Insert into HISTORIQUE_TEMP (DATE_MESURE,TEMP,HUM) values (to_date('28/12/20','DD/MM/RR'),'18','61');
+Insert into HISTORIQUE_TEMP (DATE_MESURE,TEMP,HUM) values (to_date('28/12/20','DD/MM/RR'),'17','60');
+Insert into HISTORIQUE_TEMP (DATE_MESURE,TEMP,HUM) values (to_date('28/12/20','DD/MM/RR'),'18','61');
+Insert into HISTORIQUE_TEMP (DATE_MESURE,TEMP,HUM) values (to_date('28/12/20','DD/MM/RR'),'18','61');
+Insert into HISTORIQUE_TEMP (DATE_MESURE,TEMP,HUM) values (to_date('28/12/20','DD/MM/RR'),'18','61');
+Insert into HISTORIQUE_TEMP (DATE_MESURE,TEMP,HUM) values (to_date('28/12/20','DD/MM/RR'),'18','61');
+Insert into HISTORIQUE_TEMP (DATE_MESURE,TEMP,HUM) values (to_date('28/12/20','DD/MM/RR'),'18','61');
+Insert into HISTORIQUE_TEMP (DATE_MESURE,TEMP,HUM) values (to_date('28/12/20','DD/MM/RR'),'18','61');
+Insert into HISTORIQUE_TEMP (DATE_MESURE,TEMP,HUM) values (to_date('28/12/20','DD/MM/RR'),'18','61');
+Insert into HISTORIQUE_TEMP (DATE_MESURE,TEMP,HUM) values (to_date('28/12/20','DD/MM/RR'),'18','61');
+Insert into HISTORIQUE_TEMP (DATE_MESURE,TEMP,HUM) values (to_date('28/12/20','DD/MM/RR'),'18','61');
+Insert into HISTORIQUE_TEMP (DATE_MESURE,TEMP,HUM) values (to_date('28/12/20','DD/MM/RR'),'18','61');
+Insert into HISTORIQUE_TEMP (DATE_MESURE,TEMP,HUM) values (to_date('28/12/20','DD/MM/RR'),'18','61');
+Insert into HISTORIQUE_TEMP (DATE_MESURE,TEMP,HUM) values (to_date('28/12/20','DD/MM/RR'),'18','61');
+Insert into HISTORIQUE_TEMP (DATE_MESURE,TEMP,HUM) values (to_date('28/12/20','DD/MM/RR'),'18','61');
+Insert into HISTORIQUE_TEMP (DATE_MESURE,TEMP,HUM) values (to_date('28/12/20','DD/MM/RR'),'18','61');
+Insert into HISTORIQUE_TEMP (DATE_MESURE,TEMP,HUM) values (to_date('28/12/20','DD/MM/RR'),'18','61');
+Insert into HISTORIQUE_TEMP (DATE_MESURE,TEMP,HUM) values (to_date('28/12/20','DD/MM/RR'),'18','61');
+Insert into HISTORIQUE_TEMP (DATE_MESURE,TEMP,HUM) values (to_date('28/12/20','DD/MM/RR'),'17','60');
+Insert into HISTORIQUE_TEMP (DATE_MESURE,TEMP,HUM) values (to_date('28/12/20','DD/MM/RR'),'18','61');
+Insert into HISTORIQUE_TEMP (DATE_MESURE,TEMP,HUM) values (to_date('28/12/20','DD/MM/RR'),'18','61');
+Insert into HISTORIQUE_TEMP (DATE_MESURE,TEMP,HUM) values (to_date('28/12/20','DD/MM/RR'),'18','61');
+Insert into HISTORIQUE_TEMP (DATE_MESURE,TEMP,HUM) values (to_date('28/12/20','DD/MM/RR'),'17','60');
+Insert into HISTORIQUE_TEMP (DATE_MESURE,TEMP,HUM) values (to_date('28/12/20','DD/MM/RR'),'18','61');
+Insert into HISTORIQUE_TEMP (DATE_MESURE,TEMP,HUM) values (to_date('28/12/20','DD/MM/RR'),'18','61');
+Insert into HISTORIQUE_TEMP (DATE_MESURE,TEMP,HUM) values (to_date('28/12/20','DD/MM/RR'),'18','61');
+Insert into HISTORIQUE_TEMP (DATE_MESURE,TEMP,HUM) values (to_date('28/12/20','DD/MM/RR'),'17','60');
+Insert into HISTORIQUE_TEMP (DATE_MESURE,TEMP,HUM) values (to_date('28/12/20','DD/MM/RR'),'17','60');
+Insert into HISTORIQUE_TEMP (DATE_MESURE,TEMP,HUM) values (to_date('28/12/20','DD/MM/RR'),'17','60');
+Insert into HISTORIQUE_TEMP (DATE_MESURE,TEMP,HUM) values (to_date('28/12/20','DD/MM/RR'),'17','60');
+Insert into HISTORIQUE_TEMP (DATE_MESURE,TEMP,HUM) values (to_date('28/12/20','DD/MM/RR'),'17','60');
+Insert into HISTORIQUE_TEMP (DATE_MESURE,TEMP,HUM) values (to_date('28/12/20','DD/MM/RR'),'17','60');
+Insert into HISTORIQUE_TEMP (DATE_MESURE,TEMP,HUM) values (to_date('28/12/20','DD/MM/RR'),'17','60');
+Insert into HISTORIQUE_TEMP (DATE_MESURE,TEMP,HUM) values (to_date('28/12/20','DD/MM/RR'),'17','60');
+Insert into HISTORIQUE_TEMP (DATE_MESURE,TEMP,HUM) values (to_date('28/12/20','DD/MM/RR'),'17','60');
+Insert into HISTORIQUE_TEMP (DATE_MESURE,TEMP,HUM) values (to_date('28/12/20','DD/MM/RR'),'17','60');
+Insert into HISTORIQUE_TEMP (DATE_MESURE,TEMP,HUM) values (to_date('28/12/20','DD/MM/RR'),'17','60');
+Insert into HISTORIQUE_TEMP (DATE_MESURE,TEMP,HUM) values (to_date('28/12/20','DD/MM/RR'),'17','60');
+Insert into HISTORIQUE_TEMP (DATE_MESURE,TEMP,HUM) values (to_date('28/12/20','DD/MM/RR'),'17','60');
+Insert into HISTORIQUE_TEMP (DATE_MESURE,TEMP,HUM) values (to_date('28/12/20','DD/MM/RR'),'17','60');
+Insert into HISTORIQUE_TEMP (DATE_MESURE,TEMP,HUM) values (to_date('28/12/20','DD/MM/RR'),'17','60');
+Insert into HISTORIQUE_TEMP (DATE_MESURE,TEMP,HUM) values (to_date('28/12/20','DD/MM/RR'),'17','60');
+Insert into HISTORIQUE_TEMP (DATE_MESURE,TEMP,HUM) values (to_date('28/12/20','DD/MM/RR'),'17','60');
+Insert into HISTORIQUE_TEMP (DATE_MESURE,TEMP,HUM) values (to_date('28/12/20','DD/MM/RR'),'17','60');
+Insert into HISTORIQUE_TEMP (DATE_MESURE,TEMP,HUM) values (to_date('28/12/20','DD/MM/RR'),'17','60');
+Insert into HISTORIQUE_TEMP (DATE_MESURE,TEMP,HUM) values (to_date('28/12/20','DD/MM/RR'),'17','60');
+Insert into HISTORIQUE_TEMP (DATE_MESURE,TEMP,HUM) values (to_date('28/12/20','DD/MM/RR'),'17','60');
+Insert into HISTORIQUE_TEMP (DATE_MESURE,TEMP,HUM) values (to_date('28/12/20','DD/MM/RR'),'17','60');
+Insert into HISTORIQUE_TEMP (DATE_MESURE,TEMP,HUM) values (to_date('28/12/20','DD/MM/RR'),'17','60');
+Insert into HISTORIQUE_TEMP (DATE_MESURE,TEMP,HUM) values (to_date('28/12/20','DD/MM/RR'),'17','60');
+Insert into HISTORIQUE_TEMP (DATE_MESURE,TEMP,HUM) values (to_date('28/12/20','DD/MM/RR'),'17','60');
+Insert into HISTORIQUE_TEMP (DATE_MESURE,TEMP,HUM) values (to_date('28/12/20','DD/MM/RR'),'17','60');
+Insert into HISTORIQUE_TEMP (DATE_MESURE,TEMP,HUM) values (to_date('28/12/20','DD/MM/RR'),'17','60');
+Insert into HISTORIQUE_TEMP (DATE_MESURE,TEMP,HUM) values (to_date('28/12/20','DD/MM/RR'),'17','60');
+Insert into HISTORIQUE_TEMP (DATE_MESURE,TEMP,HUM) values (to_date('28/12/20','DD/MM/RR'),'17','60');
+Insert into HISTORIQUE_TEMP (DATE_MESURE,TEMP,HUM) values (to_date('28/12/20','DD/MM/RR'),'17','60');
+Insert into HISTORIQUE_TEMP (DATE_MESURE,TEMP,HUM) values (to_date('28/12/20','DD/MM/RR'),'17','60');
+Insert into HISTORIQUE_TEMP (DATE_MESURE,TEMP,HUM) values (to_date('28/12/20','DD/MM/RR'),'17','60');
+Insert into HISTORIQUE_TEMP (DATE_MESURE,TEMP,HUM) values (to_date('28/12/20','DD/MM/RR'),'17','60');
+Insert into HISTORIQUE_TEMP (DATE_MESURE,TEMP,HUM) values (to_date('28/12/20','DD/MM/RR'),'17','60');
+Insert into HISTORIQUE_TEMP (DATE_MESURE,TEMP,HUM) values (to_date('28/12/20','DD/MM/RR'),'17','60');
+Insert into HISTORIQUE_TEMP (DATE_MESURE,TEMP,HUM) values (to_date('28/12/20','DD/MM/RR'),'17','60');
+Insert into HISTORIQUE_TEMP (DATE_MESURE,TEMP,HUM) values (to_date('28/12/20','DD/MM/RR'),'17','60');
+Insert into HISTORIQUE_TEMP (DATE_MESURE,TEMP,HUM) values (to_date('28/12/20','DD/MM/RR'),'17','60');
+Insert into HISTORIQUE_TEMP (DATE_MESURE,TEMP,HUM) values (to_date('28/12/20','DD/MM/RR'),'17','60');
+Insert into HISTORIQUE_TEMP (DATE_MESURE,TEMP,HUM) values (to_date('28/12/20','DD/MM/RR'),'17','61');
+Insert into HISTORIQUE_TEMP (DATE_MESURE,TEMP,HUM) values (to_date('28/12/20','DD/MM/RR'),'17','60');
+Insert into HISTORIQUE_TEMP (DATE_MESURE,TEMP,HUM) values (to_date('28/12/20','DD/MM/RR'),'17','60');
+Insert into HISTORIQUE_TEMP (DATE_MESURE,TEMP,HUM) values (to_date('28/12/20','DD/MM/RR'),'17','60');
+Insert into HISTORIQUE_TEMP (DATE_MESURE,TEMP,HUM) values (to_date('28/12/20','DD/MM/RR'),'17','60');
+Insert into HISTORIQUE_TEMP (DATE_MESURE,TEMP,HUM) values (to_date('28/12/20','DD/MM/RR'),'17','60');
+Insert into HISTORIQUE_TEMP (DATE_MESURE,TEMP,HUM) values (to_date('28/12/20','DD/MM/RR'),'17','60');
+Insert into HISTORIQUE_TEMP (DATE_MESURE,TEMP,HUM) values (to_date('28/12/20','DD/MM/RR'),'17','61');
+Insert into HISTORIQUE_TEMP (DATE_MESURE,TEMP,HUM) values (to_date('28/12/20','DD/MM/RR'),'17','61');
+Insert into HISTORIQUE_TEMP (DATE_MESURE,TEMP,HUM) values (to_date('28/12/20','DD/MM/RR'),'17','61');
+Insert into HISTORIQUE_TEMP (DATE_MESURE,TEMP,HUM) values (to_date('28/12/20','DD/MM/RR'),'17','61');
+Insert into HISTORIQUE_TEMP (DATE_MESURE,TEMP,HUM) values (to_date('28/12/20','DD/MM/RR'),'17','61');
+Insert into HISTORIQUE_TEMP (DATE_MESURE,TEMP,HUM) values (to_date('28/12/20','DD/MM/RR'),'17','61');
+Insert into HISTORIQUE_TEMP (DATE_MESURE,TEMP,HUM) values (to_date('28/12/20','DD/MM/RR'),'17','61');
+Insert into HISTORIQUE_TEMP (DATE_MESURE,TEMP,HUM) values (to_date('28/12/20','DD/MM/RR'),'17','61');
+Insert into HISTORIQUE_TEMP (DATE_MESURE,TEMP,HUM) values (to_date('28/12/20','DD/MM/RR'),'17','61');
+Insert into HISTORIQUE_TEMP (DATE_MESURE,TEMP,HUM) values (to_date('28/12/20','DD/MM/RR'),'17','61');
+Insert into HISTORIQUE_TEMP (DATE_MESURE,TEMP,HUM) values (to_date('28/12/20','DD/MM/RR'),'17','61');
+Insert into HISTORIQUE_TEMP (DATE_MESURE,TEMP,HUM) values (to_date('28/12/20','DD/MM/RR'),'17','60');
+Insert into HISTORIQUE_TEMP (DATE_MESURE,TEMP,HUM) values (to_date('28/12/20','DD/MM/RR'),'17','60');
+Insert into HISTORIQUE_TEMP (DATE_MESURE,TEMP,HUM) values (to_date('28/12/20','DD/MM/RR'),'17','60');
+Insert into HISTORIQUE_TEMP (DATE_MESURE,TEMP,HUM) values (to_date('28/12/20','DD/MM/RR'),'17','60');
+Insert into HISTORIQUE_TEMP (DATE_MESURE,TEMP,HUM) values (to_date('28/12/20','DD/MM/RR'),'17','60');
+Insert into HISTORIQUE_TEMP (DATE_MESURE,TEMP,HUM) values (to_date('28/12/20','DD/MM/RR'),'17','60');
+Insert into HISTORIQUE_TEMP (DATE_MESURE,TEMP,HUM) values (to_date('28/12/20','DD/MM/RR'),'17','60');
+Insert into HISTORIQUE_TEMP (DATE_MESURE,TEMP,HUM) values (to_date('28/12/20','DD/MM/RR'),'17','60');
+Insert into HISTORIQUE_TEMP (DATE_MESURE,TEMP,HUM) values (to_date('28/12/20','DD/MM/RR'),'17','60');
+Insert into HISTORIQUE_TEMP (DATE_MESURE,TEMP,HUM) values (to_date('28/12/20','DD/MM/RR'),'17','60');
+Insert into HISTORIQUE_TEMP (DATE_MESURE,TEMP,HUM) values (to_date('28/12/20','DD/MM/RR'),'17','60');
+Insert into HISTORIQUE_TEMP (DATE_MESURE,TEMP,HUM) values (to_date('28/12/20','DD/MM/RR'),'17','60');
+Insert into HISTORIQUE_TEMP (DATE_MESURE,TEMP,HUM) values (to_date('28/12/20','DD/MM/RR'),'17','60');
+Insert into HISTORIQUE_TEMP (DATE_MESURE,TEMP,HUM) values (to_date('28/12/20','DD/MM/RR'),'17','60');
+Insert into HISTORIQUE_TEMP (DATE_MESURE,TEMP,HUM) values (to_date('28/12/20','DD/MM/RR'),'17','60');
+Insert into HISTORIQUE_TEMP (DATE_MESURE,TEMP,HUM) values (to_date('28/12/20','DD/MM/RR'),'17','60');
+Insert into HISTORIQUE_TEMP (DATE_MESURE,TEMP,HUM) values (to_date('28/12/20','DD/MM/RR'),'17','60');
+Insert into HISTORIQUE_TEMP (DATE_MESURE,TEMP,HUM) values (to_date('28/12/20','DD/MM/RR'),'17','60');
+Insert into HISTORIQUE_TEMP (DATE_MESURE,TEMP,HUM) values (to_date('28/12/20','DD/MM/RR'),'17','60');
+Insert into HISTORIQUE_TEMP (DATE_MESURE,TEMP,HUM) values (to_date('28/12/20','DD/MM/RR'),'17','63');
+Insert into HISTORIQUE_TEMP (DATE_MESURE,TEMP,HUM) values (to_date('28/12/20','DD/MM/RR'),'17','63');
+Insert into HISTORIQUE_TEMP (DATE_MESURE,TEMP,HUM) values (to_date('28/12/20','DD/MM/RR'),'17','64');
 REM INSERTING into MACHINE
 SET DEFINE OFF;
 Insert into MACHINE (CODE,NOM,REFERENCE,MODE_AQUISATION) values ('44','hh','44','kjnb');
@@ -5313,6 +5778,8 @@ Insert into ORDONNANCE (CODE_MED,LIBELLE,MODE_U,FREQUENCE,QTS,ID_VISITE_O) value
 Insert into ORDONNANCE (CODE_MED,LIBELLE,MODE_U,FREQUENCE,QTS,ID_VISITE_O) values ('2020601','MYCOPHENOLATE MOFETIL COMP 500 MG','sqd','dqsdqsd','4','222');
 Insert into ORDONNANCE (CODE_MED,LIBELLE,MODE_U,FREQUENCE,QTS,ID_VISITE_O) values ('9060601','DIDANOSINE COMP 100 MG','qsd','qsd','1','222');
 Insert into ORDONNANCE (CODE_MED,LIBELLE,MODE_U,FREQUENCE,QTS,ID_VISITE_O) values ('11071099','AMISULPRIDE COMP 200 MG','sd','sd','2','157');
+Insert into ORDONNANCE (CODE_MED,LIBELLE,MODE_U,FREQUENCE,QTS,ID_VISITE_O) values ('2020601','MYCOPHENOLATE MOFETIL COMP 500 MG','qsqs','qsqsqs','2','242');
+Insert into ORDONNANCE (CODE_MED,LIBELLE,MODE_U,FREQUENCE,QTS,ID_VISITE_O) values ('2020601','MYCOPHENOLATE MOFETIL COMP 500 MG','fghfh','fgh','2','261');
 Insert into ORDONNANCE (CODE_MED,LIBELLE,MODE_U,FREQUENCE,QTS,ID_VISITE_O) values ('9050403','MEBENDAZOLE SOOR
  20 MG/ML','dsfsdf','sdf','2','164');
 Insert into ORDONNANCE (CODE_MED,LIBELLE,MODE_U,FREQUENCE,QTS,ID_VISITE_O) values ('9060606','DIDANOSINE COMP 125 MG','fghfgh','fghfgh','8','165');
@@ -5333,6 +5800,7 @@ Insert into PATIENT (CIN,NOM,PRENOM,DATE_DE_NAISSANCE,ADRESSE,TEL,EMAIL) values 
 Insert into PATIENT (CIN,NOM,PRENOM,DATE_DE_NAISSANCE,ADRESSE,TEL,EMAIL) values ('51546231','Qsdqsd','Qsd',to_date('01/01/00','DD/MM/RR'),'Qsdqsdqsd','54654894','.@');
 REM INSERTING into RENDEZVOUS
 SET DEFINE OFF;
+Insert into RENDEZVOUS (ID,CIN_PATIENT,NOM,PRENOM,DATE_RDV,DOCTEUR) values ('61','14761040','Ghoul','Yassine',to_date('02/01/21','DD/MM/RR'),'Fgh');
 Insert into RENDEZVOUS (ID,CIN_PATIENT,NOM,PRENOM,DATE_RDV,DOCTEUR) values ('11','14761040','Ghoul','Yassine',to_date('26/11/20','DD/MM/RR'),'Dr mohamed');
 Insert into RENDEZVOUS (ID,CIN_PATIENT,NOM,PRENOM,DATE_RDV,DOCTEUR) values ('10','12345678','Borji','Mootaz',to_date('28/11/20','DD/MM/RR'),'Dr mohamed');
 Insert into RENDEZVOUS (ID,CIN_PATIENT,NOM,PRENOM,DATE_RDV,DOCTEUR) values ('12','87654321','Ghoul','Amine',to_date('02/12/20','DD/MM/RR'),'Ali');
@@ -5526,6 +5994,9 @@ Insert into VISITE (ID_VISITE,DATE_VISITE,NOM_PATIENT,PRENOM_PATIENT,DATE_NAISS_
 Insert into VISITE (ID_VISITE,DATE_VISITE,NOM_PATIENT,PRENOM_PATIENT,DATE_NAISS_PATIENT,OBSERVATION,DIAGNOSTIC) values ('221',to_date('18/12/20','DD/MM/RR'),'qsd','qsd','01/01/2000','qsd','qsdqsd');
 Insert into VISITE (ID_VISITE,DATE_VISITE,NOM_PATIENT,PRENOM_PATIENT,DATE_NAISS_PATIENT,OBSERVATION,DIAGNOSTIC) values ('222',to_date('18/12/20','DD/MM/RR'),'qsdq','sdq','01/01/2000','dqsd','qsdqsdqsdqqqqqqsdddddddqd');
 Insert into VISITE (ID_VISITE,DATE_VISITE,NOM_PATIENT,PRENOM_PATIENT,DATE_NAISS_PATIENT,OBSERVATION,DIAGNOSTIC) values ('223',to_date('18/12/20','DD/MM/RR'),'qsdq','qsdqsd','01/01/2000','sdqsd','qsdqsd');
+Insert into VISITE (ID_VISITE,DATE_VISITE,NOM_PATIENT,PRENOM_PATIENT,DATE_NAISS_PATIENT,OBSERVATION,DIAGNOSTIC) values ('241',to_date('28/12/20','DD/MM/RR'),'sqs','qs','01/01/2000','qs','qsqs');
+Insert into VISITE (ID_VISITE,DATE_VISITE,NOM_PATIENT,PRENOM_PATIENT,DATE_NAISS_PATIENT,OBSERVATION,DIAGNOSTIC) values ('242',to_date('28/12/20','DD/MM/RR'),'qs','qs','01/01/2000','qs','qs');
+Insert into VISITE (ID_VISITE,DATE_VISITE,NOM_PATIENT,PRENOM_PATIENT,DATE_NAISS_PATIENT,OBSERVATION,DIAGNOSTIC) values ('261',to_date('02/01/21','DD/MM/RR'),'Ghoul','Yassine','11/02/1998','fghfgh','fghfghfgh');
 --------------------------------------------------------
 --  DDL for Index SERVICES_PK
 --------------------------------------------------------
@@ -5612,6 +6083,15 @@ Insert into VISITE (ID_VISITE,DATE_VISITE,NOM_PATIENT,PRENOM_PATIENT,DATE_NAISS_
 --------------------------------------------------------
 
   CREATE UNIQUE INDEX "TABLE2_PK" ON "MACHINE" ("CODE") 
+  PCTFREE 10 INITRANS 2 MAXTRANS 255 COMPUTE STATISTICS 
+  STORAGE(INITIAL 65536 NEXT 1048576 MINEXTENTS 1 MAXEXTENTS 2147483645
+  PCTINCREASE 0 FREELISTS 1 FREELIST GROUPS 1 BUFFER_POOL DEFAULT FLASH_CACHE DEFAULT CELL_FLASH_CACHE DEFAULT)
+  TABLESPACE "SYSTEM" ;
+--------------------------------------------------------
+--  DDL for Index SYS_C007460
+--------------------------------------------------------
+
+  CREATE UNIQUE INDEX "SYS_C007460" ON "COMPTE" ("LOGIN") 
   PCTFREE 10 INITRANS 2 MAXTRANS 255 COMPUTE STATISTICS 
   STORAGE(INITIAL 65536 NEXT 1048576 MINEXTENTS 1 MAXEXTENTS 2147483645
   PCTINCREASE 0 FREELISTS 1 FREELIST GROUPS 1 BUFFER_POOL DEFAULT FLASH_CACHE DEFAULT CELL_FLASH_CACHE DEFAULT)
@@ -5817,11 +6297,13 @@ ALTER TRIGGER "VISITE_AUTO" ENABLE;
 --  Constraints for Table COMPTE
 --------------------------------------------------------
 
-  ALTER TABLE "COMPTE" ADD PRIMARY KEY ("LOGIN")
+  ALTER TABLE "COMPTE" ADD CONSTRAINT "SYS_C007460" PRIMARY KEY ("LOGIN")
   USING INDEX PCTFREE 10 INITRANS 2 MAXTRANS 255 COMPUTE STATISTICS 
   STORAGE(INITIAL 65536 NEXT 1048576 MINEXTENTS 1 MAXEXTENTS 2147483645
   PCTINCREASE 0 FREELISTS 1 FREELIST GROUPS 1 BUFFER_POOL DEFAULT FLASH_CACHE DEFAULT CELL_FLASH_CACHE DEFAULT)
   TABLESPACE "SYSTEM"  ENABLE;
+  ALTER TABLE "COMPTE" MODIFY ("MDP" NOT NULL ENABLE);
+  ALTER TABLE "COMPTE" MODIFY ("TYPE_COMPTE" NOT NULL ENABLE);
 --------------------------------------------------------
 --  Constraints for Table ACTE
 --------------------------------------------------------
@@ -5842,6 +6324,17 @@ ALTER TRIGGER "VISITE_AUTO" ENABLE;
   PCTINCREASE 0 FREELISTS 1 FREELIST GROUPS 1 BUFFER_POOL DEFAULT FLASH_CACHE DEFAULT CELL_FLASH_CACHE DEFAULT)
   TABLESPACE "SYSTEM"  ENABLE;
   ALTER TABLE "MEDICAMENT" MODIFY ("COD_ART" NOT NULL ENABLE);
+--------------------------------------------------------
+--  Constraints for Table HISTORIQUE_TEMP
+--------------------------------------------------------
+
+  ALTER TABLE "HISTORIQUE_TEMP" MODIFY ("HUM" NOT NULL ENABLE);
+  ALTER TABLE "HISTORIQUE_TEMP" MODIFY ("TEMP" NOT NULL ENABLE);
+  ALTER TABLE "HISTORIQUE_TEMP" ADD PRIMARY KEY ("DATE_MESURE")
+  USING INDEX PCTFREE 10 INITRANS 2 MAXTRANS 255 COMPUTE STATISTICS 
+  STORAGE(INITIAL 65536 NEXT 1048576 MINEXTENTS 1 MAXEXTENTS 2147483645
+  PCTINCREASE 0 FREELISTS 1 FREELIST GROUPS 1 BUFFER_POOL DEFAULT FLASH_CACHE DEFAULT CELL_FLASH_CACHE DEFAULT)
+  TABLESPACE "SYSTEM"  ENABLE;
 --------------------------------------------------------
 --  Ref Constraints for Table ACTE_VISITE
 --------------------------------------------------------

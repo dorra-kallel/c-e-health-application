@@ -1,7 +1,9 @@
 INPUT(
 ./debug\acte.o
+./debug\arduino.o
 ./debug\chambre.o
 ./debug\commande.o
+./debug\compte.o
 ./debug\connection.o
 ./debug\dialog.o
 ./debug\employee.o

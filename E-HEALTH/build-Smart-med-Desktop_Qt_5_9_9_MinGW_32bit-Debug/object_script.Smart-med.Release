@@ -1,7 +1,9 @@
 INPUT(
 ./release\acte.o
+./release\arduino.o
 ./release\chambre.o
 ./release\commande.o
+./release\compte.o
 ./release\connection.o
 ./release\dialog.o
 ./release\employee.o

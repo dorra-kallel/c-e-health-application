@@ -1,4 +1,4 @@
- #include "mainwindow.h"
+#include "mainwindow.h"
 #include "ui_mainwindow.h"
 #include <QDateTime>
 #include"medicament.h"
@@ -48,6 +48,7 @@
 #include <QtPrintSupport/QPrintDialog>
 #include <QPushButton>
 #include<QFileInfo>
+#include"compte.h"
 class PrintBorder : public PagePrepare {
 public:
     virtual void preparePage(QPainter *painter);
@@ -81,6 +82,8 @@ MainWindow::MainWindow(QWidget *parent)
      ui->hadiltab->setModel(tm.afficher1());
 
     ui->password->setEchoMode(QLineEdit::Password);
+    ui->mdp->setEchoMode(QLineEdit::Password);
+    ui->mdp_2->setEchoMode(QLineEdit::Password);
 
         click = new QMediaPlayer();
         click->setMedia(QUrl::fromLocalFile("C:/Users/Pavillion/Desktop/E-HEALTH/photo/click.mp3"));
@@ -122,7 +125,63 @@ MainWindow::MainWindow(QWidget *parent)
                 animationGroup->addAnimation(animation1);
 
                 animationGroup->start();*/
-}
+                //arduino
+                   int ret=A.connect_arduino();
+                     switch(ret)
+                     {
+                     case(0):qDebug()<<"arduino is available and connected to :"<<A.getarduino_port_name();
+                         break;
+                     case(1):qDebug()<<"arduino is available but not connected to :"<<A.getarduino_port_name();
+                         break;
+                     case(-1):qDebug()<<"arduino is not available";
+                     }
+
+
+                  QObject::connect(A.getserial(),SIGNAL(readyRead()),this,SLOT(update_label()));
+
+
+
+        //ui->nom_patient_2->setPlaceholderText("nom");
+
+
+
+        }
+        void MainWindow::update_label()
+        {
+           // qDebug()<<A.read_from_arduino();
+        temp=QString::fromStdString(A.read_from_arduino().toStdString());
+        if(temp.length()>=4)
+        {
+            QStringRef humidity(&temp,2,2);
+
+            QStringRef temperature(&temp,0,2);
+            int tempe=temperature.toInt();
+            int hum=humidity.toInt();
+            qDebug()<<"temperature="<<temperature;
+            qDebug()<<"humidity="<<humidity;
+            QSqlQuery qry;
+            qry.prepare("insert into historique_temp values(sysdate,:tempe ,:hum)");
+            qry.bindValue(":tempe",tempe);
+            qry.bindValue(":hum",hum);
+            qry.exec();
+
+            ui->ard->setModel(A.afficher());
+            ui->ard->setColumnWidth(0,180);
+            ui->ard->setColumnWidth(1,180);
+
+            ui->ard->setColumnWidth(2,180);
+
+
+           if(hum>70)
+           {
+
+               QMessageBox::warning(nullptr, QObject::tr("erreur"),
+                                 QObject::tr("Humidité a depassé 70.\n"
+                                             "Click Cancel to exit."), QMessageBox::Cancel);
+           }
+        }
+        }
+
 void MainWindow::clear_visite()
 {
 
@@ -1062,7 +1121,7 @@ void MainWindow::on_francais_clicked()
     ui->date_naiss_patient_2->setText("date_naiss_patient");
     ui->date_naiss_patient_2->setStyleSheet("QLabel{color: rgb(255, 255, 255);font: 81 8pt Rockwell Extra Bold;font-weight:600; color:#ffffff;}");
 
-    ui->date_naiss_patient_2->setText("observation");
+    ui->observation_2->setText("observation");
     ui->date_naiss_patient_2->setStyleSheet("QLabel{color: rgb(255, 255, 255);font: 81 8pt Rockwell Extra Bold;font-weight:600; color:#ffffff;}");
 
     ui->diagnostic_2->setText("Diagnostic");
@@ -1115,7 +1174,7 @@ void MainWindow::on_retour_menu_2_clicked()
 
 }
 
-void MainWindow::on_patient_clicked()
+void MainWindow::on_patient_2_clicked()
 {
 
 
@@ -1131,14 +1190,14 @@ QGraphicsOpacityEffect *eff = new QGraphicsOpacityEffect(this);
 
     ui->stackedWidget_6->setCurrentIndex(3);
 
-    ui->patient->setStyleSheet("		background-image: url(C:/Users/HP/Downloads/Integration/E-HEALTH/icons/16x16/cil-PEOPLE.png);"
+    ui->patient_2->setStyleSheet("		background-image: url(C:/Users/HP/Downloads/Integration/E-HEALTH/icons/16x16/cil-PEOPLE.png);"
                                    " background-position: left center;"
                                     "background-repeat: no-repeat;"
                                     "border: none;"
                                     "border-left: 32px solid #25283b;"
                                     "background-color: #25283b;background-color:rgb(50, 54, 79); border-left: 32px solid rgb(50, 54, 79);border-right: 5px solid #3d50eb; ");
 
-    ui->rendez_vous_2->setStyleSheet("QPushButton{ 	background-image: url(C:/Users/HP/Downloads/Integration/E-HEALTH/icons/16x16/cil-clipboard.png);"
+    ui->rendez_vous_3->setStyleSheet("QPushButton{ 	background-image: url(C:/Users/HP/Downloads/Integration/E-HEALTH/icons/16x16/cil-clipboard.png);"
     "background-position: left center;"
     "background-repeat: no-repeat;"
     "border: none;"
@@ -1177,7 +1236,7 @@ void MainWindow::on_rendez_vous_clicked()
                                                "text-align: left;"
                                       "background-color: #25283b;background-color:rgb(50, 54, 79); border-left: 32px solid rgb(50, 54, 79);border-right: 5px solid #3d50eb; }");
 
-      ui->patient->setStyleSheet("QPushButton{background-image: url(C:/Users/HP/Documents/health-app/icons/16x16/cil-PEOPLE.png);"
+      ui->patient_2->setStyleSheet("QPushButton{background-image: url(C:/Users/HP/Documents/health-app/icons/16x16/cil-PEOPLE.png);"
                                     " background-position: left center;"
                                      "background-repeat: no-repeat;"
                                      "border: none;"
@@ -1932,19 +1991,19 @@ void MainWindow::on_tableView_5_doubleClicked(const QModelIndex &index)
 
 
 
-void MainWindow::on_rendez_vous_2_clicked()
+void MainWindow::on_rendez_vous_3_clicked()
 {
     ui->stackedWidget_7->setCurrentIndex(0);
 
     ui->stackedWidget_6->setCurrentIndex(0);
-    ui->rendez_vous_2->setStyleSheet("			background-image: url(C:/Users/HP/Downloads/Integration/E-HEALTH/icons/16x16/cil-clipboard.png);"
+    ui->rendez_vous_3->setStyleSheet("			background-image: url(C:/Users/HP/Downloads/Integration/E-HEALTH/icons/16x16/cil-clipboard.png);"
                                     "background-repeat: no-repeat;"
                                       "background-position: left center;"
                                     "border: none;"
                                     "border-left: 32px solid #25283b;"
                                     "background-color: #25283b;background-color:rgb(50, 54, 79); border-left: 32px solid rgb(50, 54, 79);border-right: 5px solid #3d50eb; ");
 
-    ui->patient->setStyleSheet("QPushButton{ 	background-image: url(C:/Users/HP/Downloads/Integration/E-HEALTH/icons/16x16/cil-PEOPLE.png);"
+    ui->patient_2->setStyleSheet("QPushButton{ 	background-image: url(C:/Users/HP/Downloads/Integration/E-HEALTH/icons/16x16/cil-PEOPLE.png);"
                                    " background-position: left center;"
     "background-position: left center;"
     "background-repeat: no-repeat;"
@@ -2370,7 +2429,7 @@ else
 {
 if(login==qry.value(0).toString() && mdp==qry.value(1).toString())
 {
-    if(qry.value(0).toString()=="admin")
+    if(qry.value(2).toString()=="admin")
     {
         ui->stackedWidget->setCurrentIndex(4);
         ui->login->clear();
@@ -2380,12 +2439,13 @@ if(login==qry.value(0).toString() && mdp==qry.value(1).toString())
         ui->pec_commande->setEnabled(1);
         ui->chambre_machine->setEnabled(1);
         ui->employe_service->setEnabled(1);
+        ui->new_account->setEnabled(1);
 
 
 
     }
     else
-        if(qry.value(0).toString()=="medecin")
+        if(qry.value(2).toString()=="medecin")
 {
 
         ui->stackedWidget->setCurrentIndex(4);
@@ -2397,11 +2457,14 @@ if(login==qry.value(0).toString() && mdp==qry.value(1).toString())
         ui->chambre_machine->setStyleSheet("border: 1px solid white");
         ui->employe_service->setDisabled(1);
         ui->employe_service->setStyleSheet("border: 1px solid white");
+        ui->new_account->setDisabled(1);
+        ui->new_account->setStyleSheet("border: 1px solid white");
+
 
         ui->login->clear();
         ui->password->clear();
         }
-    else if(qry.value(0).toString()=="secretaire")
+    else if(qry.value(2).toString()=="secretaire")
         {   ui->stackedWidget->setCurrentIndex(4);
             ui->page_visite->setDisabled(1);
             ui->page_visite->setStyleSheet("border: 1px solid white");
@@ -2410,13 +2473,14 @@ if(login==qry.value(0).toString() && mdp==qry.value(1).toString())
             ui->pec_commande->setStyleSheet("border: 1px solid white");
             ui->chambre_machine->setDisabled(1);
             ui->chambre_machine->setStyleSheet("border: 1px solid white");
-
+            ui->new_account->setDisabled(1);
+            ui->new_account->setStyleSheet("border: 1px solid white");
 
             ui->employe_service->setDisabled(1);
             ui->employe_service->setStyleSheet("border: 1px solid white");
             ui->login->clear();
             ui->password->clear();}
-    else if(qry.value(0).toString()=="res_mach")
+    else if(qry.value(2).toString()=="responsable_machine")
         {ui->stackedWidget->setCurrentIndex(4);
             ui->page_visite->setDisabled(1);
             ui->page_visite->setStyleSheet("border: 1px solid white");
@@ -2427,10 +2491,14 @@ if(login==qry.value(0).toString() && mdp==qry.value(1).toString())
             ui->chambre_machine->setEnabled(1);
             ui->employe_service->setDisabled(1);
             ui->employe_service->setStyleSheet("border: 1px solid white");
+            ui->new_account->setDisabled(1);
+            ui->new_account->setStyleSheet("border: 1px solid white");
             ui->login->clear();
             ui->password->clear();}
-else if(qry.value(0).toString()=="rh")
+else if(qry.value(2).toString()=="rh")
         {ui->stackedWidget->setCurrentIndex(4);
+            ui->new_account->setDisabled(1);
+            ui->new_account->setStyleSheet("border: 1px solid white");
             ui->page_visite->setDisabled(1);
             ui->page_visite->setStyleSheet("border: 1px solid white");
             ui->page_rdv->setDisabled(1);
@@ -2442,8 +2510,10 @@ else if(qry.value(0).toString()=="rh")
             ui->employe_service->setEnabled(1);
             ui->login->clear();
             ui->password->clear();}
-    else if(qry.value(0).toString()=="res_commande")
+    else if(qry.value(2).toString()=="responsable_commande")
         {ui->stackedWidget->setCurrentIndex(4);
+            ui->new_account->setDisabled(1);
+            ui->new_account->setStyleSheet("border: 1px solid white");
             ui->page_visite->setDisabled(1);
             ui->page_visite->setStyleSheet("border: 1px solid white");
             ui->page_rdv->setDisabled(1);
@@ -3155,4 +3225,81 @@ void MainWindow::on_exit_3_clicked()
 void MainWindow::on_exit_4_clicked()
 {
      ui->stackedWidget->setCurrentIndex(4);
+}
+
+void MainWindow::on_ajouter_compte_clicked()
+{
+    QString login=ui->login_2->text();
+    QString mdp=ui->mdp->text();
+    QString mdp2=ui->mdp_2->text();
+    QString type=ui->type_de_compte->currentText();
+
+    if(login.isEmpty()||mdp.isEmpty()||type=="Choisissez type de compte à créer"||mdp!=mdp2 )
+    {QMessageBox::information(nullptr,QObject::tr("OK"),QObject::tr("Vérifier vos champs \n click cancel to exit."), QMessageBox::Cancel);}
+    else
+     if(mdp.length()<8)
+     { QMessageBox::information(nullptr, QObject::tr("Ajouter compte"),
+                                QObject::tr("Longeur du mot de passe doit être superieur à 8.\n"
+                                            "Click Cancel to exit."), QMessageBox::Cancel);}
+    else
+   {compte m(login,mdp,type);
+    bool test=m.ajouter();
+    if(test)
+    {
+        QMessageBox::information(nullptr, QObject::tr("Ajouter compte"),
+                          QObject::tr("compte ajouter.\n"
+                                      "Click Cancel to exit."), QMessageBox::Cancel);
+        ui->login_2->clear();
+        ui->mdp->clear();
+        ui->type_de_compte->setCurrentIndex(0);
+    }
+
+
+    }
+
+}
+
+
+
+void MainWindow::on_retour_menu_5_clicked()
+{
+    ui->stackedWidget->setCurrentIndex(4);
+
+}
+
+void MainWindow::on_new_account_clicked()
+{
+   ui->type_de_compte->setCurrentIndex(0);
+    ui->stackedWidget->setCurrentIndex(12);
+
+}
+
+
+
+
+void MainWindow::on_show_mdp_clicked(bool checked)
+{
+    if(checked)
+    {
+
+        ui->mdp->setEchoMode(QLineEdit::EchoMode(0));
+        ui->mdp_2->setEchoMode(QLineEdit::EchoMode(0));
+
+    }
+    else
+    {       ui->mdp->setEchoMode(QLineEdit::EchoMode(2));
+           ui->mdp_2->setEchoMode(QLineEdit::EchoMode(2));
+}
+}
+
+void MainWindow::on_temp_clicked()
+{
+    ui->stackedWidget->setCurrentIndex(13);
+
+}
+
+void MainWindow::on_retour_ord_2_clicked()
+{
+    ui->stackedWidget->setCurrentIndex(4);
+
 }

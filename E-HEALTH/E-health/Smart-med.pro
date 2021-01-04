@@ -6,6 +6,8 @@ QT       +=  network
 QT       += core gui widgets texttospeech
 QT += core gui widgets
 QT += multimedia
+QT       += core gui sql serialport
+QT += serialport
 greaterThan(QT_MAJOR_VERSION, 4): QT += widgets
 
 CONFIG += c++11
@@ -23,8 +25,10 @@ DEFINES += QT_DEPRECATED_WARNINGS
 
 SOURCES += \
     acte.cpp \
+    arduino.cpp \
     chambre.cpp \
     commande.cpp \
+    compte.cpp \
     connection.cpp \
     dialog.cpp \
     employee.cpp \
@@ -42,8 +46,10 @@ SOURCES += \
 
 HEADERS += \
     acte.h \
+    arduino.h \
     chambre.h \
     commande.h \
+    compte.h \
     connection.h \
     dialog.h \
     employee.h \
