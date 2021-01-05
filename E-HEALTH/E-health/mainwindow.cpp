@@ -126,7 +126,7 @@ MainWindow::MainWindow(QWidget *parent)
 
                 animationGroup->start();*/
                 //arduino
-                   int ret=A.connect_arduino();
+                   /*int ret=A.connect_arduino();
                      switch(ret)
                      {
                      case(0):qDebug()<<"arduino is available and connected to :"<<A.getarduino_port_name();
@@ -134,11 +134,21 @@ MainWindow::MainWindow(QWidget *parent)
                      case(1):qDebug()<<"arduino is available but not connected to :"<<A.getarduino_port_name();
                          break;
                      case(-1):qDebug()<<"arduino is not available";
-                     }
+                     }*/
+                     int ret1=B.connect_arduino();
+                       switch(ret1)
+                       {
+                       case(0):qDebug()<<"arduino is available and connected to :"<<A.getarduino_port_name();
+                           break;
+                       case(1):qDebug()<<"arduino is available but not connected to :"<<A.getarduino_port_name();
+                           break;
+                       case(-1):qDebug()<<"arduino is not available";
+                       }
 
 
-                  QObject::connect(A.getserial(),SIGNAL(readyRead()),this,SLOT(update_label()));
+                QObject::connect(A.getserial(),SIGNAL(readyRead()),this,SLOT(update_label()));
 
+                QObject::connect(B.getserial(),SIGNAL (readyRead()),this,SLOT(update_label1()));
 
 
         //ui->nom_patient_2->setPlaceholderText("nom");
@@ -146,6 +156,21 @@ MainWindow::MainWindow(QWidget *parent)
 
 
         }
+void MainWindow::update_label1()
+
+{
+    int x=B.read_from_arduino().toInt();
+   qDebug()<<"test"<<x;
+            if(x==0)
+            { QMessageBox::warning(nullptr, QObject::tr("Message"),
+                                   QObject::tr("test\n"
+                                               "Click Cancel to exit."), QMessageBox::Cancel);
+                qDebug()<<"temperature="<<B.read_from_arduino();
+
+            }
+
+
+}
         void MainWindow::update_label()
         {
            // qDebug()<<A.read_from_arduino();
@@ -1190,14 +1215,14 @@ QGraphicsOpacityEffect *eff = new QGraphicsOpacityEffect(this);
 
     ui->stackedWidget_6->setCurrentIndex(3);
 
-    ui->patient_2->setStyleSheet("		background-image: url(C:/Users/HP/Downloads/Integration/E-HEALTH/icons/16x16/cil-PEOPLE.png);"
+    ui->patient_2->setStyleSheet("		background-image: url(C:/Users/Pavillion/Desktop/Integration/E-HEALTH/icons/16x16/cil-PEOPLE.png);"
                                    " background-position: left center;"
                                     "background-repeat: no-repeat;"
                                     "border: none;"
                                     "border-left: 32px solid #25283b;"
                                     "background-color: #25283b;background-color:rgb(50, 54, 79); border-left: 32px solid rgb(50, 54, 79);border-right: 5px solid #3d50eb; ");
 
-    ui->rendez_vous_3->setStyleSheet("QPushButton{ 	background-image: url(C:/Users/HP/Downloads/Integration/E-HEALTH/icons/16x16/cil-clipboard.png);"
+    ui->rendez_vous->setStyleSheet("QPushButton{background-image: url(C:/Users/Pavillion/Desktop/Integration/E-HEALTH/icons/16x16/cil-clipboard.png);"
     "background-position: left center;"
     "background-repeat: no-repeat;"
     "border: none;"
@@ -1236,7 +1261,7 @@ void MainWindow::on_rendez_vous_clicked()
                                                "text-align: left;"
                                       "background-color: #25283b;background-color:rgb(50, 54, 79); border-left: 32px solid rgb(50, 54, 79);border-right: 5px solid #3d50eb; }");
 
-      ui->patient_2->setStyleSheet("QPushButton{background-image: url(C:/Users/HP/Documents/health-app/icons/16x16/cil-PEOPLE.png);"
+      ui->patient_2->setStyleSheet("QPushButton{background-image: url(C:/Users/Pavillion/Desktop/Integration/E-HEALTH/icons/16x16/cil-PEOPLE.png);"
                                     " background-position: left center;"
                                      "background-repeat: no-repeat;"
                                      "border: none;"
@@ -3301,5 +3326,48 @@ void MainWindow::on_temp_clicked()
 void MainWindow::on_retour_ord_2_clicked()
 {
     ui->stackedWidget->setCurrentIndex(4);
+
+}
+
+void MainWindow::on_emp_excel_clicked()
+{
+    click->play();
+
+        QTableView *table;
+                table = ui->tableView_afficher_emp;
+
+                QString filters("CSV files (.csv);;All files (.*)");
+                QString defaultFilter("CSV files (*.csv)");
+                QString fileName = QFileDialog::getSaveFileName(0, "Save file", QCoreApplication::applicationDirPath(),
+                                   filters, &defaultFilter);
+                QFile file(fileName);
+
+                QAbstractItemModel *model =  table->model();
+                if (file.open(QFile::WriteOnly | QFile::Truncate)) {
+                    QTextStream data(&file);
+                    QStringList strList;
+                    for (int i = 0; i < model->columnCount(); i++) {
+                        if (model->headerData(i, Qt::Horizontal, Qt::DisplayRole).toString().length() > 0)
+                            strList.append("\"" + model->headerData(i, Qt::Horizontal, Qt::DisplayRole).toString() + "\"");
+                        else
+                            strList.append("");
+                    }
+                    data << strList.join(";") << "\n";
+                    for (int i = 0; i < model->rowCount(); i++) {
+                        strList.clear();
+                        for (int j = 0; j < model->columnCount(); j++) {
+
+                            if (model->data(model->index(i, j)).toString().length() > 0)
+                                strList.append("\"" + model->data(model->index(i, j)).toString() + "\"");
+                            else
+                                strList.append("");
+                        }
+                        data << strList.join(";") + "\n";
+                    }
+                    file.close();
+                    QMessageBox::information(nullptr, QObject::tr("Export excel"),
+                                              QObject::tr("Export avec succes .\n"
+                                                          "Click OK to exit."), QMessageBox::Ok);
+                }
 
 }

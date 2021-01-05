@@ -340,13 +340,15 @@ private slots:
 
        void update_label();
 
-
+void update_label1();
 
        void on_show_mdp_clicked(bool checked);
 
        void on_temp_clicked();
 
        void on_retour_ord_2_clicked();
+
+       void on_emp_excel_clicked();
 
 private:
     Ui::MainWindow *ui;
@@ -367,8 +369,8 @@ private:
      chambre tmp;
      machine tm;
       employee Etmp;
-      arduino A;
-      QByteArray data;
+      arduino A,B;
+      QByteArray data,data1;
       QString temp="";
 
 };

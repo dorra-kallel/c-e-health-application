@@ -128,9 +128,9 @@ public:
     QLabel *label_80;
     QPushButton *new_account;
     QLabel *label_87;
-    QLabel *label_86;
     QPushButton *exit_2;
     QPushButton *temp;
+    QLabel *label_91;
     QLabel *label_77;
     QLabel *label_81;
     QLabel *label_85;
@@ -176,16 +176,12 @@ public:
     QWidget *page_13;
     QFrame *frame_3;
     QPushButton *deconnecter;
-    QLabel *label_2;
     QPushButton *pushButton_7;
     QWidget *layoutWidget;
     QGridLayout *gridLayout_2;
-    QLabel *label;
-    QLabel *label_11;
     QFrame *frame_4;
     QStackedWidget *stackedWidget_6;
     QWidget *page_22;
-    QPushButton *imprimer_rdv_2;
     QTableView *tableView_4;
     QStackedWidget *stackedWidget_7;
     QWidget *page_23;
@@ -267,7 +263,6 @@ public:
     QDateEdit *dateEdit_4;
     QWidget *layoutWidget_2;
     QVBoxLayout *verticalLayout_3;
-    QPushButton *rendez_vous;
     QFrame *frame;
     QFrame *frame_6;
     QLabel *labelBoxBlenderInstalation_3;
@@ -277,6 +272,9 @@ public:
     QLabel *label_5;
     QPushButton *retour_menu_2;
     QLabel *label_75;
+    QPushButton *rendez_vous;
+    QLabel *label;
+    QLabel *label_11;
     QWidget *page_14;
     QStackedWidget *stackedWidget_gestion_commande;
     QWidget *page_15;
@@ -456,6 +454,7 @@ public:
     QRadioButton *radioButton_ID;
     QRadioButton *radioButton_salaire;
     QRadioButton *radioButton_nom;
+    QPushButton *emp_excel;
     QWidget *tab_15;
     QLineEdit *supprimer_id_emp;
     QLabel *label_70;
@@ -513,7 +512,7 @@ public:
         centralwidget->setObjectName(QStringLiteral("centralwidget"));
         stackedWidget = new QStackedWidget(centralwidget);
         stackedWidget->setObjectName(QStringLiteral("stackedWidget"));
-        stackedWidget->setGeometry(QRect(10, 0, 1981, 1031));
+        stackedWidget->setGeometry(QRect(0, 0, 2001, 1031));
         stackedWidget->setInputMethodHints(Qt::ImhNone);
         page = new QWidget();
         page->setObjectName(QStringLiteral("page"));
@@ -1522,7 +1521,7 @@ public:
         page_2->setStyleSheet(QStringLiteral(""));
         page_rdv = new QPushButton(page_2);
         page_rdv->setObjectName(QStringLiteral("page_rdv"));
-        page_rdv->setGeometry(QRect(410, 300, 201, 151));
+        page_rdv->setGeometry(QRect(540, 350, 201, 151));
         QFont font;
         font.setFamily(QStringLiteral("MS Shell Dlg 2"));
         font.setPointSize(10);
@@ -1557,7 +1556,7 @@ public:
         page_rdv->setIconSize(QSize(24, 24));
         pec_commande = new QPushButton(page_2);
         pec_commande->setObjectName(QStringLiteral("pec_commande"));
-        pec_commande->setGeometry(QRect(410, 500, 201, 151));
+        pec_commande->setGeometry(QRect(540, 500, 201, 151));
         pec_commande->setCursor(QCursor(Qt::PointingHandCursor));
         pec_commande->setStyleSheet(QLatin1String("QPushButton {\n"
 "	background-position:  center;\n"
@@ -1584,7 +1583,7 @@ public:
         pec_commande->setIconSize(QSize(24, 24));
         employe_service = new QPushButton(page_2);
         employe_service->setObjectName(QStringLiteral("employe_service"));
-        employe_service->setGeometry(QRect(660, 500, 201, 151));
+        employe_service->setGeometry(QRect(740, 500, 201, 151));
         employe_service->setCursor(QCursor(Qt::PointingHandCursor));
         employe_service->setStyleSheet(QLatin1String("QPushButton {\n"
 "	background-position:  center;\n"
@@ -1611,19 +1610,19 @@ public:
         employe_service->setIconSize(QSize(24, 24));
         label_3 = new QLabel(page_2);
         label_3->setObjectName(QStringLiteral("label_3"));
-        label_3->setGeometry(QRect(470, 140, 771, 81));
+        label_3->setGeometry(QRect(570, 190, 771, 81));
         QFont font1;
-        font1.setFamily(QStringLiteral("Black Jack"));
+        font1.setFamily(QStringLiteral("MS Shell Dlg 2"));
         font1.setPointSize(41);
-        font1.setBold(false);
-        font1.setWeight(50);
+        font1.setBold(true);
+        font1.setWeight(75);
         label_3->setFont(font1);
         label_3->setStyleSheet(QLatin1String("color : white ; \n"
 "letter-spacing:7px ; \n"
 "background-color:transparent;"));
         label_76 = new QLabel(page_2);
         label_76->setObjectName(QStringLiteral("label_76"));
-        label_76->setGeometry(QRect(570, 210, 411, 41));
+        label_76->setGeometry(QRect(750, 270, 411, 41));
         QFont font2;
         font2.setFamily(QStringLiteral("Bahnschrift Light"));
         font2.setPointSize(11);
@@ -1634,13 +1633,13 @@ public:
 "letter-spacing:2px ; "));
         frame_2 = new QFrame(page_2);
         frame_2->setObjectName(QStringLiteral("frame_2"));
-        frame_2->setGeometry(QRect(50, 0, 1741, 861));
+        frame_2->setGeometry(QRect(-30, 0, 1991, 861));
         frame_2->setStyleSheet(QStringLiteral("background-color: rgb(29, 30, 48);"));
         frame_2->setFrameShape(QFrame::StyledPanel);
         frame_2->setFrameShadow(QFrame::Raised);
         chambre_machine = new QPushButton(frame_2);
         chambre_machine->setObjectName(QStringLiteral("chambre_machine"));
-        chambre_machine->setGeometry(QRect(860, 300, 201, 151));
+        chambre_machine->setGeometry(QRect(970, 350, 201, 151));
         chambre_machine->setCursor(QCursor(Qt::PointingHandCursor));
         chambre_machine->setStyleSheet(QLatin1String("QPushButton {\n"
 "	background-position:  center;\n"
@@ -1668,7 +1667,7 @@ public:
         chambre_machine->setIconSize(QSize(24, 24));
         page_visite = new QPushButton(frame_2);
         page_visite->setObjectName(QStringLiteral("page_visite"));
-        page_visite->setGeometry(QRect(610, 300, 201, 151));
+        page_visite->setGeometry(QRect(770, 350, 201, 151));
         page_visite->setCursor(QCursor(Qt::PointingHandCursor));
         page_visite->setStyleSheet(QLatin1String("QPushButton {\n"
 "	background-position:  center;\n"
@@ -1696,7 +1695,7 @@ public:
         page_visite->setIconSize(QSize(24, 24));
         label_83 = new QLabel(frame_2);
         label_83->setObjectName(QStringLiteral("label_83"));
-        label_83->setGeometry(QRect(660, 400, 121, 16));
+        label_83->setGeometry(QRect(810, 450, 121, 16));
         label_83->setStyleSheet(QLatin1String("QLabel{\n"
 "color:white;\n"
 "background-color:transparent;\n"
@@ -1706,7 +1705,7 @@ public:
 "}"));
         label_82 = new QLabel(frame_2);
         label_82->setObjectName(QStringLiteral("label_82"));
-        label_82->setGeometry(QRect(890, 400, 131, 16));
+        label_82->setGeometry(QRect(1000, 450, 131, 16));
         label_82->setStyleSheet(QLatin1String("QLabel{\n"
 "color:white;\n"
 "background-color:transparent;\n"
@@ -1717,7 +1716,7 @@ public:
 "}"));
         label_80 = new QLabel(frame_2);
         label_80->setObjectName(QStringLiteral("label_80"));
-        label_80->setGeometry(QRect(910, 410, 101, 21));
+        label_80->setGeometry(QRect(1020, 460, 101, 21));
         label_80->setStyleSheet(QLatin1String("QLabel{\n"
 "color:white;\n"
 "background-color:transparent;\n"
@@ -1728,7 +1727,7 @@ public:
 "}"));
         new_account = new QPushButton(frame_2);
         new_account->setObjectName(QStringLiteral("new_account"));
-        new_account->setGeometry(QRect(860, 500, 201, 151));
+        new_account->setGeometry(QRect(970, 500, 201, 151));
         new_account->setCursor(QCursor(Qt::PointingHandCursor));
         new_account->setStyleSheet(QLatin1String("QPushButton {\n"
 "	background-position:  center;\n"
@@ -1750,23 +1749,13 @@ public:
 "}\n"
 ""));
         QIcon icon6;
-        icon6.addFile(QStringLiteral("../photo/new_account.png"), QSize(), QIcon::Normal, QIcon::Off);
+        icon6.addFile(QStringLiteral("../icons/24x24/cil-user-follow.png"), QSize(), QIcon::Normal, QIcon::Off);
         new_account->setIcon(icon6);
         new_account->setIconSize(QSize(100, 100));
         label_87 = new QLabel(frame_2);
         label_87->setObjectName(QStringLiteral("label_87"));
-        label_87->setGeometry(QRect(910, 620, 111, 16));
+        label_87->setGeometry(QRect(1020, 600, 111, 16));
         label_87->setStyleSheet(QLatin1String("QLabel{\n"
-"color:white;\n"
-"background-color:transparent;\n"
-"}\n"
-"QLabel:hover{\n"
-"color:white; \n"
-"}"));
-        label_86 = new QLabel(frame_2);
-        label_86->setObjectName(QStringLiteral("label_86"));
-        label_86->setGeometry(QRect(670, 800, 91, 16));
-        label_86->setStyleSheet(QLatin1String("QLabel{\n"
 "color:white;\n"
 "background-color:transparent;\n"
 "}\n"
@@ -1775,7 +1764,7 @@ public:
 "}"));
         exit_2 = new QPushButton(frame_2);
         exit_2->setObjectName(QStringLiteral("exit_2"));
-        exit_2->setGeometry(QRect(610, 690, 201, 151));
+        exit_2->setGeometry(QRect(1170, 500, 201, 151));
         exit_2->setCursor(QCursor(Qt::PointingHandCursor));
         exit_2->setStyleSheet(QLatin1String("QPushButton {\n"
 "	background-position:  center;\n"
@@ -1800,7 +1789,7 @@ public:
         exit_2->setIconSize(QSize(24, 24));
         temp = new QPushButton(frame_2);
         temp->setObjectName(QStringLiteral("temp"));
-        temp->setGeometry(QRect(1080, 300, 201, 151));
+        temp->setGeometry(QRect(1170, 350, 201, 151));
         temp->setCursor(QCursor(Qt::PointingHandCursor));
         temp->setStyleSheet(QLatin1String("QPushButton {\n"
 "	background-position:  center;\n"
@@ -1825,9 +1814,19 @@ public:
         icon7.addFile(QStringLiteral("../photo/therm.png"), QSize(), QIcon::Normal, QIcon::Off);
         temp->setIcon(icon7);
         temp->setIconSize(QSize(100, 100));
+        label_91 = new QLabel(frame_2);
+        label_91->setObjectName(QStringLiteral("label_91"));
+        label_91->setGeometry(QRect(1220, 600, 101, 16));
+        label_91->setStyleSheet(QLatin1String("QLabel{\n"
+"color:white;\n"
+"background-color:transparent;\n"
+"}\n"
+"QLabel:hover{\n"
+"color:white; \n"
+"}"));
         label_77 = new QLabel(page_2);
         label_77->setObjectName(QStringLiteral("label_77"));
-        label_77->setGeometry(QRect(450, 400, 151, 20));
+        label_77->setGeometry(QRect(570, 450, 151, 20));
         label_77->setStyleSheet(QLatin1String("QLabel{\n"
 "color:white;\n"
 "background-color:transparent;\n"
@@ -1837,7 +1836,7 @@ public:
 "}"));
         label_81 = new QLabel(page_2);
         label_81->setObjectName(QStringLiteral("label_81"));
-        label_81->setGeometry(QRect(440, 600, 151, 20));
+        label_81->setGeometry(QRect(570, 600, 151, 20));
         label_81->setStyleSheet(QLatin1String("QLabel{\n"
 "color:white;\n"
 "background-color:transparent;\n"
@@ -1847,7 +1846,7 @@ public:
 "}"));
         label_85 = new QLabel(page_2);
         label_85->setObjectName(QStringLiteral("label_85"));
-        label_85->setGeometry(QRect(660, 600, 191, 16));
+        label_85->setGeometry(QRect(740, 600, 191, 16));
         label_85->setStyleSheet(QLatin1String("QLabel{\n"
 "color:white;\n"
 "background-color:transparent;\n"
@@ -2420,13 +2419,13 @@ public:
         page_13->setObjectName(QStringLiteral("page_13"));
         frame_3 = new QFrame(page_13);
         frame_3->setObjectName(QStringLiteral("frame_3"));
-        frame_3->setGeometry(QRect(210, 40, 1571, 51));
+        frame_3->setGeometry(QRect(80, 0, 1831, 51));
         frame_3->setStyleSheet(QStringLiteral("background-color:#25283b;"));
         frame_3->setFrameShape(QFrame::StyledPanel);
         frame_3->setFrameShadow(QFrame::Raised);
         deconnecter = new QPushButton(frame_3);
         deconnecter->setObjectName(QStringLiteral("deconnecter"));
-        deconnecter->setGeometry(QRect(1020, 20, 131, 23));
+        deconnecter->setGeometry(QRect(1470, 10, 131, 31));
         deconnecter->setCursor(QCursor(Qt::PointingHandCursor));
         deconnecter->setStyleSheet(QLatin1String("QPushButton{\n"
 "color:white;\n"
@@ -2436,18 +2435,9 @@ public:
 "QPushButton:hover{\n"
 "border-bottom:1px solid white;\n"
 "}"));
-        label_2 = new QLabel(page_13);
-        label_2->setObjectName(QStringLiteral("label_2"));
-        label_2->setGeometry(QRect(140, 390, 71, 20));
-        QFont font3;
-        font3.setFamily(QStringLiteral("Segoe UI"));
-        font3.setBold(false);
-        font3.setWeight(50);
-        label_2->setFont(font3);
-        label_2->setStyleSheet(QStringLiteral("color:rgb(255, 255, 255);"));
         pushButton_7 = new QPushButton(page_13);
         pushButton_7->setObjectName(QStringLiteral("pushButton_7"));
-        pushButton_7->setGeometry(QRect(130, 270, 80, 51));
+        pushButton_7->setGeometry(QRect(0, 270, 80, 51));
         pushButton_7->setCursor(QCursor(Qt::PointingHandCursor));
         pushButton_7->setStyleSheet(QLatin1String("QPushButton {	\n"
 "	background-image: url(C:/Users/HP/Documents/health-app/icons/16x16/cil-home.png);\n"
@@ -2477,16 +2467,6 @@ public:
         gridLayout_2 = new QGridLayout(layoutWidget);
         gridLayout_2->setObjectName(QStringLiteral("gridLayout_2"));
         gridLayout_2->setContentsMargins(0, 0, 0, 0);
-        label = new QLabel(page_13);
-        label->setObjectName(QStringLiteral("label"));
-        label->setGeometry(QRect(130, 460, 81, 20));
-        label->setFont(font3);
-        label->setStyleSheet(QStringLiteral("color:rgb(255, 255, 255);"));
-        label_11 = new QLabel(page_13);
-        label_11->setObjectName(QStringLiteral("label_11"));
-        label_11->setGeometry(QRect(130, 320, 81, 20));
-        label_11->setFont(font3);
-        label_11->setStyleSheet(QStringLiteral("color:rgb(255, 255, 255);"));
         frame_4 = new QFrame(page_13);
         frame_4->setObjectName(QStringLiteral("frame_4"));
         frame_4->setGeometry(QRect(210, 100, 1571, 631));
@@ -2495,35 +2475,12 @@ public:
         frame_4->setFrameShadow(QFrame::Raised);
         stackedWidget_6 = new QStackedWidget(frame_4);
         stackedWidget_6->setObjectName(QStringLiteral("stackedWidget_6"));
-        stackedWidget_6->setGeometry(QRect(0, 10, 1571, 631));
+        stackedWidget_6->setGeometry(QRect(0, 10, 1571, 721));
         page_22 = new QWidget();
         page_22->setObjectName(QStringLiteral("page_22"));
-        imprimer_rdv_2 = new QPushButton(page_22);
-        imprimer_rdv_2->setObjectName(QStringLiteral("imprimer_rdv_2"));
-        imprimer_rdv_2->setGeometry(QRect(80, 140, 41, 31));
-        imprimer_rdv_2->setCursor(QCursor(Qt::PointingHandCursor));
-        imprimer_rdv_2->setStyleSheet(QLatin1String("QPushButton {\n"
-"background-image: url(C:/Users/HP/Downloads/Integration/E-HEALTH/icons/16x16/cil-print.png);\n"
-"	background-position:  center;\n"
-"\n"
-"    background-repeat: no-repeat;\n"
-"\n"
-"background-color:#25283b;\n"
-"    border: 1px solid rgb(32, 34, 42);\n"
-"	border-top-left-radius: 7px;\n"
-"    border-top-right-radius: 7px;\n"
-"color:white;\n"
-"}\n"
-"\n"
-"QPushButton:hover {\n"
-"background-color:rgb(48, 53, 77);\n"
-"}\n"
-"QPushButton:pressed {	\n"
-"	border: 2px solid rgb(32, 34, 42);\n"
-"}"));
         tableView_4 = new QTableView(page_22);
         tableView_4->setObjectName(QStringLiteral("tableView_4"));
-        tableView_4->setGeometry(QRect(120, 140, 981, 411));
+        tableView_4->setGeometry(QRect(50, 140, 1251, 471));
         tableView_4->viewport()->setProperty("cursor", QVariant(QCursor(Qt::PointingHandCursor)));
         tableView_4->setStyleSheet(QLatin1String("\n"
 "QTableView{	\n"
@@ -2628,16 +2585,16 @@ public:
         tableView_4->verticalHeader()->setVisible(false);
         stackedWidget_7 = new QStackedWidget(page_22);
         stackedWidget_7->setObjectName(QStringLiteral("stackedWidget_7"));
-        stackedWidget_7->setGeometry(QRect(60, 30, 1101, 111));
+        stackedWidget_7->setGeometry(QRect(40, 30, 1261, 111));
         page_23 = new QWidget();
         page_23->setObjectName(QStringLiteral("page_23"));
         supprimer_rdv_2 = new QPushButton(page_23);
         supprimer_rdv_2->setObjectName(QStringLiteral("supprimer_rdv_2"));
-        supprimer_rdv_2->setGeometry(QRect(890, 80, 151, 31));
+        supprimer_rdv_2->setGeometry(QRect(1110, 80, 151, 31));
         supprimer_rdv_2->setCursor(QCursor(Qt::PointingHandCursor));
         supprimer_rdv_2->setStyleSheet(QLatin1String("QPushButton {	\n"
 "border:none;\n"
-"	background-image: url(C:/Users/HP/Documents/Health-application/icons/16x16/cil-x.png);\n"
+"	background-image: url(C:/Users/Pavillion/Desktop/Integration/E-HEALTH/icons/16x16/cil-x.png);\n"
 "	background-position: left center;\n"
 "padding-left:5px;\n"
 "    background-repeat: no-repeat;\n"
@@ -2662,12 +2619,12 @@ public:
 ""));
         modifier_rdv_2 = new QPushButton(page_23);
         modifier_rdv_2->setObjectName(QStringLiteral("modifier_rdv_2"));
-        modifier_rdv_2->setGeometry(QRect(720, 80, 161, 31));
+        modifier_rdv_2->setGeometry(QRect(940, 80, 161, 31));
         modifier_rdv_2->setCursor(QCursor(Qt::PointingHandCursor));
         modifier_rdv_2->setStyleSheet(QLatin1String("QPushButton {	\n"
 "border:none;\n"
 "background-color:#0dab9c;\n"
-"	background-image: url(C:/Users/HP/Documents/Health-application/icons/16x16/cil-description.png);\n"
+"	background-image: url(C:/Users/Pavillion/Desktop/Integration/E-HEALTH/icons/16x16/cil-description.png);\n"
 "	background-position: left center;\n"
 "\n"
 "    background-repeat: no-repeat;\n"
@@ -2693,15 +2650,15 @@ public:
 ""));
         ajouter_rdv_2 = new QPushButton(page_23);
         ajouter_rdv_2->setObjectName(QStringLiteral("ajouter_rdv_2"));
-        ajouter_rdv_2->setGeometry(QRect(550, 80, 161, 30));
+        ajouter_rdv_2->setGeometry(QRect(770, 80, 161, 30));
         ajouter_rdv_2->setMinimumSize(QSize(150, 30));
-        QFont font4;
-        font4.setFamily(QStringLiteral("Segoe UI"));
-        font4.setPointSize(9);
-        ajouter_rdv_2->setFont(font4);
+        QFont font3;
+        font3.setFamily(QStringLiteral("Segoe UI"));
+        font3.setPointSize(9);
+        ajouter_rdv_2->setFont(font3);
         ajouter_rdv_2->setCursor(QCursor(Qt::PointingHandCursor));
         ajouter_rdv_2->setStyleSheet(QLatin1String("QPushButton {\n"
-"background-image: url(C:/Users/HP/Documents/Health-application/icons/16x16/cil-folder-open.png);\n"
+"background-image: url(C:/Users/Pavillion/Desktop/Integration/E-HEALTH/icons/16x16/cil-folder-open.png);\n"
 "	background-position: left center;\n"
 "\n"
 "\n"
@@ -2730,17 +2687,17 @@ public:
         labelBoxBlenderInstalation_10 = new QLabel(page_23);
         labelBoxBlenderInstalation_10->setObjectName(QStringLiteral("labelBoxBlenderInstalation_10"));
         labelBoxBlenderInstalation_10->setGeometry(QRect(430, 10, 251, 23));
-        QFont font5;
-        font5.setFamily(QStringLiteral("Segoe UI"));
-        font5.setPointSize(13);
-        font5.setBold(true);
-        font5.setWeight(75);
-        labelBoxBlenderInstalation_10->setFont(font5);
+        QFont font4;
+        font4.setFamily(QStringLiteral("Segoe UI"));
+        font4.setPointSize(13);
+        font4.setBold(true);
+        font4.setWeight(75);
+        labelBoxBlenderInstalation_10->setFont(font4);
         labelBoxBlenderInstalation_10->setStyleSheet(QLatin1String("color:rgb(255, 255, 255);\n"
 "background-color: transparent;"));
         lineEdit_12 = new QLineEdit(page_23);
         lineEdit_12->setObjectName(QStringLiteral("lineEdit_12"));
-        lineEdit_12->setGeometry(QRect(30, 66, 281, 20));
+        lineEdit_12->setGeometry(QRect(20, 66, 281, 20));
         lineEdit_12->setStyleSheet(QLatin1String("QLineEdit{\n"
 "background-color: rgb(29, 30, 48);\n"
 "border:1px solid rgb(61, 70, 86);\n"
@@ -2755,23 +2712,23 @@ public:
 "}"));
         pushButton_10 = new QPushButton(page_23);
         pushButton_10->setObjectName(QStringLiteral("pushButton_10"));
-        pushButton_10->setGeometry(QRect(30, 70, 31, 16));
+        pushButton_10->setGeometry(QRect(20, 70, 31, 16));
         pushButton_10->setStyleSheet(QLatin1String("border:none;\n"
 "background-color:none;\n"
-"	background-image: url(C:/Users/HP/Documents/Health-application/icons/16x16/cil-find-in-page.png);\n"
+"	background-image: url(C:/Users/Pavillion/Desktop/Integration/E-HEALTH/icons/16x16/cil-find-in-page.png);\n"
 "	background-position: left center;\n"
 "    background-repeat: no-repeat;"));
         label_16 = new QLabel(page_23);
         label_16->setObjectName(QStringLiteral("label_16"));
-        label_16->setGeometry(QRect(26, 90, 61, 20));
-        QFont font6;
-        font6.setBold(true);
-        font6.setWeight(75);
-        label_16->setFont(font6);
+        label_16->setGeometry(QRect(16, 90, 61, 20));
+        QFont font5;
+        font5.setBold(true);
+        font5.setWeight(75);
+        label_16->setFont(font5);
         label_16->setStyleSheet(QStringLiteral("color:white;"));
         date_2 = new QPushButton(page_23);
         date_2->setObjectName(QStringLiteral("date_2"));
-        date_2->setGeometry(QRect(150, 90, 81, 20));
+        date_2->setGeometry(QRect(140, 90, 81, 20));
         date_2->setCursor(QCursor(Qt::PointingHandCursor));
         date_2->setStyleSheet(QLatin1String("QPushButton{color:rgb(211, 211, 211);\n"
 "border-bottom:1px solid transparent;\n"
@@ -2783,7 +2740,7 @@ public:
 "}"));
         docteur_2 = new QPushButton(page_23);
         docteur_2->setObjectName(QStringLiteral("docteur_2"));
-        docteur_2->setGeometry(QRect(240, 90, 75, 20));
+        docteur_2->setGeometry(QRect(230, 90, 75, 20));
         docteur_2->setCursor(QCursor(Qt::PointingHandCursor));
         docteur_2->setStyleSheet(QLatin1String("QPushButton{color:rgb(211, 211, 211);\n"
 "border-bottom:1px solid transparent;\n"
@@ -2795,7 +2752,7 @@ public:
 "}"));
         trie_patient_2 = new QPushButton(page_23);
         trie_patient_2->setObjectName(QStringLiteral("trie_patient_2"));
-        trie_patient_2->setGeometry(QRect(90, 90, 51, 20));
+        trie_patient_2->setGeometry(QRect(80, 90, 51, 20));
         trie_patient_2->setCursor(QCursor(Qt::PointingHandCursor));
         trie_patient_2->setStyleSheet(QLatin1String("QPushButton{color:rgb(211, 211, 211);\n"
 "border-bottom:1px solid transparent;\n"
@@ -2810,7 +2767,7 @@ public:
         pushButton_15->setGeometry(QRect(370, 0, 81, 41));
         pushButton_15->setCursor(QCursor(Qt::PointingHandCursor));
         pushButton_15->setStyleSheet(QLatin1String("QPushButton {	\n"
-"	background-image: url(C:/Users/HP/Downloads/Integration/E-HEALTH/icons/16x16/cil-clipboard.png);\n"
+"	background-image: url(C:/Users/Pavillion/Desktop/Integration/E-HEALTH/icons/16x16/cil-clipboard.png);\n"
 "	background-position: center;\n"
 "    background-repeat: no-repeat;\n"
 "	border: none;\n"
@@ -2831,9 +2788,9 @@ public:
         page_24->setObjectName(QStringLiteral("page_24"));
         suivant_2 = new QPushButton(page_24);
         suivant_2->setObjectName(QStringLiteral("suivant_2"));
-        suivant_2->setGeometry(QRect(890, 80, 151, 30));
+        suivant_2->setGeometry(QRect(1110, 80, 151, 30));
         suivant_2->setMinimumSize(QSize(150, 30));
-        suivant_2->setFont(font4);
+        suivant_2->setFont(font3);
         suivant_2->setCursor(QCursor(Qt::PointingHandCursor));
         suivant_2->setStyleSheet(QLatin1String("QPushButton {\n"
 "background-image: url(C:/Users/HP/Documents/Health-application/icons/16x16/cil-arrow-right.png);\n"
@@ -2863,14 +2820,14 @@ public:
         labelBoxBlenderInstalation_11 = new QLabel(page_24);
         labelBoxBlenderInstalation_11->setObjectName(QStringLiteral("labelBoxBlenderInstalation_11"));
         labelBoxBlenderInstalation_11->setGeometry(QRect(40, 10, 751, 23));
-        labelBoxBlenderInstalation_11->setFont(font5);
+        labelBoxBlenderInstalation_11->setFont(font4);
         labelBoxBlenderInstalation_11->setStyleSheet(QLatin1String("color:rgb(255, 255, 255);\n"
 "background-color: transparent;"));
         ajouterr_2 = new QPushButton(page_24);
         ajouterr_2->setObjectName(QStringLiteral("ajouterr_2"));
-        ajouterr_2->setGeometry(QRect(60, 80, 151, 30));
+        ajouterr_2->setGeometry(QRect(10, 80, 181, 30));
         ajouterr_2->setMinimumSize(QSize(150, 30));
-        ajouterr_2->setFont(font4);
+        ajouterr_2->setFont(font3);
         ajouterr_2->setCursor(QCursor(Qt::PointingHandCursor));
         ajouterr_2->setStyleSheet(QLatin1String("QPushButton {\n"
 "background-image: url(C:/Users/HP/Documents/Health-application/icons/16x16/cil-folder-open.png);\n"
@@ -2898,7 +2855,7 @@ public:
         page_25->setObjectName(QStringLiteral("page_25"));
         frame_9 = new QFrame(page_25);
         frame_9->setObjectName(QStringLiteral("frame_9"));
-        frame_9->setGeometry(QRect(460, 130, 251, 361));
+        frame_9->setGeometry(QRect(460, 130, 271, 391));
         frame_9->setStyleSheet(QLatin1String("QFrame{\n"
 "background-color:#25283b;\n"
 "\n"
@@ -2912,7 +2869,7 @@ public:
         lineEdit_17 = new QLineEdit(frame_9);
         lineEdit_17->setObjectName(QStringLiteral("lineEdit_17"));
         lineEdit_17->setEnabled(false);
-        lineEdit_17->setGeometry(QRect(110, 90, 171, 21));
+        lineEdit_17->setGeometry(QRect(120, 90, 171, 21));
         lineEdit_17->setStyleSheet(QLatin1String("QLineEdit{\n"
 "background-color:transparent;\n"
 "border-radius:none;\n"
@@ -2923,7 +2880,7 @@ public:
         lineEdit_21 = new QLineEdit(frame_9);
         lineEdit_21->setObjectName(QStringLiteral("lineEdit_21"));
         lineEdit_21->setEnabled(false);
-        lineEdit_21->setGeometry(QRect(110, 120, 171, 21));
+        lineEdit_21->setGeometry(QRect(120, 120, 171, 21));
         lineEdit_21->setStyleSheet(QLatin1String("QLineEdit{\n"
 "background-color:transparent;\n"
 "border-radius:none;\n"
@@ -2934,7 +2891,7 @@ public:
         lineEdit_28 = new QLineEdit(frame_9);
         lineEdit_28->setObjectName(QStringLiteral("lineEdit_28"));
         lineEdit_28->setEnabled(false);
-        lineEdit_28->setGeometry(QRect(110, 150, 171, 21));
+        lineEdit_28->setGeometry(QRect(120, 150, 171, 21));
         lineEdit_28->setStyleSheet(QLatin1String("QLineEdit{\n"
 "background-color:transparent;\n"
 "border-radius:none;\n"
@@ -2945,7 +2902,7 @@ public:
 ""));
         lineEdit_29 = new QLineEdit(frame_9);
         lineEdit_29->setObjectName(QStringLiteral("lineEdit_29"));
-        lineEdit_29->setGeometry(QRect(40, 240, 171, 21));
+        lineEdit_29->setGeometry(QRect(50, 240, 171, 21));
         lineEdit_29->setStyleSheet(QLatin1String("QLineEdit{\n"
 "background-color:#25283b;\n"
 "border-radius:none;\n"
@@ -2958,7 +2915,7 @@ public:
 "}"));
         dateTimeEdit_3 = new QDateTimeEdit(frame_9);
         dateTimeEdit_3->setObjectName(QStringLiteral("dateTimeEdit_3"));
-        dateTimeEdit_3->setGeometry(QRect(40, 200, 171, 22));
+        dateTimeEdit_3->setGeometry(QRect(50, 200, 171, 22));
         dateTimeEdit_3->setStyleSheet(QLatin1String("QDateTimeEdit{\n"
 "background-color:#25283b;\n"
 "border-radius:none;\n"
@@ -2982,18 +2939,18 @@ public:
 "color:white;"));
         label_30 = new QLabel(frame_9);
         label_30->setObjectName(QStringLiteral("label_30"));
-        label_30->setGeometry(QRect(50, 90, 51, 21));
+        label_30->setGeometry(QRect(50, 90, 61, 21));
         label_30->setStyleSheet(QLatin1String("border:none;\n"
 "color:white;"));
         labelBoxBlenderInstalation_12 = new QLabel(frame_9);
         labelBoxBlenderInstalation_12->setObjectName(QStringLiteral("labelBoxBlenderInstalation_12"));
-        labelBoxBlenderInstalation_12->setGeometry(QRect(-290, 20, 801, 31));
-        QFont font7;
-        font7.setFamily(QStringLiteral("Segoe UI"));
-        font7.setPointSize(12);
-        font7.setBold(true);
-        font7.setWeight(75);
-        labelBoxBlenderInstalation_12->setFont(font7);
+        labelBoxBlenderInstalation_12->setGeometry(QRect(-420, 20, 801, 31));
+        QFont font6;
+        font6.setFamily(QStringLiteral("Segoe UI"));
+        font6.setPointSize(12);
+        font6.setBold(true);
+        font6.setWeight(75);
+        labelBoxBlenderInstalation_12->setFont(font6);
         labelBoxBlenderInstalation_12->setStyleSheet(QLatin1String("color:rgb(255, 255, 255);\n"
 "background-color: transparent;\n"
 "border:none;\n"
@@ -3009,9 +2966,9 @@ public:
         labelBoxBlenderInstalation_12->raise();
         ajouter_rendez_2 = new QPushButton(page_25);
         ajouter_rendez_2->setObjectName(QStringLiteral("ajouter_rendez_2"));
-        ajouter_rendez_2->setGeometry(QRect(500, 430, 171, 30));
+        ajouter_rendez_2->setGeometry(QRect(510, 430, 171, 30));
         ajouter_rendez_2->setMinimumSize(QSize(150, 30));
-        ajouter_rendez_2->setFont(font4);
+        ajouter_rendez_2->setFont(font3);
         ajouter_rendez_2->setCursor(QCursor(Qt::PointingHandCursor));
         ajouter_rendez_2->setStyleSheet(QLatin1String("QPushButton {\n"
 "	border: 1px solid rgb(43, 61, 173);\n"
@@ -3036,7 +2993,7 @@ public:
         page_26->setObjectName(QStringLiteral("page_26"));
         frame_10 = new QFrame(page_26);
         frame_10->setObjectName(QStringLiteral("frame_10"));
-        frame_10->setGeometry(QRect(450, 111, 251, 361));
+        frame_10->setGeometry(QRect(450, 111, 281, 381));
         frame_10->setStyleSheet(QLatin1String("QFrame{\n"
 "background-color:#25283b;\n"
 "\n"
@@ -3050,12 +3007,12 @@ public:
         labelBoxBlenderInstalation_13 = new QLabel(frame_10);
         labelBoxBlenderInstalation_13->setObjectName(QStringLiteral("labelBoxBlenderInstalation_13"));
         labelBoxBlenderInstalation_13->setGeometry(QRect(30, 19, 221, 31));
-        QFont font8;
-        font8.setFamily(QStringLiteral("Segoe UI"));
-        font8.setPointSize(11);
-        font8.setBold(true);
-        font8.setWeight(75);
-        labelBoxBlenderInstalation_13->setFont(font8);
+        QFont font7;
+        font7.setFamily(QStringLiteral("Segoe UI"));
+        font7.setPointSize(11);
+        font7.setBold(true);
+        font7.setWeight(75);
+        labelBoxBlenderInstalation_13->setFont(font7);
         labelBoxBlenderInstalation_13->setStyleSheet(QLatin1String("color:rgb(255, 255, 255);\n"
 "border:none;"));
         lineEdit_30 = new QLineEdit(frame_10);
@@ -3079,7 +3036,7 @@ public:
 ""));
         lineEdit_32 = new QLineEdit(frame_10);
         lineEdit_32->setObjectName(QStringLiteral("lineEdit_32"));
-        lineEdit_32->setGeometry(QRect(40, 240, 171, 21));
+        lineEdit_32->setGeometry(QRect(50, 240, 171, 21));
         lineEdit_32->setStyleSheet(QLatin1String("QLineEdit{\n"
 "background-color:#25283b;\n"
 "border-radius:none;\n"
@@ -3106,7 +3063,7 @@ public:
 "color:white;"));
         dateTimeEdit_4 = new QDateTimeEdit(frame_10);
         dateTimeEdit_4->setObjectName(QStringLiteral("dateTimeEdit_4"));
-        dateTimeEdit_4->setGeometry(QRect(40, 190, 171, 22));
+        dateTimeEdit_4->setGeometry(QRect(50, 190, 171, 22));
         dateTimeEdit_4->setStyleSheet(QLatin1String("QDateTimeEdit{\n"
 "background-color:#25283b;\n"
 "border-radius:none;\n"
@@ -3129,7 +3086,7 @@ public:
 "color:white;"));
         modifier_rendez_2 = new QPushButton(frame_10);
         modifier_rendez_2->setObjectName(QStringLiteral("modifier_rendez_2"));
-        modifier_rendez_2->setGeometry(QRect(40, 300, 171, 31));
+        modifier_rendez_2->setGeometry(QRect(50, 300, 171, 31));
         modifier_rendez_2->setStyleSheet(QLatin1String("QPushButton {\n"
 "background-image: url(C:/Users/HP/Documents/Health-application/icons/16x16/cil-folder-open.png);\n"
 "	background-position: left center;\n"
@@ -3169,7 +3126,7 @@ public:
         page_27->setObjectName(QStringLiteral("page_27"));
         tableView_5 = new QTableView(page_27);
         tableView_5->setObjectName(QStringLiteral("tableView_5"));
-        tableView_5->setGeometry(QRect(120, 140, 981, 411));
+        tableView_5->setGeometry(QRect(140, 160, 1321, 461));
         tableView_5->viewport()->setProperty("cursor", QVariant(QCursor(Qt::PointingHandCursor)));
         tableView_5->setFocusPolicy(Qt::StrongFocus);
         tableView_5->setStyleSheet(QLatin1String("\n"
@@ -3276,12 +3233,12 @@ public:
         tableView_5->verticalHeader()->setVisible(false);
         modifier_patient_2 = new QPushButton(page_27);
         modifier_patient_2->setObjectName(QStringLiteral("modifier_patient_2"));
-        modifier_patient_2->setGeometry(QRect(790, 110, 151, 31));
+        modifier_patient_2->setGeometry(QRect(1150, 130, 151, 31));
         modifier_patient_2->setCursor(QCursor(Qt::PointingHandCursor));
         modifier_patient_2->setStyleSheet(QLatin1String("QPushButton {	\n"
 "border:none;\n"
 "background-color:#0dab9c;\n"
-"	background-image: url(C:/Users/HP/Documents/Health-application/icons/16x16/cil-description.png);\n"
+"	background-image: url(C:/Users/Pavillion/Desktop/Integration/E-HEALTH/icons/16x16/cil-description.png);\n"
 "	background-position: left center;\n"
 "\n"
 "    background-repeat: no-repeat;\n"
@@ -3307,18 +3264,18 @@ public:
 ""));
         labelBoxBlenderInstalation_14 = new QLabel(page_27);
         labelBoxBlenderInstalation_14->setObjectName(QStringLiteral("labelBoxBlenderInstalation_14"));
-        labelBoxBlenderInstalation_14->setGeometry(QRect(100, 40, 811, 23));
-        labelBoxBlenderInstalation_14->setFont(font5);
+        labelBoxBlenderInstalation_14->setGeometry(QRect(170, 50, 811, 41));
+        labelBoxBlenderInstalation_14->setFont(font4);
         labelBoxBlenderInstalation_14->setStyleSheet(QLatin1String("color:rgb(255, 255, 255);\n"
 "background-color: transparent;"));
         ajouter_patient_2 = new QPushButton(page_27);
         ajouter_patient_2->setObjectName(QStringLiteral("ajouter_patient_2"));
-        ajouter_patient_2->setGeometry(QRect(620, 110, 161, 30));
+        ajouter_patient_2->setGeometry(QRect(980, 130, 161, 30));
         ajouter_patient_2->setMinimumSize(QSize(150, 30));
-        ajouter_patient_2->setFont(font4);
+        ajouter_patient_2->setFont(font3);
         ajouter_patient_2->setCursor(QCursor(Qt::PointingHandCursor));
         ajouter_patient_2->setStyleSheet(QLatin1String("QPushButton {\n"
-"background-image: url(C:/Users/HP/Documents/Health-application/icons/16x16/cil-folder-open.png);\n"
+"background-image: url(C:/Users/Pavillion/Desktop/Integration/E-HEALTH/icons/16x16/cil-folder-open.png);\n"
 "	background-position: left center;\n"
 "\n"
 "\n"
@@ -3346,7 +3303,7 @@ public:
 "}"));
         lineEdit_7 = new QLineEdit(page_27);
         lineEdit_7->setObjectName(QStringLiteral("lineEdit_7"));
-        lineEdit_7->setGeometry(QRect(90, 96, 261, 20));
+        lineEdit_7->setGeometry(QRect(110, 116, 261, 20));
         lineEdit_7->setStyleSheet(QLatin1String("QLineEdit{\n"
 "background-color: rgb(29, 30, 48);\n"
 "border:1px solid rgb(61, 70, 86);\n"
@@ -3361,11 +3318,11 @@ public:
 "}"));
         supprimer_patient_2 = new QPushButton(page_27);
         supprimer_patient_2->setObjectName(QStringLiteral("supprimer_patient_2"));
-        supprimer_patient_2->setGeometry(QRect(950, 110, 151, 31));
+        supprimer_patient_2->setGeometry(QRect(1310, 130, 151, 31));
         supprimer_patient_2->setCursor(QCursor(Qt::PointingHandCursor));
         supprimer_patient_2->setStyleSheet(QLatin1String("QPushButton {	\n"
 "border:none;\n"
-"	background-image: url(C:/Users/HP/Documents/Health-application/icons/16x16/cil-x.png);\n"
+"	background-image: url(C:/Users/Pavillion/Desktop/Integration/E-HEALTH/icons/16x16/cil-x.png);\n"
 "	background-position: left center;\n"
 "padding-left:5px;\n"
 "    background-repeat: no-repeat;\n"
@@ -3390,20 +3347,20 @@ public:
 ""));
         pushButton_11 = new QPushButton(page_27);
         pushButton_11->setObjectName(QStringLiteral("pushButton_11"));
-        pushButton_11->setGeometry(QRect(430, 30, 81, 41));
+        pushButton_11->setGeometry(QRect(570, 50, 81, 41));
         pushButton_11->setCursor(QCursor(Qt::PointingHandCursor));
         pushButton_11->setStyleSheet(QLatin1String("QPushButton {	\n"
-"	background-image: url(C:/Users/HP/Downloads/Integration/E-HEALTH/icons/16x16/cil-PEOPLE.png);\n"
+"	background-image: url(C:/Users/Pavillion/Desktop/Integration/E-HEALTH/icons/16x16/cil-PEOPLE.png);\n"
 "	background-position: center;\n"
 "    background-repeat: no-repeat;\n"
 "	border: none;\n"
 "}"));
         imprimer_patient_2 = new QPushButton(page_27);
         imprimer_patient_2->setObjectName(QStringLiteral("imprimer_patient_2"));
-        imprimer_patient_2->setGeometry(QRect(80, 140, 41, 31));
+        imprimer_patient_2->setGeometry(QRect(100, 160, 41, 31));
         imprimer_patient_2->setCursor(QCursor(Qt::PointingHandCursor));
         imprimer_patient_2->setStyleSheet(QLatin1String("QPushButton {\n"
-"background-image: url(C:/Users/HP/Downloads/Integration/E-HEALTH/icons/16x16/cil-print.png);\n"
+"background-image: url(C:/Users/Pavillion/Desktop/Integration/E-HEALTH/icons/16x16/cil-print.png);\n"
 "	background-position:  center;\n"
 "\n"
 "    background-repeat: no-repeat;\n"
@@ -3423,12 +3380,12 @@ public:
 "}"));
         label_13 = new QLabel(page_27);
         label_13->setObjectName(QStringLiteral("label_13"));
-        label_13->setGeometry(QRect(86, 120, 61, 21));
-        label_13->setFont(font6);
+        label_13->setGeometry(QRect(106, 140, 61, 21));
+        label_13->setFont(font5);
         label_13->setStyleSheet(QStringLiteral("color:white;"));
         alpha_2 = new QPushButton(page_27);
         alpha_2->setObjectName(QStringLiteral("alpha_2"));
-        alpha_2->setGeometry(QRect(280, 120, 75, 21));
+        alpha_2->setGeometry(QRect(300, 140, 75, 21));
         alpha_2->setCursor(QCursor(Qt::PointingHandCursor));
         alpha_2->setStyleSheet(QLatin1String("QPushButton{color:rgb(211, 211, 211);\n"
 "border-bottom:1px solid transparent;\n"
@@ -3440,7 +3397,7 @@ public:
 "}"));
         adresse_2 = new QPushButton(page_27);
         adresse_2->setObjectName(QStringLiteral("adresse_2"));
-        adresse_2->setGeometry(QRect(200, 120, 81, 21));
+        adresse_2->setGeometry(QRect(220, 140, 81, 21));
         adresse_2->setCursor(QCursor(Qt::PointingHandCursor));
         adresse_2->setStyleSheet(QLatin1String("QPushButton{color:rgb(211, 211, 211);\n"
 "border-bottom:1px solid transparent;\n"
@@ -3452,7 +3409,7 @@ public:
 "}"));
         cin_2 = new QPushButton(page_27);
         cin_2->setObjectName(QStringLiteral("cin_2"));
-        cin_2->setGeometry(QRect(150, 120, 51, 21));
+        cin_2->setGeometry(QRect(170, 140, 51, 21));
         cin_2->setCursor(QCursor(Qt::PointingHandCursor));
         cin_2->setStyleSheet(QLatin1String("QPushButton{color:rgb(211, 211, 211);\n"
 "border-bottom:1px solid transparent;\n"
@@ -3464,10 +3421,10 @@ public:
 "}"));
         pushButton_4 = new QPushButton(page_27);
         pushButton_4->setObjectName(QStringLiteral("pushButton_4"));
-        pushButton_4->setGeometry(QRect(90, 100, 31, 16));
+        pushButton_4->setGeometry(QRect(110, 120, 31, 16));
         pushButton_4->setStyleSheet(QLatin1String("border:none;\n"
 "background-color:none;\n"
-"	background-image: url(C:/Users/HP/Documents/Health-application/icons/16x16/cil-find-in-page.png);\n"
+"	background-image: url(C:/Users/Pavillion/Desktop/Integration/E-HEALTH/icons/16x16/cil-find-in-page.png);\n"
 "	background-position: left center;\n"
 "    background-repeat: no-repeat;"));
         stackedWidget_6->addWidget(page_27);
@@ -3594,7 +3551,7 @@ public:
         labelBoxBlenderInstalation_15 = new QLabel(frame_11);
         labelBoxBlenderInstalation_15->setObjectName(QStringLiteral("labelBoxBlenderInstalation_15"));
         labelBoxBlenderInstalation_15->setGeometry(QRect(60, 20, 211, 31));
-        labelBoxBlenderInstalation_15->setFont(font7);
+        labelBoxBlenderInstalation_15->setFont(font6);
         labelBoxBlenderInstalation_15->setStyleSheet(QLatin1String("color:rgb(255, 255, 255);\n"
 "background-color: transparent;\n"
 "border: none;\n"
@@ -3603,7 +3560,7 @@ public:
         ajouter_pat_2->setObjectName(QStringLiteral("ajouter_pat_2"));
         ajouter_pat_2->setGeometry(QRect(500, 470, 171, 30));
         ajouter_pat_2->setMinimumSize(QSize(150, 30));
-        ajouter_pat_2->setFont(font4);
+        ajouter_pat_2->setFont(font3);
         ajouter_pat_2->setCursor(QCursor(Qt::PointingHandCursor));
         ajouter_pat_2->setStyleSheet(QLatin1String("QPushButton {\n"
 "	border: 1px solid rgb(43, 61, 173);\n"
@@ -3640,7 +3597,7 @@ public:
         labelBoxBlenderInstalation_16 = new QLabel(frame_12);
         labelBoxBlenderInstalation_16->setObjectName(QStringLiteral("labelBoxBlenderInstalation_16"));
         labelBoxBlenderInstalation_16->setGeometry(QRect(70, 29, 181, 31));
-        labelBoxBlenderInstalation_16->setFont(font8);
+        labelBoxBlenderInstalation_16->setFont(font7);
         labelBoxBlenderInstalation_16->setStyleSheet(QLatin1String("color:rgb(255, 255, 255);\n"
 "border:none;"));
         lineEdit_40 = new QLineEdit(frame_12);
@@ -3727,7 +3684,7 @@ public:
         modifier_pat_2->setObjectName(QStringLiteral("modifier_pat_2"));
         modifier_pat_2->setGeometry(QRect(480, 480, 181, 31));
         modifier_pat_2->setMinimumSize(QSize(150, 30));
-        modifier_pat_2->setFont(font4);
+        modifier_pat_2->setFont(font3);
         modifier_pat_2->setCursor(QCursor(Qt::PointingHandCursor));
         modifier_pat_2->setStyleSheet(QLatin1String("QPushButton {\n"
 "	border: 1px solid rgb(43, 61, 173);\n"
@@ -3766,59 +3723,33 @@ public:
         verticalLayout_3 = new QVBoxLayout(layoutWidget_2);
         verticalLayout_3->setObjectName(QStringLiteral("verticalLayout_3"));
         verticalLayout_3->setContentsMargins(0, 0, 0, 0);
-        rendez_vous = new QPushButton(page_13);
-        rendez_vous->setObjectName(QStringLiteral("rendez_vous"));
-        rendez_vous->setGeometry(QRect(130, 410, 81, 51));
-        rendez_vous->setCursor(QCursor(Qt::PointingHandCursor));
-        rendez_vous->setStyleSheet(QLatin1String("QPushButton {	\n"
-"	background-image: url(C:/Users/HP/Documents/health-app/icons/16x16/cil-clipboard.png);\n"
-"	background-position: left center;\n"
-"    background-repeat: no-repeat;\n"
-"	border: none;\n"
-"	border-left: 32px solid #25283b;\n"
-"	border-right: 5px solid transparent;\n"
-"	background-color:#25283b;\n"
-"	text-align: left;\n"
-"}\n"
-"QPushButton:hover {\n"
-"	background-color:  rgb(50, 54, 79);\n"
-"	border-left: 32px solid rgb(50, 54, 79);\n"
-"	border-right: 5px solid #3d50eb;\n"
-"\n"
-"}\n"
-"QPushButton:pressed{\n"
-"	background-color: #25283b;\n"
-"	border-left: 32px solid #25283b;\n"
-"\n"
-"}\n"
-""));
         frame = new QFrame(page_13);
         frame->setObjectName(QStringLiteral("frame"));
-        frame->setGeometry(QRect(130, 40, 81, 671));
+        frame->setGeometry(QRect(-9, 0, 111, 1011));
         frame->setStyleSheet(QStringLiteral("background-color:#25283b;"));
         frame->setFrameShape(QFrame::StyledPanel);
         frame->setFrameShadow(QFrame::Raised);
         frame_6 = new QFrame(frame);
         frame_6->setObjectName(QStringLiteral("frame_6"));
-        frame_6->setGeometry(QRect(-20, 0, 121, 51));
+        frame_6->setGeometry(QRect(-20, 0, 131, 51));
         frame_6->setStyleSheet(QStringLiteral("background-color:#3d50eb;"));
         frame_6->setFrameShape(QFrame::StyledPanel);
         frame_6->setFrameShadow(QFrame::Raised);
         labelBoxBlenderInstalation_3 = new QLabel(frame_6);
         labelBoxBlenderInstalation_3->setObjectName(QStringLiteral("labelBoxBlenderInstalation_3"));
-        labelBoxBlenderInstalation_3->setGeometry(QRect(20, 0, 81, 51));
-        QFont font9;
-        font9.setFamily(QStringLiteral("Montserrat Alternates SemiBold"));
-        font9.setPointSize(10);
-        font9.setBold(true);
-        font9.setItalic(false);
-        font9.setWeight(75);
-        labelBoxBlenderInstalation_3->setFont(font9);
+        labelBoxBlenderInstalation_3->setGeometry(QRect(30, 0, 101, 51));
+        QFont font8;
+        font8.setFamily(QStringLiteral("Montserrat Alternates SemiBold"));
+        font8.setPointSize(8);
+        font8.setBold(true);
+        font8.setItalic(false);
+        font8.setWeight(75);
+        labelBoxBlenderInstalation_3->setFont(font8);
         labelBoxBlenderInstalation_3->setStyleSheet(QLatin1String("color:rgb(255, 255, 255);\n"
 "letter-spacing:2px;"));
         rendez_vous_3 = new QPushButton(frame);
         rendez_vous_3->setObjectName(QStringLiteral("rendez_vous_3"));
-        rendez_vous_3->setGeometry(QRect(0, 430, 81, 51));
+        rendez_vous_3->setGeometry(QRect(170, 450, 81, 51));
         rendez_vous_3->setCursor(QCursor(Qt::PointingHandCursor));
         rendez_vous_3->setStyleSheet(QLatin1String("QPushButton {	\n"
 "	background-image: url(C:/Users/HP/Documents/health-app/icons/16x16/cil-clipboard.png);\n"
@@ -3844,10 +3775,10 @@ public:
 ""));
         patient_2 = new QPushButton(frame);
         patient_2->setObjectName(QStringLiteral("patient_2"));
-        patient_2->setGeometry(QRect(0, 340, 81, 51));
+        patient_2->setGeometry(QRect(10, 390, 101, 51));
         patient_2->setCursor(QCursor(Qt::PointingHandCursor));
         patient_2->setStyleSheet(QLatin1String("QPushButton {	\n"
-"	background-image: url(C:/Users/HP/Documents/health-app/icons/16x16/cil-PEOPLE.png);\n"
+"	background-image: url(C:/Users/Pavillion/Desktop/Integration/E-HEALTH/icons/16x16/cil-PEOPLE.png);\n"
 "	background-position: left center;\n"
 "    background-repeat: no-repeat;\n"
 "	border: none;\n"
@@ -3870,20 +3801,24 @@ public:
 ""));
         label_4 = new QLabel(frame);
         label_4->setObjectName(QStringLiteral("label_4"));
-        label_4->setGeometry(QRect(0, 350, 71, 20));
-        label_4->setFont(font3);
+        label_4->setGeometry(QRect(20, 450, 71, 20));
+        QFont font9;
+        font9.setFamily(QStringLiteral("Segoe UI"));
+        font9.setBold(false);
+        font9.setWeight(50);
+        label_4->setFont(font9);
         label_4->setStyleSheet(QStringLiteral("color:rgb(255, 255, 255);"));
         label_5 = new QLabel(frame);
         label_5->setObjectName(QStringLiteral("label_5"));
-        label_5->setGeometry(QRect(0, 450, 81, 20));
-        label_5->setFont(font3);
+        label_5->setGeometry(QRect(30, 450, 81, 20));
+        label_5->setFont(font9);
         label_5->setStyleSheet(QStringLiteral("color:rgb(255, 255, 255);"));
         retour_menu_2 = new QPushButton(frame);
         retour_menu_2->setObjectName(QStringLiteral("retour_menu_2"));
-        retour_menu_2->setGeometry(QRect(0, 260, 80, 51));
+        retour_menu_2->setGeometry(QRect(10, 280, 101, 51));
         retour_menu_2->setCursor(QCursor(Qt::PointingHandCursor));
         retour_menu_2->setStyleSheet(QLatin1String("QPushButton {	\n"
-"	background-image: url(C:/Users/HP/Documents/health-app/icons/16x16/cil-home.png);\n"
+"	background-image: url(C:/Users/Pavillion/Desktop/Integration/E-HEALTH/icons/16x16/cil-home.png);\n"
 "	background-position: left center;\n"
 "    background-repeat: no-repeat;\n"
 "	border: none;\n"
@@ -3906,9 +3841,45 @@ public:
 ""));
         label_75 = new QLabel(frame);
         label_75->setObjectName(QStringLiteral("label_75"));
-        label_75->setGeometry(QRect(0, 280, 81, 20));
-        label_75->setFont(font3);
+        label_75->setGeometry(QRect(120, 310, 81, 20));
+        label_75->setFont(font9);
         label_75->setStyleSheet(QStringLiteral("color:rgb(255, 255, 255);"));
+        rendez_vous = new QPushButton(frame);
+        rendez_vous->setObjectName(QStringLiteral("rendez_vous"));
+        rendez_vous->setGeometry(QRect(10, 490, 101, 51));
+        rendez_vous->setCursor(QCursor(Qt::PointingHandCursor));
+        rendez_vous->setStyleSheet(QLatin1String("QPushButton {	\n"
+"	background-image: url(C:/Users/Pavillion/Desktop/Integration/E-HEALTH/icons/16x16/cil-clipboard.png);\n"
+"	background-position: left center;\n"
+"    background-repeat: no-repeat;\n"
+"	border: none;\n"
+"	border-left: 32px solid #25283b;\n"
+"	border-right: 5px solid transparent;\n"
+"	background-color:#25283b;\n"
+"	text-align: left;\n"
+"}\n"
+"QPushButton:hover {\n"
+"	background-color:  rgb(50, 54, 79);\n"
+"	border-left: 32px solid rgb(50, 54, 79);\n"
+"	border-right: 5px solid #3d50eb;\n"
+"\n"
+"}\n"
+"QPushButton:pressed{\n"
+"	background-color: #25283b;\n"
+"	border-left: 32px solid #25283b;\n"
+"\n"
+"}\n"
+""));
+        label = new QLabel(frame);
+        label->setObjectName(QStringLiteral("label"));
+        label->setGeometry(QRect(10, 540, 81, 20));
+        label->setFont(font9);
+        label->setStyleSheet(QStringLiteral("color:rgb(255, 255, 255);"));
+        label_11 = new QLabel(frame);
+        label_11->setObjectName(QStringLiteral("label_11"));
+        label_11->setGeometry(QRect(10, 340, 81, 20));
+        label_11->setFont(font9);
+        label_11->setStyleSheet(QStringLiteral("color:rgb(255, 255, 255);"));
         stackedWidget->addWidget(page_13);
         page_14 = new QWidget();
         page_14->setObjectName(QStringLiteral("page_14"));
@@ -5435,7 +5406,7 @@ public:
         page_30->setObjectName(QStringLiteral("page_30"));
         login = new QLineEdit(page_30);
         login->setObjectName(QStringLiteral("login"));
-        login->setGeometry(QRect(140, 310, 301, 31));
+        login->setGeometry(QRect(190, 500, 351, 31));
         login->setStyleSheet(QLatin1String("QLineEdit{\n"
 "background-color: rgb(29, 30, 48);\n"
 "border : none;\n"
@@ -5450,7 +5421,7 @@ public:
 "}"));
         password = new QLineEdit(page_30);
         password->setObjectName(QStringLiteral("password"));
-        password->setGeometry(QRect(140, 360, 301, 31));
+        password->setGeometry(QRect(190, 550, 351, 31));
         password->setStyleSheet(QLatin1String("QLineEdit{\n"
 "background-color: rgb(29, 30, 48);\n"
 "border : none;\n"
@@ -5468,7 +5439,7 @@ public:
         password->setEchoMode(QLineEdit::Password);
         connect = new QPushButton(page_30);
         connect->setObjectName(QStringLiteral("connect"));
-        connect->setGeometry(QRect(340, 410, 101, 31));
+        connect->setGeometry(QRect(440, 600, 101, 31));
         connect->setCursor(QCursor(Qt::PointingHandCursor));
         connect->setStyleSheet(QLatin1String("QPushButton {	\n"
 "border:none;\n"
@@ -5494,31 +5465,31 @@ public:
 ""));
         affiche_mdp = new QCheckBox(page_30);
         affiche_mdp->setObjectName(QStringLiteral("affiche_mdp"));
-        affiche_mdp->setGeometry(QRect(120, 410, 161, 31));
+        affiche_mdp->setGeometry(QRect(170, 600, 161, 31));
         affiche_mdp->setStyleSheet(QLatin1String("color:rgb(255, 255, 255);\n"
 "background-color: transparent;\n"
 ""));
         label_9 = new QLabel(page_30);
         label_9->setObjectName(QStringLiteral("label_9"));
-        label_9->setGeometry(QRect(80, 320, 31, 31));
+        label_9->setGeometry(QRect(170, 500, 31, 31));
         label_9->setStyleSheet(QLatin1String("background-image : url(C:/Users/Pavillion/Desktop/Integration/E-HEALTH/icons/16x16/cil-user.png);\n"
 "background-repeat : no-repeat;\n"
 "background-position: center; "));
         label_50 = new QLabel(page_30);
         label_50->setObjectName(QStringLiteral("label_50"));
-        label_50->setGeometry(QRect(80, 370, 31, 31));
+        label_50->setGeometry(QRect(170, 550, 31, 31));
         label_50->setStyleSheet(QLatin1String("background-image : url(C:/Users/Pavillion/Desktop/Integration/E-HEALTH/icons/16x16/cil-lock-locked.png);\n"
 "background-repeat : no-repeat;\n"
 "background-position: center; "));
         label_51 = new QLabel(page_30);
         label_51->setObjectName(QStringLiteral("label_51"));
-        label_51->setGeometry(QRect(460, 80, 951, 601));
+        label_51->setGeometry(QRect(300, -30, 1631, 1051));
         label_51->setStyleSheet(QLatin1String("background-image : url(C:/Users/Pavillion/Desktop/Integration/E-HEALTH/background2.png);\n"
 "background-repeat : no-repeat;\n"
 "background-position: center; "));
         label_52 = new QLabel(page_30);
         label_52->setObjectName(QStringLiteral("label_52"));
-        label_52->setGeometry(QRect(170, 260, 281, 20));
+        label_52->setGeometry(QRect(220, 450, 281, 20));
         QFont font10;
         font10.setFamily(QStringLiteral("Montserrat"));
         font10.setPointSize(15);
@@ -5539,36 +5510,97 @@ public:
         page_31->setObjectName(QStringLiteral("page_31"));
         hadilcode1 = new QTabWidget(page_31);
         hadilcode1->setObjectName(QStringLiteral("hadilcode1"));
-        hadilcode1->setGeometry(QRect(290, 100, 1131, 571));
+        hadilcode1->setGeometry(QRect(140, 0, 1591, 831));
         QFont font11;
         font11.setFamily(QStringLiteral("Tahoma"));
         font11.setBold(true);
         font11.setWeight(75);
         hadilcode1->setFont(font11);
-        hadilcode1->setStyleSheet(QLatin1String("background-color: rgb(217, 219, 255);\n"
+        hadilcode1->setStyleSheet(QLatin1String("QTabWidget{\n"
+"background-color:rgb(41, 44, 65);\n"
+"}\n"
+"QLabel{\n"
+"color: white;\n"
+"}\n"
+"QPushButton {\n"
+"background-image: url(C:/Users/HP/Documents/Health-application/icons/16x16/cil-folder-open.png);\n"
+"	background-position: left center;\n"
+"padding: 5px;\n"
 "\n"
-""));
+"\n"
+"\n"
+"    background-repeat: no-repeat;\n"
+"\n"
+"	border: 1px solid transparent;\n"
+"color:rgb(255, 255, 255);\n"
+"\n"
+"border-radius:5px;\n"
+"	border-left:5px solid rgba(61, 80, 235, 255);\n"
+"\n"
+"\n"
+"\n"
+"	background-color:#3d50eb;\n"
+"	background-color: qlineargradient(spread:pad, x1:0, y1:0, x2:1, y2:0, stop:0 rgba(61, 80, 235, 255), stop:1 rgba(118, 61, 235, 255));\n"
+"\n"
+"}\n"
+"QPushButton:hover {\n"
+"color:rgb(255, 255, 255);\n"
+"		background-color: rgba(61, 80, 235, 255);\n"
+"}\n"
+"QPushButton:pressed {	\n"
+"	border: 2px solid rgb(55, 74, 214) ;\n"
+"}"));
         hadilcode1->setIconSize(QSize(30, 30));
         tab_9 = new QWidget();
         tab_9->setObjectName(QStringLiteral("tab_9"));
         hadil_code = new QLineEdit(tab_9);
         hadil_code->setObjectName(QStringLiteral("hadil_code"));
         hadil_code->setGeometry(QRect(160, 100, 121, 31));
-        hadil_code->setStyleSheet(QLatin1String("border-radius: 10px;\n"
-"background-color: qlineargradient(spread:pad, x1:0, y1:0, x2:1, y2:1, stop:0 rgba(239, 234, 255, 255), stop:1 rgba(255, 255, 255, 255));\n"
-""));
+        hadil_code->setStyleSheet(QLatin1String("QLineEdit{\n"
+"background-color:#25283b;\n"
+"\n"
+"border:1px solid rgb(61, 70, 86);\n"
+"color:rgb(255, 255, 255);\n"
+"padding-left:16px;\n"
+"border:1px solid rgb(61, 70, 86);\n"
+"border-top-right-radius:10px;\n"
+"border-down-right-radius:10px;\n"
+"}\n"
+"QLineEdit:focus{\n"
+"border: 1px solid rgb(180, 180, 180);\n"
+"}"));
         hadil_etage = new QLineEdit(tab_9);
         hadil_etage->setObjectName(QStringLiteral("hadil_etage"));
         hadil_etage->setGeometry(QRect(160, 190, 121, 31));
-        hadil_etage->setStyleSheet(QLatin1String("border-radius: 10px;\n"
-"background-color: qlineargradient(spread:pad, x1:0, y1:0, x2:1, y2:1, stop:0 rgba(239, 234, 255, 255), stop:1 rgba(255, 255, 255, 255));\n"
-""));
+        hadil_etage->setStyleSheet(QLatin1String("QLineEdit{\n"
+"background-color:#25283b;\n"
+"\n"
+"border:1px solid rgb(61, 70, 86);\n"
+"color:rgb(255, 255, 255);\n"
+"padding-left:16px;\n"
+"border:1px solid rgb(61, 70, 86);\n"
+"border-top-right-radius:10px;\n"
+"border-down-right-radius:10px;\n"
+"}\n"
+"QLineEdit:focus{\n"
+"border: 1px solid rgb(180, 180, 180);\n"
+"}"));
         hadil_numero = new QLineEdit(tab_9);
         hadil_numero->setObjectName(QStringLiteral("hadil_numero"));
         hadil_numero->setGeometry(QRect(160, 240, 121, 31));
-        hadil_numero->setStyleSheet(QLatin1String("border-radius: 10px;\n"
-"background-color: qlineargradient(spread:pad, x1:0, y1:0, x2:1, y2:1, stop:0 rgba(239, 234, 255, 255), stop:1 rgba(255, 255, 255, 255));\n"
-""));
+        hadil_numero->setStyleSheet(QLatin1String("QLineEdit{\n"
+"background-color:#25283b;\n"
+"\n"
+"border:1px solid rgb(61, 70, 86);\n"
+"color:rgb(255, 255, 255);\n"
+"padding-left:16px;\n"
+"border:1px solid rgb(61, 70, 86);\n"
+"border-top-right-radius:10px;\n"
+"border-down-right-radius:10px;\n"
+"}\n"
+"QLineEdit:focus{\n"
+"border: 1px solid rgb(180, 180, 180);\n"
+"}"));
         label_53 = new QLabel(tab_9);
         label_53->setObjectName(QStringLiteral("label_53"));
         label_53->setGeometry(QRect(50, 172, 71, 21));
@@ -5583,67 +5615,88 @@ public:
         hadilajouter1->setObjectName(QStringLiteral("hadilajouter1"));
         hadilajouter1->setGeometry(QRect(60, 360, 231, 41));
         hadilajouter1->setFont(font11);
-        hadilajouter1->setStyleSheet(QLatin1String("QPushButton\n"
-"{\n"
-"  \n"
-"  border-radius: 10px;\n"
+        hadilajouter1->setStyleSheet(QLatin1String("QPushButton {	\n"
+"border:none;\n"
+"background-color:#0000FF;\n"
+"	background-position: left center;\n"
 "\n"
-"background-color: qlineargradient(spread:pad, x1:0.613065, y1:0.511, x2:0.969, y2:0, stop:0.18593 rgba(2, 136, 148, 226), stop:0.959799 rgba(0, 0, 0, 161));\n"
-"	\n"
+"    background-repeat: no-repeat;\n"
+"\n"
+"	border-radius: 5px;\n"
+"border:1px solid transparent;\n"
 "color:rgb(255, 255, 255);\n"
+"	text-align: center;\n"
+"\n"
+"border-left:4px solid #0000FF;\n"
+"	\n"
+"}\n"
+"QPushButton:hover {\n"
+"	background-color:rgb(0, 0, 128);\n"
+"	\n"
+"}\n"
+"QPushButton:pressed {\n"
+"border:2px solid rgb(0, 0, 128);\n"
+"\n"
 "\n"
 "}\n"
-"\n"
-"QPushButton:hover,QPushButton:hover\n"
-"{\n"
-"    border: 4px solid QLinearGradient( x1: 2, y1: 2, x2: 2, y2: 3, stop: 0 #08E8DE , stop: 3 #d7801a);\n"
-"}\n"
-"\n"
-"\n"
 ""));
         hadilmodifier1 = new QPushButton(tab_9);
         hadilmodifier1->setObjectName(QStringLiteral("hadilmodifier1"));
         hadilmodifier1->setGeometry(QRect(850, 170, 191, 51));
         hadilmodifier1->setFont(font11);
-        hadilmodifier1->setStyleSheet(QLatin1String("QPushButton\n"
-"{\n"
-"  \n"
-"  border-radius: 10px;\n"
+        hadilmodifier1->setStyleSheet(QLatin1String("QPushButton {	\n"
+"border:none;\n"
+"background-color:#0000FF;\n"
+"	background-position: left center;\n"
 "\n"
-"background-color: qlineargradient(spread:pad, x1:0.613065, y1:0.511, x2:0.969, y2:0, stop:0.18593 rgba(2, 136, 148, 226), stop:0.959799 rgba(0, 0, 0, 161));\n"
-"	\n"
+"    background-repeat: no-repeat;\n"
+"\n"
+"	border-radius: 5px;\n"
+"border:1px solid transparent;\n"
 "color:rgb(255, 255, 255);\n"
+"	text-align: center;\n"
+"\n"
+"border-left:4px solid #0000FF;\n"
+"	\n"
+"}\n"
+"QPushButton:hover {\n"
+"	background-color:rgb(0, 0, 128);\n"
+"	\n"
+"}\n"
+"QPushButton:pressed {\n"
+"border:2px solid rgb(0, 0, 128);\n"
+"\n"
 "\n"
 "}\n"
-"\n"
-"QPushButton:hover,QPushButton:hover\n"
-"{\n"
-"    border: 4px solid QLinearGradient( x1: 2, y1: 2, x2: 2, y2: 3, stop: 0 #08E8DE , stop: 3 #d7801a);\n"
-"}\n"
-"\n"
-"\n"
 ""));
         hadilsupprimer1 = new QPushButton(tab_9);
         hadilsupprimer1->setObjectName(QStringLiteral("hadilsupprimer1"));
         hadilsupprimer1->setGeometry(QRect(850, 260, 191, 51));
         hadilsupprimer1->setFont(font11);
-        hadilsupprimer1->setStyleSheet(QLatin1String("QPushButton\n"
-"{\n"
-"  \n"
-"  border-radius: 10px;\n"
+        hadilsupprimer1->setStyleSheet(QLatin1String("QPushButton {	\n"
+"border:none;\n"
+"background-color:#0000FF;\n"
+"	background-position: left center;\n"
 "\n"
-"background-color: qlineargradient(spread:pad, x1:0.613065, y1:0.511, x2:0.969, y2:0, stop:0.18593 rgba(2, 136, 148, 226), stop:0.959799 rgba(0, 0, 0, 161));\n"
-"	\n"
+"    background-repeat: no-repeat;\n"
+"\n"
+"	border-radius: 5px;\n"
+"border:1px solid transparent;\n"
 "color:rgb(255, 255, 255);\n"
+"	text-align: center;\n"
+"\n"
+"border-left:4px solid #0000FF;\n"
+"	\n"
+"}\n"
+"QPushButton:hover {\n"
+"	background-color:rgb(0, 0, 128);\n"
+"	\n"
+"}\n"
+"QPushButton:pressed {\n"
+"border:2px solid rgb(0, 0, 128);\n"
+"\n"
 "\n"
 "}\n"
-"\n"
-"QPushButton:hover,QPushButton:hover\n"
-"{\n"
-"    border: 4px solid QLinearGradient( x1: 2, y1: 2, x2: 2, y2: 3, stop: 0 #08E8DE , stop: 3 #d7801a);\n"
-"}\n"
-"\n"
-"\n"
 ""));
         hadiltab1 = new QTableView(tab_9);
         hadiltab1->setObjectName(QStringLiteral("hadiltab1"));
@@ -5660,28 +5713,30 @@ public:
         hadilrechercher1->setObjectName(QStringLiteral("hadilrechercher1"));
         hadilrechercher1->setGeometry(QRect(640, 110, 101, 41));
         hadilrechercher1->setFont(font11);
-        hadilrechercher1->setStyleSheet(QLatin1String("\n"
-"QPushButton\n"
-"{\n"
-"  \n"
-"  border-radius: 10px;\n"
+        hadilrechercher1->setStyleSheet(QLatin1String("QPushButton {	\n"
+"border:none;\n"
+"background-color:#0000FF;\n"
+"	background-position: left center;\n"
 "\n"
+"    background-repeat: no-repeat;\n"
 "\n"
-"background-color: qlineargradient(spread:pad, x1:0.613065, y1:0.511, x2:0.969, y2:0, stop:0.18593 rgba(0, 134, 0, 226), stop:0.959799 rgba(0, 0, 0, 161));\n"
+"	border-radius: 5px;\n"
+"border:1px solid transparent;\n"
+"color:rgb(255, 255, 255);\n"
+"	text-align: center;\n"
 "\n"
+"border-left:4px solid #0000FF;\n"
+"	\n"
+"}\n"
+"QPushButton:hover {\n"
+"	background-color:rgb(0, 0, 128);\n"
+"	\n"
+"}\n"
+"QPushButton:pressed {\n"
+"border:2px solid rgb(0, 0, 128);\n"
 "\n"
-"\n"
-"color: rgb(255, 255, 255);\n"
 "\n"
 "}\n"
-"\n"
-"QPushButton:hover,QPushButton:hover\n"
-"{\n"
-"    border: 5px solid QLinearGradient( x1: 2, y1: 2, x2: 2, y2: 3, stop: 0 #CCFF00 , stop: 3 #d7801a);\n"
-"}\n"
-"\n"
-"\n"
-"\n"
 ""));
         hadilbox1 = new QComboBox(tab_9);
         hadilbox1->setObjectName(QStringLiteral("hadilbox1"));
@@ -5695,53 +5750,75 @@ public:
         hadildata1->setObjectName(QStringLiteral("hadildata1"));
         hadildata1->setGeometry(QRect(750, 40, 141, 41));
         hadildata1->setFont(font11);
-        hadildata1->setStyleSheet(QLatin1String("QPushButton\n"
-"{\n"
-"  \n"
-"  border-radius: 10px;\n"
+        hadildata1->setStyleSheet(QLatin1String("QPushButton {	\n"
+"border:none;\n"
+"background-color:#0000FF;\n"
+"	background-position: left center;\n"
 "\n"
-"background-color: qlineargradient(spread:pad, x1:0.613065, y1:0.511, x2:0.969, y2:0, stop:0.18593 rgba(2, 136, 148, 226), stop:0.959799 rgba(0, 0, 0, 161));\n"
-"	\n"
+"    background-repeat: no-repeat;\n"
+"\n"
+"	border-radius: 5px;\n"
+"border:1px solid transparent;\n"
 "color:rgb(255, 255, 255);\n"
+"	text-align: center;\n"
+"\n"
+"border-left:4px solid #0000FF;\n"
+"	\n"
+"}\n"
+"QPushButton:hover {\n"
+"	background-color:rgb(0, 0, 128);\n"
+"	\n"
+"}\n"
+"QPushButton:pressed {\n"
+"border:2px solid rgb(0, 0, 128);\n"
+"\n"
 "\n"
 "}\n"
-"\n"
-"QPushButton:hover,QPushButton:hover\n"
-"{\n"
-"    border: 4px solid QLinearGradient( x1: 2, y1: 2, x2: 2, y2: 3, stop: 0 #08E8DE , stop: 3 #d7801a);\n"
-"}\n"
-"\n"
-"\n"
 ""));
         hadil_5 = new QLineEdit(tab_9);
         hadil_5->setObjectName(QStringLiteral("hadil_5"));
         hadil_5->setGeometry(QRect(490, 110, 121, 41));
-        hadil_5->setStyleSheet(QLatin1String("border-radius: 10px;\n"
-"background-color: qlineargradient(spread:pad, x1:0, y1:0, x2:1, y2:1, stop:0 rgba(239, 234, 255, 255), stop:1 rgba(255, 255, 255, 255));\n"
-""));
+        hadil_5->setStyleSheet(QLatin1String("QLineEdit{\n"
+"background-color:#25283b;\n"
+"\n"
+"border:1px solid rgb(61, 70, 86);\n"
+"color:rgb(255, 255, 255);\n"
+"padding-left:16px;\n"
+"border:1px solid rgb(61, 70, 86);\n"
+"border-top-right-radius:10px;\n"
+"border-down-right-radius:10px;\n"
+"}\n"
+"QLineEdit:focus{\n"
+"border: 1px solid rgb(180, 180, 180);\n"
+"}"));
         hadilafficher1 = new QPushButton(tab_9);
         hadilafficher1->setObjectName(QStringLiteral("hadilafficher1"));
         hadilafficher1->setGeometry(QRect(60, 420, 231, 41));
         hadilafficher1->setFont(font11);
-        hadilafficher1->setStyleSheet(QLatin1String("QPushButton\n"
-"{\n"
-"  \n"
-"  border-radius: 10px;\n"
+        hadilafficher1->setStyleSheet(QLatin1String("QPushButton {	\n"
+"border:none;\n"
+"background-color:#0000FF;\n"
+"	background-position: left center;\n"
 "\n"
-"background-color: qlineargradient(spread:pad, x1:0.613065, y1:0.511, x2:0.969, y2:0, stop:0.18593 rgba(2, 136, 148, 226), stop:0.959799 rgba(0, 0, 0, 161));\n"
-"	\n"
+"    background-repeat: no-repeat;\n"
+"\n"
+"	border-radius: 5px;\n"
+"border:1px solid transparent;\n"
 "color:rgb(255, 255, 255);\n"
+"	text-align: center;\n"
+"\n"
+"border-left:4px solid #0000FF;\n"
+"	\n"
+"}\n"
+"QPushButton:hover {\n"
+"	background-color:rgb(0, 0, 128);\n"
+"	\n"
+"}\n"
+"QPushButton:pressed {\n"
+"border:2px solid rgb(0, 0, 128);\n"
+"\n"
 "\n"
 "}\n"
-"\n"
-"QPushButton:hover,QPushButton:hover\n"
-"{\n"
-"    border: 4px solid QLinearGradient( x1: 2, y1: 2, x2: 2, y2: 3, stop: 0 #08E8DE , stop: 3 #d7801a);\n"
-"}\n"
-"\n"
-"\n"
-"\n"
-"\n"
 ""));
         hadil_code_label = new QLabel(tab_9);
         hadil_code_label->setObjectName(QStringLiteral("hadil_code_label"));
@@ -5749,34 +5826,118 @@ public:
         hadil_code_label->setFont(font11);
         radioButton_hadil = new QRadioButton(tab_9);
         radioButton_hadil->setObjectName(QStringLiteral("radioButton_hadil"));
-        radioButton_hadil->setGeometry(QRect(400, 400, 111, 17));
+        radioButton_hadil->setGeometry(QRect(400, 400, 121, 17));
+        radioButton_hadil->setStyleSheet(QLatin1String("QRadioButton{\n"
+"background-color:#25283b;\n"
+"\n"
+"border:1px solid rgb(61, 70, 86);\n"
+"color:rgb(255, 255, 255);\n"
+"padding-left:16px;\n"
+"border:1px solid rgb(61, 70, 86);\n"
+"border-top-right-radius:10px;\n"
+"border-down-right-radius:10px;\n"
+"}\n"
+"QRadioButton:focus{\n"
+"border: 1px solid rgb(255, 255, 255);\n"
+"}\n"
+"QRadioButton:pressed {\n"
+"border:2px solid rgb(179, 34, 58);\n"
+"\n"
+"\n"
+"}"));
         radioButton_2_hadil = new QRadioButton(tab_9);
         radioButton_2_hadil->setObjectName(QStringLiteral("radioButton_2_hadil"));
-        radioButton_2_hadil->setGeometry(QRect(520, 400, 111, 17));
+        radioButton_2_hadil->setGeometry(QRect(540, 400, 131, 17));
+        radioButton_2_hadil->setStyleSheet(QLatin1String("QRadioButton{\n"
+"background-color:#25283b;\n"
+"\n"
+"border:1px solid rgb(61, 70, 86);\n"
+"color:rgb(255, 255, 255);\n"
+"padding-left:16px;\n"
+"border:1px solid rgb(61, 70, 86);\n"
+"border-top-right-radius:10px;\n"
+"border-down-right-radius:10px;\n"
+"}\n"
+"QRadioButton:focus{\n"
+"border: 1px solid rgb(255, 255, 255);\n"
+"}\n"
+"QRadioButton:pressed {\n"
+"border:2px solid rgb(179, 34, 58);\n"
+"\n"
+"\n"
+"}"));
         radioButton_3_hadil = new QRadioButton(tab_9);
         radioButton_3_hadil->setObjectName(QStringLiteral("radioButton_3_hadil"));
-        radioButton_3_hadil->setGeometry(QRect(640, 400, 131, 17));
+        radioButton_3_hadil->setGeometry(QRect(660, 400, 131, 17));
+        radioButton_3_hadil->setStyleSheet(QLatin1String("QRadioButton{\n"
+"background-color:#25283b;\n"
+"\n"
+"border:1px solid rgb(61, 70, 86);\n"
+"color:rgb(255, 255, 255);\n"
+"padding-left:16px;\n"
+"border:1px solid rgb(61, 70, 86);\n"
+"border-top-right-radius:10px;\n"
+"border-down-right-radius:10px;\n"
+"}\n"
+"QRadioButton:focus{\n"
+"border: 1px solid rgb(255, 255, 255);\n"
+"}\n"
+"QRadioButton:pressed {\n"
+"border:2px solid rgb(179, 34, 58);\n"
+"\n"
+"\n"
+"}"));
         hadilcode1->addTab(tab_9, QString());
         tab_10 = new QWidget();
         tab_10->setObjectName(QStringLiteral("tab_10"));
         hadilcode1_2 = new QLineEdit(tab_10);
         hadilcode1_2->setObjectName(QStringLiteral("hadilcode1_2"));
         hadilcode1_2->setGeometry(QRect(210, 50, 131, 31));
-        hadilcode1_2->setStyleSheet(QLatin1String("border-radius: 10px;\n"
-"background-color: qlineargradient(spread:pad, x1:0, y1:0, x2:1, y2:1, stop:0 rgba(239, 234, 255, 255), stop:1 rgba(255, 255, 255, 255));\n"
-""));
+        hadilcode1_2->setStyleSheet(QLatin1String("QLineEdit{\n"
+"background-color:#25283b;\n"
+"\n"
+"border:1px solid rgb(61, 70, 86);\n"
+"color:rgb(255, 255, 255);\n"
+"padding-left:16px;\n"
+"border:1px solid rgb(61, 70, 86);\n"
+"border-top-right-radius:10px;\n"
+"border-down-right-radius:10px;\n"
+"}\n"
+"QLineEdit:focus{\n"
+"border: 1px solid rgb(180, 180, 180);\n"
+"}"));
         hadilnom = new QLineEdit(tab_10);
         hadilnom->setObjectName(QStringLiteral("hadilnom"));
         hadilnom->setGeometry(QRect(210, 120, 131, 31));
-        hadilnom->setStyleSheet(QLatin1String("border-radius: 10px;\n"
-"background-color: qlineargradient(spread:pad, x1:0, y1:0, x2:1, y2:1, stop:0 rgba(239, 234, 255, 255), stop:1 rgba(255, 255, 255, 255));\n"
-""));
+        hadilnom->setStyleSheet(QLatin1String("QLineEdit{\n"
+"background-color:#25283b;\n"
+"\n"
+"border:1px solid rgb(61, 70, 86);\n"
+"color:rgb(255, 255, 255);\n"
+"padding-left:16px;\n"
+"border:1px solid rgb(61, 70, 86);\n"
+"border-top-right-radius:10px;\n"
+"border-down-right-radius:10px;\n"
+"}\n"
+"QLineEdit:focus{\n"
+"border: 1px solid rgb(180, 180, 180);\n"
+"}"));
         hadilmode = new QLineEdit(tab_10);
         hadilmode->setObjectName(QStringLiteral("hadilmode"));
-        hadilmode->setGeometry(QRect(200, 270, 131, 31));
-        hadilmode->setStyleSheet(QLatin1String("border-radius: 10px;\n"
-"background-color: qlineargradient(spread:pad, x1:0, y1:0, x2:1, y2:1, stop:0 rgba(239, 234, 255, 255), stop:1 rgba(255, 255, 255, 255));\n"
-""));
+        hadilmode->setGeometry(QRect(210, 270, 131, 31));
+        hadilmode->setStyleSheet(QLatin1String("QLineEdit{\n"
+"background-color:#25283b;\n"
+"\n"
+"border:1px solid rgb(61, 70, 86);\n"
+"color:rgb(255, 255, 255);\n"
+"padding-left:16px;\n"
+"border:1px solid rgb(61, 70, 86);\n"
+"border-top-right-radius:10px;\n"
+"border-down-right-radius:10px;\n"
+"}\n"
+"QLineEdit:focus{\n"
+"border: 1px solid rgb(180, 180, 180);\n"
+"}"));
         label_56 = new QLabel(tab_10);
         label_56->setObjectName(QStringLiteral("label_56"));
         label_56->setGeometry(QRect(50, 60, 47, 21));
@@ -5791,73 +5952,94 @@ public:
         label_58->setFont(font11);
         label_59 = new QLabel(tab_10);
         label_59->setObjectName(QStringLiteral("label_59"));
-        label_59->setGeometry(QRect(20, 270, 181, 41));
+        label_59->setGeometry(QRect(30, 270, 181, 41));
         label_59->setFont(font11);
         hadilajouter = new QPushButton(tab_10);
         hadilajouter->setObjectName(QStringLiteral("hadilajouter"));
-        hadilajouter->setGeometry(QRect(160, 360, 201, 41));
+        hadilajouter->setGeometry(QRect(170, 380, 201, 41));
         hadilajouter->setFont(font11);
-        hadilajouter->setStyleSheet(QLatin1String("QPushButton\n"
-"{\n"
-"  \n"
-"  border-radius: 10px;\n"
+        hadilajouter->setStyleSheet(QLatin1String("QPushButton {	\n"
+"border:none;\n"
+"background-color:#0000FF;\n"
+"	background-position: left center;\n"
 "\n"
-"background-color: qlineargradient(spread:pad, x1:0.613065, y1:0.511, x2:0.969, y2:0, stop:0.18593 rgba(2, 136, 148, 226), stop:0.959799 rgba(0, 0, 0, 161));\n"
-"	\n"
+"    background-repeat: no-repeat;\n"
+"\n"
+"	border-radius: 5px;\n"
+"border:1px solid transparent;\n"
 "color:rgb(255, 255, 255);\n"
+"	text-align: center;\n"
+"\n"
+"border-left:4px solid #0000FF;\n"
+"	\n"
+"}\n"
+"QPushButton:hover {\n"
+"	background-color:rgb(0, 0, 128);\n"
+"	\n"
+"}\n"
+"QPushButton:pressed {\n"
+"border:2px solid rgb(0, 0, 128);\n"
+"\n"
 "\n"
 "}\n"
-"\n"
-"QPushButton:hover,QPushButton:hover\n"
-"{\n"
-"    border: 4px solid QLinearGradient( x1: 2, y1: 2, x2: 2, y2: 3, stop: 0 #08E8DE , stop: 3 #d7801a);\n"
-"}\n"
-"\n"
-"\n"
 ""));
         hadilsupprimer = new QPushButton(tab_10);
         hadilsupprimer->setObjectName(QStringLiteral("hadilsupprimer"));
         hadilsupprimer->setGeometry(QRect(830, 170, 161, 31));
         hadilsupprimer->setFont(font11);
-        hadilsupprimer->setStyleSheet(QLatin1String("QPushButton\n"
-"{\n"
-"  \n"
-"  border-radius: 10px;\n"
+        hadilsupprimer->setStyleSheet(QLatin1String("QPushButton {	\n"
+"border:none;\n"
+"background-color:#0000FF;\n"
+"	background-position: left center;\n"
 "\n"
-"background-color: qlineargradient(spread:pad, x1:0.613065, y1:0.511, x2:0.969, y2:0, stop:0.18593 rgba(2, 136, 148, 226), stop:0.959799 rgba(0, 0, 0, 161));\n"
+"    background-repeat: no-repeat;\n"
+"\n"
+"	border-radius: 5px;\n"
+"border:1px solid transparent;\n"
+"color:rgb(255, 255, 255);\n"
+"	text-align: center;\n"
+"\n"
+"border-left:4px solid #0000FF;\n"
 "	\n"
-"color:white;\n"
+"}\n"
+"QPushButton:hover {\n"
+"	background-color:rgb(0, 0, 128);\n"
+"	\n"
+"}\n"
+"QPushButton:pressed {\n"
+"border:2px solid rgb(0, 0, 128);\n"
+"\n"
 "\n"
 "}\n"
-"\n"
-"QPushButton:hover,QPushButton:hover\n"
-"{\n"
-"    border: 4px solid QLinearGradient( x1: 2, y1: 2, x2: 2, y2: 3, stop: 0 #08E8DE , stop: 3 #d7801a);\n"
-"}\n"
-"\n"
-"\n"
 ""));
         hadilmodifier = new QPushButton(tab_10);
         hadilmodifier->setObjectName(QStringLiteral("hadilmodifier"));
         hadilmodifier->setGeometry(QRect(830, 240, 161, 31));
         hadilmodifier->setFont(font11);
-        hadilmodifier->setStyleSheet(QLatin1String("QPushButton\n"
-"{\n"
-"  \n"
-"  border-radius: 10px;\n"
+        hadilmodifier->setStyleSheet(QLatin1String("QPushButton {	\n"
+"border:none;\n"
+"background-color:#0000FF;\n"
+"	background-position: left center;\n"
 "\n"
-"background-color: qlineargradient(spread:pad, x1:0.613065, y1:0.511, x2:0.969, y2:0, stop:0.18593 rgba(2, 136, 148, 226), stop:0.959799 rgba(0, 0, 0, 161));\n"
-"	\n"
+"    background-repeat: no-repeat;\n"
+"\n"
+"	border-radius: 5px;\n"
+"border:1px solid transparent;\n"
 "color:rgb(255, 255, 255);\n"
+"	text-align: center;\n"
+"\n"
+"border-left:4px solid #0000FF;\n"
+"	\n"
+"}\n"
+"QPushButton:hover {\n"
+"	background-color:rgb(0, 0, 128);\n"
+"	\n"
+"}\n"
+"QPushButton:pressed {\n"
+"border:2px solid rgb(0, 0, 128);\n"
+"\n"
 "\n"
 "}\n"
-"\n"
-"QPushButton:hover,QPushButton:hover\n"
-"{\n"
-"    border: 4px solid QLinearGradient( x1: 2, y1: 2, x2: 2, y2: 3, stop: 0 #08E8DE , stop: 3 #d7801a);\n"
-"}\n"
-"\n"
-"\n"
 ""));
         hadiltab = new QTableView(tab_10);
         hadiltab->setObjectName(QStringLiteral("hadiltab"));
@@ -5870,28 +6052,30 @@ public:
         hadil_12->setObjectName(QStringLiteral("hadil_12"));
         hadil_12->setGeometry(QRect(480, 330, 251, 41));
         hadil_12->setFont(font11);
-        hadil_12->setStyleSheet(QLatin1String("\n"
-"QPushButton\n"
-"{\n"
-"  \n"
-"  border-radius: 10px;\n"
+        hadil_12->setStyleSheet(QLatin1String("QPushButton {	\n"
+"border:none;\n"
+"background-color:#0000FF;\n"
+"	background-position: left center;\n"
 "\n"
+"    background-repeat: no-repeat;\n"
 "\n"
-"background-color: qlineargradient(spread:pad, x1:0.613065, y1:0.511, x2:0.969, y2:0, stop:0.18593 rgba(0, 134, 0, 226), stop:0.959799 rgba(0, 0, 0, 161));\n"
+"	border-radius: 5px;\n"
+"border:1px solid transparent;\n"
+"color:rgb(255, 255, 255);\n"
+"	text-align: center;\n"
 "\n"
+"border-left:4px solid #0000FF;\n"
+"	\n"
+"}\n"
+"QPushButton:hover {\n"
+"	background-color:rgb(0, 0, 128);\n"
+"	\n"
+"}\n"
+"QPushButton:pressed {\n"
+"border:2px solid rgb(0, 0, 128);\n"
 "\n"
-"\n"
-"color: rgb(255, 255, 255);\n"
 "\n"
 "}\n"
-"\n"
-"QPushButton:hover,QPushButton:hover\n"
-"{\n"
-"    border: 5px solid QLinearGradient( x1: 2, y1: 2, x2: 2, y2: 3, stop: 0 #CCFF00 , stop: 3 #d7801a);\n"
-"}\n"
-"\n"
-"\n"
-"\n"
 ""));
         comboBox = new QComboBox(tab_10);
         comboBox->setObjectName(QStringLiteral("comboBox"));
@@ -5899,53 +6083,76 @@ public:
         hadilreference = new QLineEdit(tab_10);
         hadilreference->setObjectName(QStringLiteral("hadilreference"));
         hadilreference->setGeometry(QRect(210, 190, 131, 31));
-        hadilreference->setStyleSheet(QLatin1String("border-radius: 10px;\n"
-"background-color: qlineargradient(spread:pad, x1:0, y1:0, x2:1, y2:1, stop:0 rgba(239, 234, 255, 255), stop:1 rgba(255, 255, 255, 255));\n"
-""));
+        hadilreference->setStyleSheet(QLatin1String("QLineEdit{\n"
+"background-color:#25283b;\n"
+"\n"
+"border:1px solid rgb(61, 70, 86);\n"
+"color:rgb(255, 255, 255);\n"
+"padding-left:16px;\n"
+"border:1px solid rgb(61, 70, 86);\n"
+"border-top-right-radius:10px;\n"
+"border-down-right-radius:10px;\n"
+"}\n"
+"QLineEdit:focus{\n"
+"border: 1px solid rgb(180, 180, 180);\n"
+"}"));
         hadil_14 = new QPushButton(tab_10);
         hadil_14->setObjectName(QStringLiteral("hadil_14"));
         hadil_14->setGeometry(QRect(830, 110, 161, 31));
         hadil_14->setFont(font11);
-        hadil_14->setStyleSheet(QLatin1String("QPushButton\n"
-"{\n"
-"  \n"
-"  border-radius: 10px;\n"
+        hadil_14->setStyleSheet(QLatin1String("QPushButton {	\n"
+"border:none;\n"
+"background-color:#0000FF;\n"
+"	background-position: left center;\n"
 "\n"
-"background-color: qlineargradient(spread:pad, x1:0.613065, y1:0.511, x2:0.969, y2:0, stop:0.18593 rgba(2, 136, 148, 226), stop:0.959799 rgba(0, 0, 0, 161));\n"
-"	\n"
+"    background-repeat: no-repeat;\n"
+"\n"
+"	border-radius: 5px;\n"
+"border:1px solid transparent;\n"
 "color:rgb(255, 255, 255);\n"
+"	text-align: center;\n"
+"\n"
+"border-left:4px solid #0000FF;\n"
+"	\n"
+"}\n"
+"QPushButton:hover {\n"
+"	background-color:rgb(0, 0, 128);\n"
+"	\n"
+"}\n"
+"QPushButton:pressed {\n"
+"border:2px solid rgb(0, 0, 128);\n"
+"\n"
 "\n"
 "}\n"
-"\n"
-"QPushButton:hover,QPushButton:hover\n"
-"{\n"
-"    border: 4px solid QLinearGradient( x1: 2, y1: 2, x2: 2, y2: 3, stop: 0 #08E8DE , stop: 3 #d7801a);\n"
-"}\n"
-"\n"
-"\n"
 ""));
         hadilafficher = new QPushButton(tab_10);
         hadilafficher->setObjectName(QStringLiteral("hadilafficher"));
-        hadilafficher->setGeometry(QRect(160, 420, 201, 41));
+        hadilafficher->setGeometry(QRect(170, 450, 201, 41));
         hadilafficher->setFont(font11);
-        hadilafficher->setStyleSheet(QLatin1String("QPushButton\n"
-"{\n"
-"  \n"
-"  border-radius: 10px;\n"
+        hadilafficher->setStyleSheet(QLatin1String("QPushButton {	\n"
+"border:none;\n"
+"background-color:#0000FF;\n"
+"	background-position: left center;\n"
 "\n"
-"background-color: qlineargradient(spread:pad, x1:0.613065, y1:0.511, x2:0.969, y2:0, stop:0.18593 rgba(2, 136, 148, 226), stop:0.959799 rgba(0, 0, 0, 161));\n"
-"	\n"
+"    background-repeat: no-repeat;\n"
+"\n"
+"	border-radius: 5px;\n"
+"border:1px solid transparent;\n"
 "color:rgb(255, 255, 255);\n"
+"	text-align: center;\n"
+"\n"
+"border-left:4px solid #0000FF;\n"
+"	\n"
+"}\n"
+"QPushButton:hover {\n"
+"	background-color:rgb(0, 0, 128);\n"
+"	\n"
+"}\n"
+"QPushButton:pressed {\n"
+"border:2px solid rgb(0, 0, 128);\n"
+"\n"
 "\n"
 "}\n"
-"\n"
-"QPushButton:hover,QPushButton:hover\n"
-"{\n"
-"    border: 4px solid QLinearGradient( x1: 2, y1: 2, x2: 2, y2: 3, stop: 0 #08E8DE , stop: 3 #d7801a);\n"
-"}\n"
-"\n"
-"\n"
-"\n"
 ""));
         hadilcode1->addTab(tab_10, QString());
         retour_menu_3 = new QPushButton(page_31);
@@ -5981,7 +6188,7 @@ public:
         page_32->setObjectName(QStringLiteral("page_32"));
         tabWidget_3 = new QTabWidget(page_32);
         tabWidget_3->setObjectName(QStringLiteral("tabWidget_3"));
-        tabWidget_3->setGeometry(QRect(300, 60, 1061, 541));
+        tabWidget_3->setGeometry(QRect(210, 10, 1731, 741));
         tabWidget_3->setStyleSheet(QLatin1String("QTabWidget{\n"
 "background-color:rgb(41, 44, 65);\n"
 "}\n"
@@ -6020,7 +6227,7 @@ public:
         tab_11->setObjectName(QStringLiteral("tab_11"));
         tabWidget_4 = new QTabWidget(tab_11);
         tabWidget_4->setObjectName(QStringLiteral("tabWidget_4"));
-        tabWidget_4->setGeometry(QRect(50, 0, 921, 481));
+        tabWidget_4->setGeometry(QRect(10, 0, 1681, 671));
         tab_12 = new QWidget();
         tab_12->setObjectName(QStringLiteral("tab_12"));
         ajouter_id_emp = new QLineEdit(tab_12);
@@ -6162,7 +6369,7 @@ public:
         tab_14->setObjectName(QStringLiteral("tab_14"));
         bouton_afficher_emp = new QPushButton(tab_14);
         bouton_afficher_emp->setObjectName(QStringLiteral("bouton_afficher_emp"));
-        bouton_afficher_emp->setGeometry(QRect(10, 360, 93, 28));
+        bouton_afficher_emp->setGeometry(QRect(20, 550, 93, 28));
         bouton_afficher_emp->setStyleSheet(QLatin1String("QPushButton {\n"
 "background-image: url(C:/Users/HP/Documents/Health-application/icons/16x16/cil-folder-open.png);\n"
 "	background-position: left center;\n"
@@ -6192,12 +6399,12 @@ public:
 "}"));
         tableView_afficher_emp = new QTableView(tab_14);
         tableView_afficher_emp->setObjectName(QStringLiteral("tableView_afficher_emp"));
-        tableView_afficher_emp->setGeometry(QRect(25, 21, 331, 321));
+        tableView_afficher_emp->setGeometry(QRect(20, 120, 331, 321));
         tableView_afficher_emp->setStyleSheet(QLatin1String("background-color:#25283b;\n"
 ""));
         pushButton_trier = new QPushButton(tab_14);
         pushButton_trier->setObjectName(QStringLiteral("pushButton_trier"));
-        pushButton_trier->setGeometry(QRect(450, 90, 93, 28));
+        pushButton_trier->setGeometry(QRect(500, 260, 93, 28));
         pushButton_trier->setStyleSheet(QLatin1String("QPushButton {	\n"
 "border:none;\n"
 "	background-image: url(C:/Users/HP/Documents/Health-application/icons/16x16/cil-x.png);\n"
@@ -6224,20 +6431,56 @@ public:
 "}"));
         rb_desc_historique = new QRadioButton(tab_14);
         rb_desc_historique->setObjectName(QStringLiteral("rb_desc_historique"));
-        rb_desc_historique->setGeometry(QRect(500, 60, 97, 20));
+        rb_desc_historique->setGeometry(QRect(620, 190, 97, 20));
+        rb_desc_historique->setStyleSheet(QLatin1String("QRadioButton{\n"
+"background-color:#25283b;\n"
+"\n"
+"border:1px solid rgb(61, 70, 86);\n"
+"color:rgb(255, 255, 255);\n"
+"padding-left:16px;\n"
+"border:1px solid rgb(61, 70, 86);\n"
+"border-top-right-radius:10px;\n"
+"border-down-right-radius:10px;\n"
+"}\n"
+"QRadioButton:focus{\n"
+"border: 1px solid rgb(255, 255, 255);\n"
+"}\n"
+"QRadioButton:pressed {\n"
+"border:2px solid rgb(179, 34, 58);\n"
+"\n"
+"\n"
+"}"));
         rb_asc_historique = new QRadioButton(tab_14);
         rb_asc_historique->setObjectName(QStringLiteral("rb_asc_historique"));
-        rb_asc_historique->setGeometry(QRect(390, 60, 97, 20));
+        rb_asc_historique->setGeometry(QRect(490, 190, 97, 20));
+        rb_asc_historique->setStyleSheet(QLatin1String("QRadioButton{\n"
+"background-color:#25283b;\n"
+"\n"
+"border:1px solid rgb(61, 70, 86);\n"
+"color:rgb(255, 255, 255);\n"
+"padding-left:16px;\n"
+"border:1px solid rgb(61, 70, 86);\n"
+"border-top-right-radius:10px;\n"
+"border-down-right-radius:10px;\n"
+"}\n"
+"QRadioButton:focus{\n"
+"border: 1px solid rgb(255, 255, 255);\n"
+"}\n"
+"QRadioButton:pressed {\n"
+"border:2px solid rgb(179, 34, 58);\n"
+"\n"
+"\n"
+"}"));
         recherche_critere = new QLineEdit(tab_14);
         recherche_critere->setObjectName(QStringLiteral("recherche_critere"));
-        recherche_critere->setGeometry(QRect(770, 150, 113, 22));
+        recherche_critere->setGeometry(QRect(940, 240, 113, 22));
         recherche_critere->setStyleSheet(QLatin1String("border-width: 2px;\n"
 "border-style: solid;\n"
 "border-color: white;\n"
 "color: white;"));
         L_search = new QPushButton(tab_14);
         L_search->setObjectName(QStringLiteral("L_search"));
-        L_search->setGeometry(QRect(670, 150, 93, 28));
+        L_search->setGeometry(QRect(840, 240, 93, 28));
         L_search->setStyleSheet(QLatin1String("QPushButton {	\n"
 "border:none;\n"
 "background-color:#0dab9c;\n"
@@ -6266,13 +6509,74 @@ public:
 "}"));
         radioButton_ID = new QRadioButton(tab_14);
         radioButton_ID->setObjectName(QStringLiteral("radioButton_ID"));
-        radioButton_ID->setGeometry(QRect(800, 110, 97, 20));
+        radioButton_ID->setGeometry(QRect(970, 200, 97, 20));
+        radioButton_ID->setStyleSheet(QLatin1String("QRadioButton{\n"
+"background-color:#25283b;\n"
+"\n"
+"border:1px solid rgb(61, 70, 86);\n"
+"color:rgb(255, 255, 255);\n"
+"padding-left:16px;\n"
+"border:1px solid rgb(61, 70, 86);\n"
+"border-top-right-radius:10px;\n"
+"border-down-right-radius:10px;\n"
+"}\n"
+"QRadioButton:focus{\n"
+"border: 1px solid rgb(255, 255, 255);\n"
+"}\n"
+"QRadioButton:pressed {\n"
+"border:2px solid rgb(179, 34, 58);\n"
+"\n"
+"\n"
+"}"));
         radioButton_salaire = new QRadioButton(tab_14);
         radioButton_salaire->setObjectName(QStringLiteral("radioButton_salaire"));
-        radioButton_salaire->setGeometry(QRect(800, 70, 97, 20));
+        radioButton_salaire->setGeometry(QRect(970, 160, 97, 20));
+        radioButton_salaire->setStyleSheet(QLatin1String("QRadioButton{\n"
+"background-color:#25283b;\n"
+"\n"
+"border:1px solid rgb(61, 70, 86);\n"
+"color:rgb(255, 255, 255);\n"
+"padding-left:16px;\n"
+"border:1px solid rgb(61, 70, 86);\n"
+"border-top-right-radius:10px;\n"
+"border-down-right-radius:10px;\n"
+"}\n"
+"QRadioButton:focus{\n"
+"border: 1px solid rgb(255, 255, 255);\n"
+"}\n"
+"QRadioButton:pressed {\n"
+"border:2px solid rgb(179, 34, 58);\n"
+"\n"
+"\n"
+"}"));
         radioButton_nom = new QRadioButton(tab_14);
         radioButton_nom->setObjectName(QStringLiteral("radioButton_nom"));
-        radioButton_nom->setGeometry(QRect(800, 30, 97, 20));
+        radioButton_nom->setGeometry(QRect(970, 120, 97, 20));
+        radioButton_nom->setStyleSheet(QLatin1String("QRadioButton{\n"
+"background-color:#25283b;\n"
+"\n"
+"border:1px solid rgb(61, 70, 86);\n"
+"color:rgb(255, 255, 255);\n"
+"padding-left:16px;\n"
+"border:1px solid rgb(61, 70, 86);\n"
+"border-top-right-radius:10px;\n"
+"border-down-right-radius:10px;\n"
+"}\n"
+"QRadioButton:focus{\n"
+"border: 1px solid rgb(255, 255, 255);\n"
+"}\n"
+"QRadioButton:pressed {\n"
+"border:2px solid rgb(179, 34, 58);\n"
+"\n"
+"\n"
+"}"));
+        emp_excel = new QPushButton(tab_14);
+        emp_excel->setObjectName(QStringLiteral("emp_excel"));
+        emp_excel->setGeometry(QRect(520, 330, 81, 71));
+        QIcon icon9;
+        icon9.addFile(QStringLiteral("../photo/excel.png"), QSize(), QIcon::Normal, QIcon::Off);
+        emp_excel->setIcon(icon9);
+        emp_excel->setIconSize(QSize(100, 100));
         tabWidget_4->addTab(tab_14, QString());
         tab_15 = new QWidget();
         tab_15->setObjectName(QStringLiteral("tab_15"));
@@ -6625,20 +6929,20 @@ public:
 
         retranslateUi(MainWindow);
 
-        stackedWidget->setCurrentIndex(13);
+        stackedWidget->setCurrentIndex(7);
         stackedWidget_2->setCurrentIndex(2);
         libelle_med->setCurrentIndex(-1);
         stackedWidget_3->setCurrentIndex(1);
-        stackedWidget_6->setCurrentIndex(2);
-        stackedWidget_7->setCurrentIndex(1);
-        stackedWidget_gestion_commande->setCurrentIndex(2);
+        stackedWidget_6->setCurrentIndex(3);
+        stackedWidget_7->setCurrentIndex(0);
+        stackedWidget_gestion_commande->setCurrentIndex(0);
         tabWidget_2->setCurrentIndex(0);
         stacked_modif_fournisseur->setCurrentIndex(0);
         tabWidget->setCurrentIndex(1);
         stacked_modif_commande->setCurrentIndex(0);
-        hadilcode1->setCurrentIndex(0);
-        tabWidget_3->setCurrentIndex(0);
-        tabWidget_4->setCurrentIndex(2);
+        hadilcode1->setCurrentIndex(1);
+        tabWidget_3->setCurrentIndex(1);
+        tabWidget_4->setCurrentIndex(3);
         tabWidget_5->setCurrentIndex(2);
 
 
@@ -6696,8 +7000,8 @@ public:
         page_rdv->setText(QString());
         pec_commande->setText(QString());
         employe_service->setText(QString());
-        label_3->setText(QApplication::translate("MainWindow", "Vous etes le bienvenu", Q_NULLPTR));
-        label_76->setText(QApplication::translate("MainWindow", "*vous trouverez ci-dessous les choix disponibles*", Q_NULLPTR));
+        label_3->setText(QApplication::translate("MainWindow", "Vous \303\252tes le bienvenu", Q_NULLPTR));
+        label_76->setText(QApplication::translate("MainWindow", "*vous trouvez ci-dessous les choix disponibles*", Q_NULLPTR));
         chambre_machine->setText(QString());
         page_visite->setText(QString());
         label_83->setText(QApplication::translate("MainWindow", "  Gestion des Visites", Q_NULLPTR));
@@ -6705,9 +7009,9 @@ public:
         label_80->setText(QApplication::translate("MainWindow", " et des chambres", Q_NULLPTR));
         new_account->setText(QString());
         label_87->setText(QApplication::translate("MainWindow", "Nouveau compte", Q_NULLPTR));
-        label_86->setText(QApplication::translate("MainWindow", "  Se deconnecter", Q_NULLPTR));
         exit_2->setText(QString());
         temp->setText(QString());
+        label_91->setText(QApplication::translate("MainWindow", "  Se deconnecter", Q_NULLPTR));
         label_77->setText(QApplication::translate("MainWindow", " Gestion des rendez-vous", Q_NULLPTR));
         label_81->setText(QApplication::translate("MainWindow", "  Gestion des commandes", Q_NULLPTR));
         label_85->setText(QApplication::translate("MainWindow", "   PEC Des employes et services", Q_NULLPTR));
@@ -6739,11 +7043,7 @@ public:
         acte_titre_1->setText(QApplication::translate("MainWindow", "<html><head/><body><p align=\"center\"><span style=\" font-size:11pt; color:#ffffff;\">Acte m\303\251dical</span></p></body></html>", Q_NULLPTR));
         supp_acte->setText(QApplication::translate("MainWindow", "Supprimer", Q_NULLPTR));
         deconnecter->setText(QApplication::translate("MainWindow", "Se deconnecter", Q_NULLPTR));
-        label_2->setText(QApplication::translate("MainWindow", "    Patient", Q_NULLPTR));
         pushButton_7->setText(QString());
-        label->setText(QApplication::translate("MainWindow", "  Rendez-vous", Q_NULLPTR));
-        label_11->setText(QApplication::translate("MainWindow", "        Menu", Q_NULLPTR));
-        imprimer_rdv_2->setText(QString());
         supprimer_rdv_2->setText(QApplication::translate("MainWindow", "Supprimer", Q_NULLPTR));
         modifier_rdv_2->setText(QApplication::translate("MainWindow", "Modifier", Q_NULLPTR));
         ajouter_rdv_2->setText(QApplication::translate("MainWindow", "   Ajouter rendez-vous", Q_NULLPTR));
@@ -6805,14 +7105,16 @@ public:
         lineEdit_44->setPlaceholderText(QApplication::translate("MainWindow", "N\302\260 telephone", Q_NULLPTR));
         lineEdit_45->setPlaceholderText(QApplication::translate("MainWindow", "email", Q_NULLPTR));
         modifier_pat_2->setText(QApplication::translate("MainWindow", "   Modifier ", Q_NULLPTR));
-        rendez_vous->setText(QString());
-        labelBoxBlenderInstalation_3->setText(QApplication::translate("MainWindow", "  Health", Q_NULLPTR));
+        labelBoxBlenderInstalation_3->setText(QApplication::translate("MainWindow", "SMART-MED", Q_NULLPTR));
         rendez_vous_3->setText(QString());
         patient_2->setText(QString());
         label_4->setText(QApplication::translate("MainWindow", "    Patient", Q_NULLPTR));
-        label_5->setText(QApplication::translate("MainWindow", "  Rendez-vous", Q_NULLPTR));
+        label_5->setText(QApplication::translate("MainWindow", "Patient", Q_NULLPTR));
         retour_menu_2->setText(QString());
         label_75->setText(QApplication::translate("MainWindow", "        Menu", Q_NULLPTR));
+        rendez_vous->setText(QString());
+        label->setText(QApplication::translate("MainWindow", "  Rendez-vous", Q_NULLPTR));
+        label_11->setText(QApplication::translate("MainWindow", "       Menu", Q_NULLPTR));
         label_7->setText(QApplication::translate("MainWindow", "nom :", Q_NULLPTR));
         label_10->setText(QApplication::translate("MainWindow", "id :", Q_NULLPTR));
         label_14->setText(QApplication::translate("MainWindow", "specialite :", Q_NULLPTR));
@@ -6923,6 +7225,7 @@ public:
         radioButton_ID->setText(QApplication::translate("MainWindow", "ID", Q_NULLPTR));
         radioButton_salaire->setText(QApplication::translate("MainWindow", "SALAIRE", Q_NULLPTR));
         radioButton_nom->setText(QApplication::translate("MainWindow", "NOM", Q_NULLPTR));
+        emp_excel->setText(QString());
         tabWidget_4->setTabText(tabWidget_4->indexOf(tab_14), QApplication::translate("MainWindow", "afficher", Q_NULLPTR));
         label_70->setText(QApplication::translate("MainWindow", "ID:", Q_NULLPTR));
         pushButton_supprimer_emp->setText(QApplication::translate("MainWindow", "supprimer", Q_NULLPTR));
